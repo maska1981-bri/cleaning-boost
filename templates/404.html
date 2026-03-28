@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<script>(function(){var t=localStorage.getItem("cleaning_boost_theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>    
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
+<title>Cleaning Boost - Pagina non trovata</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f6f8;
+}
+
+.error-wrap{
+    max-width:900px;
+    margin:0 auto;
+    padding:40px 24px;
+}
+
+.error-card{
+    background:white;
+    border:1px solid #dbe3ee;
+    border-radius:20px;
+    box-shadow:0 18px 40px rgba(15, 23, 42, 0.10);
+    padding:36px;
+}
+
+.error-code{
+    font-size:72px;
+    font-weight:900;
+    line-height:1;
+    color:#2563eb;
+    margin:0 0 12px 0;
+}
+
+.error-title{
+    margin:0 0 10px 0;
+    font-size:30px;
+    color:#0f172a;
+}
+
+.error-text{
+    margin:0 0 24px 0;
+    color:#64748b;
+    font-size:16px;
+    line-height:1.5;
+}
+
+.error-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.error-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:11px 16px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:800;
+    font-size:14px;
+}
+
+.error-btn-primary{
+    background:#2563eb;
+    color:white;
+}
+
+.error-btn-primary:hover{
+    background:#1d4ed8;
+}
+
+.error-btn-secondary{
+    background:white;
+    color:#0f172a;
+    border:1px solid #dbe3ee;
+}
+
+.error-btn-secondary:hover{
+    background:#f8fafc;
+}
+</style>
+
+{% include "includes/ui_theme.html" %}
+</head>
+<body>
+
+{% include "includes/topbar.html" %}
+
+<div class="error-wrap">
+    <div class="error-card">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Pagina non trovata</h1>
+        <p class="error-text">
+            La pagina che stai cercando non esiste oppure è stata spostata.
+        </p>
+
+        <div class="error-actions">
+            <a class="error-btn error-btn-primary" href="/">Vai al calendario</a>
+            <a class="error-btn error-btn-secondary" href="/dashboard/">Vai alla dashboard</a>
+        </div>
+    </div>
+</div>
+
+{% include "includes/footer.html" %}
+
+</body>
+</html>

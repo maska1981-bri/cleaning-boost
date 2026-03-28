@@ -1,0 +1,239 @@
+{% load employee_hours_tags %}
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <script>(function(){var t=localStorage.getItem("cleaning_boost_theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
+    <title>Cleaning Boost - Ore dipendenti</title>
+
+    <style>
+        body{
+            font-family:Arial, Helvetica, sans-serif;
+            margin:0;
+            background:#f4f6f8;
+        }
+
+        .page-container{
+            padding:20px;
+        }
+
+        h2{
+            margin:0 0 12px 0;
+        }
+
+        .top-filters{
+            margin-bottom:14px;
+        }
+
+        .top-filters input,
+        .top-filters button,
+        .save-btn,
+        .rate-btn{
+            padding:6px 10px;
+            font-size:13px;
+        }
+
+        .top-filters button,
+        .save-btn,
+        .rate-btn{
+            background:#1f2937;
+            color:white;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+        }
+
+        .top-filters button:hover,
+        .save-btn:hover,
+        .rate-btn:hover{
+            background:#374151;
+        }
+
+        .layout{
+            display:flex;
+            gap:18px;
+            align-items:flex-start;
+        }
+
+        .table-area{
+            flex:1;
+            min-width:0;
+        }
+
+        .sidebar{
+            width:290px;
+        }
+
+        .table-wrapper{
+            overflow-x:auto;
+            border:1px solid #ccc;
+            padding:8px;
+            background:#fff;
+        }
+
+        table{
+            border-collapse:collapse;
+            font-size:11px;
+            width:auto;
+            background:white;
+        }
+
+        th, td{
+            border:1px solid #999;
+            padding:3px;
+            text-align:center;
+            white-space:nowrap;
+        }
+
+        th{
+            background:#f1f1f1;
+        }
+
+        .date-col{
+            min-width:85px;
+            background:#fafafa;
+            font-weight:bold;
+        }
+
+        .hours-input{
+            width:48px;
+            padding:2px;
+            text-align:center;
+            font-size:11px;
+        }
+
+        .summary-box{
+            border:1px solid #ccc;
+            padding:10px;
+            margin-bottom:12px;
+            background:#fafafa;
+        }
+
+        .summary-box h4{
+            margin:0 0 8px 0;
+            font-size:14px;
+        }
+
+        .summary-line{
+            margin-bottom:8px;
+            font-size:13px;
+        }
+
+        .summary-line input{
+            width:90px;
+            padding:5px;
+        }
+
+        .grand-box{
+            border:2px solid #999;
+            padding:10px;
+            background:#eef7ee;
+            font-weight:bold;
+        }
+    </style>
+    {% include "includes/ui_theme.html" %}
+</head>
+<body>
+
+{% include "includes/topbar.html" %}
+
+<div class="page-container">
+
+    <h2 style="margin-top:0;">Ore Dipendenti</h2>
+
+    <form method="get" class="top-filters">
+        <input type="number" name="month" value="{{ month }}" min="1" max="12">
+        <input type="number" name="year" value="{{ year }}">
+        <button type="submit">Vai</button>
+    </form>
+
+    <div class="layout">
+
+        <div class="table-area">
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="save_hours">
+
+                <div class="table-wrapper">
+                    <table>
+                        <tr>
+                            <th class="date-col">Data</th>
+                            {% for e in employees %}
+                                <th>{{ e.name }}</th>
+                            {% endfor %}
+                        </tr>
+
+                        {% for d in days %}
+                        <tr>
+                            <td class="date-col">{{ d|date:"d/m/Y" }}</td>
+
+                            {% for e in employees %}
+                            <td>
+                                <input
+                                    class="hours-input"
+                                    type="number"
+                                    step="0.5"
+                                    min="0"
+                                    name="hours_{{ e.id }}_{{ d|date:'Y-m-d' }}"
+                                    value="{% get_hours data e.id d %}"
+                                >
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+
+                <div style="margin-top: 12px;">
+                    <button type="submit" class="save-btn">SALVA ORE</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="sidebar">
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="save_rates">
+
+                {% for row in sidebar_data %}
+                <div class="summary-box">
+                    <h4>{{ row.employee.name }}</h4>
+
+                    <div class="summary-line">
+                        Ore totali: <strong>{{ row.total_hours }}</strong>
+                    </div>
+
+                    <div class="summary-line">
+                        €/h:<br>
+                        <input
+                            type="number"
+                            step="0.01"
+                            min="0"
+                            name="rate_{{ row.employee.id }}"
+                            value="{{ row.hourly_rate }}"
+                        >
+                    </div>
+
+                    <div class="summary-line">
+                        Totale €: <strong>{{ row.total_euro }}</strong>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <button type="submit" class="rate-btn">SALVA COSTI ORARI</button>
+            </form>
+
+            <div class="grand-box">
+                Totale ore mese: {{ grand_total_hours }}<br>
+                Totale € mese: {{ grand_total_euro }}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% include "includes/footer.html" %}
+</body>
+</html>

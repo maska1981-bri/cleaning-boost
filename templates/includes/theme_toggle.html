@@ -1,0 +1,72 @@
+<style>
+.cb-theme-toggle{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-left:4px;
+}
+
+.cb-theme-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:42px;
+    height:42px;
+    padding:0 12px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:700;
+    transition:all 0.18s ease;
+    background:rgba(255,255,255,0.08);
+    color:white;
+    box-shadow:0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.cb-theme-btn:hover{
+    background:rgba(255,255,255,0.16);
+    transform:translateY(-1px);
+}
+
+html[data-theme="dark"] .cb-theme-btn{
+    background:rgba(255,255,255,0.10);
+    color:#f8fafc;
+}
+</style>
+
+<div class="cb-theme-toggle">
+    <button type="button" class="cb-theme-btn" id="cbThemeToggle" title="Cambia tema">🌙</button>
+</div>
+
+<script>
+(function () {
+    const storageKey = "cleaning_boost_theme";
+    const root = document.documentElement;
+    const btn = document.getElementById("cbThemeToggle");
+
+    function applyTheme(theme) {
+        root.setAttribute("data-theme", theme);
+        if (btn) {
+            btn.textContent = theme === "dark" ? "☀️" : "🌙";
+            btn.setAttribute("title", theme === "dark" ? "Passa a tema chiaro" : "Passa a tema scuro");
+        }
+    }
+
+    const savedTheme = localStorage.getItem(storageKey);
+    if (savedTheme === "dark" || savedTheme === "light") {
+        applyTheme(savedTheme);
+    } else {
+        applyTheme("light");
+    }
+
+    if (btn) {
+        btn.addEventListener("click", function () {
+            const current = root.getAttribute("data-theme") || "light";
+            const next = current === "dark" ? "light" : "dark";
+            localStorage.setItem(storageKey, next);
+            applyTheme(next);
+        });
+    }
+})();
+</script>

@@ -1,0 +1,311 @@
+{% load custom_tags %}
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <script>(function(){var t=localStorage.getItem("cleaning_boost_theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
+    <title>Cleaning Boost - Lavanderia</title>
+    <style>
+        body{
+            font-family:Arial, Helvetica, sans-serif;
+            margin:0;
+            background:#f4f6f8;
+        }
+
+        .page-container{
+            padding:20px;
+        }
+
+        h2,h3{
+            margin-top:0;
+        }
+
+        .message-success{
+            background:#dcfce7;
+            border:1px solid #86efac;
+            color:#166534;
+            padding:10px 14px;
+            margin-bottom:16px;
+            border-radius:4px;
+        }
+
+        .message-error{
+            background:#fee2e2;
+            border:1px solid #fca5a5;
+            color:#991b1b;
+            padding:10px 14px;
+            margin-bottom:16px;
+            border-radius:4px;
+        }
+
+        .box{
+            background:white;
+            border:1px solid #ddd;
+            padding:16px;
+            margin-bottom:20px;
+        }
+
+        table{
+            border-collapse:collapse;
+            width:100%;
+            background:white;
+        }
+
+        th, td{
+            border:1px solid #ddd;
+            padding:8px;
+            text-align:left;
+            font-size:13px;
+        }
+
+        th{
+            background:#f3f4f6;
+        }
+
+        input, select, button{
+            padding:6px 8px;
+            font-size:13px;
+        }
+
+        .btn{
+            background:#1f2937;
+            color:white;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+            padding:8px 12px;
+        }
+
+        .btn:hover{
+            background:#374151;
+        }
+
+        .btn-danger{
+            background:#b91c1c;
+        }
+
+        .btn-danger:hover{
+            background:#991b1b;
+        }
+
+        .filters{
+            display:flex;
+            gap:10px;
+            align-items:end;
+            flex-wrap:wrap;
+            margin-bottom:15px;
+        }
+
+        .filters div{
+            display:flex;
+            flex-direction:column;
+            gap:4px;
+        }
+
+        .movement-header{
+            display:flex;
+            gap:10px;
+            align-items:center;
+            flex-wrap:wrap;
+            margin-bottom:12px;
+        }
+
+        .add-item-grid{
+            display:flex;
+            gap:10px;
+            align-items:end;
+            flex-wrap:wrap;
+        }
+
+        .add-item-grid div{
+            display:flex;
+            flex-direction:column;
+            gap:4px;
+        }
+
+        .item-actions{
+            display:flex;
+            gap:8px;
+            align-items:center;
+            flex-wrap:wrap;
+        }
+    </style>
+    {% include "includes/ui_theme.html" %}
+</head>
+<body>
+
+{% include "includes/topbar.html" %}
+
+<div class="page-container">
+
+    <h2 style="margin-top:0;">Lavanderia</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="{% if message.tags == 'error' %}message-error{% else %}message-success{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="box">
+        <h3>Aggiungi nuovo articolo</h3>
+
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="add_item">
+
+            <div class="add-item-grid">
+                <div>
+                    <label>Nome articolo</label>
+                    <input type="text" name="item_name" placeholder="Es. Plaid divano">
+                </div>
+
+                <div>
+                    <label>Quantità iniziale</label>
+                    <input type="number" name="initial_quantity" value="0" min="0">
+                </div>
+
+                <div>
+                    <button type="submit" class="btn">Aggiungi articolo</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="box">
+    <h3>Inventario attuale</h3>
+
+    <table>
+        <tr>
+            <th>Articolo</th>
+            <th>Quantità</th>
+            <th>Azioni</th>
+        </tr>
+
+        {% for item in items %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>
+                <form method="post" style="margin:0;">
+                    {% csrf_token %}
+                    <input type="hidden" name="action" value="set_inventory">
+                    <input type="number" name="{{ item.code }}" value="{{ inventory|get_item:item.code }}" min="0">
+                    <button type="submit" class="btn" style="margin-left:8px;">Salva</button>
+                </form>
+            </td>
+            <td>
+                <form method="post" style="margin:0;" onsubmit="return confirm('Vuoi eliminare questo articolo? Verranno eliminati anche inventario e storico collegati.');">
+                    {% csrf_token %}
+                    <input type="hidden" name="action" value="delete_item">
+                    <input type="hidden" name="item_code" value="{{ item.code }}">
+                    <button type="submit" class="btn btn-danger">Elimina</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+    <div class="box">
+        <h3>Registra movimento</h3>
+
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="movement">
+
+            <div class="movement-header">
+                <div>
+                    <label>Data:</label><br>
+                    <input type="date" name="date" value="{{ today|date:'Y-m-d' }}">
+                </div>
+
+                <div>
+                    <label>Tipo:</label><br>
+                    <select name="movement_type">
+                        <option value="dirty">Sporco (va a lavare)</option>
+                        <option value="clean">Pulito (rientrato)</option>
+                        <option value="add">Integrazione</option>
+                        <option value="remove">Diminuzione</option>
+                    </select>
+                </div>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Articolo</th>
+                    <th>Quantità</th>
+                </tr>
+
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>
+                        <input type="number" name="{{ item.code }}" value="0" min="0">
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <br>
+            <button type="submit" class="btn">Registra movimento</button>
+        </form>
+    </div>
+
+    <div class="box">
+        <h3>Storico movimenti</h3>
+
+        <form method="get" class="filters">
+            <div>
+                <label>Da data</label>
+                <input type="date" name="start_date" value="{{ start_date }}">
+            </div>
+
+            <div>
+                <label>A data</label>
+                <input type="date" name="end_date" value="{{ end_date }}">
+            </div>
+
+            <div>
+                <button type="submit" class="btn">Filtra</button>
+            </div>
+        </form>
+
+        <form method="post" onsubmit="return confirm('Vuoi davvero azzerare lo storico filtrato?');" style="margin-bottom:15px;">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="clear_history">
+            <input type="hidden" name="start_date" value="{{ start_date }}">
+            <input type="hidden" name="end_date" value="{{ end_date }}">
+            <button type="submit" class="btn btn-danger">Azzera storico filtrato</button>
+        </form>
+
+        <table>
+            <tr>
+                <th>Data</th>
+                <th>Tipo</th>
+                <th>Articolo</th>
+                <th>Quantità</th>
+            </tr>
+
+            {% for m in movements %}
+            <tr>
+                <td>{{ m.date|date:"d/m/Y" }}</td>
+                <td>{{ m.get_movement_type_display }}</td>
+                <td>{{ item_names|get_item:m.item }}</td>
+                <td>{{ m.quantity }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">Nessun movimento trovato.</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
+
+{% include "includes/footer.html" %}
+</body>
+</html>

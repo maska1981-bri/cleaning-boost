@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<script>(function(){var t=localStorage.getItem("cleaning_boost_theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>    
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
+<title>Cleaning Boost - Contabilità</title>
+
+<style>
+body{
+font-family:Arial, Helvetica, sans-serif;
+margin:0;
+background:#f4f6f8;
+color:#111827;
+}
+
+.page{
+padding:20px;
+}
+
+.box{
+background:white;
+border:1px solid #d1d5db;
+border-radius:8px;
+padding:20px;
+margin-bottom:20px;
+}
+
+h1{
+margin:0 0 20px 0;
+font-size:24px;
+}
+
+.form-grid{
+display:grid;
+grid-template-columns:repeat(4, minmax(180px, 1fr));
+gap:16px;
+align-items:end;
+}
+
+.form-row{
+display:flex;
+flex-direction:column;
+gap:6px;
+}
+
+label{
+font-size:13px;
+font-weight:bold;
+}
+
+select,
+input{
+padding:10px 12px;
+border:1px solid #d1d5db;
+border-radius:6px;
+font-size:14px;
+background:white;
+}
+
+button{
+background:#2563eb;
+color:white;
+border:none;
+padding:10px 16px;
+border-radius:6px;
+font-size:14px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+th, td{
+border:1px solid #d1d5db;
+padding:10px;
+font-size:13px;
+text-align:left;
+vertical-align:top;
+}
+
+th{
+background:#f3f4f6;
+}
+
+.number{
+text-align:right;
+white-space:nowrap;
+}
+
+.summary{
+display:flex;
+justify-content:flex-end;
+margin-top:20px;
+}
+
+.summary-box{
+width:360px;
+background:white;
+border:1px solid #d1d5db;
+border-radius:8px;
+padding:16px;
+}
+
+.summary-row{
+display:flex;
+justify-content:space-between;
+margin-bottom:10px;
+font-size:15px;
+}
+
+.summary-total{
+font-size:18px;
+font-weight:bold;
+border-top:1px solid #d1d5db;
+padding-top:12px;
+margin-top:12px;
+}
+
+.empty{
+padding:20px;
+background:white;
+border:1px dashed #d1d5db;
+border-radius:8px;
+}
+</style>
+{% include "includes/ui_theme.html" %}
+</head>
+<body>
+
+{% include "includes/topbar.html" %}
+
+<div class="page">
+
+<div class="box">
+<h1 style="margin-top:0;">Report contabile</h1>
+
+<form method="get">
+<div class="form-grid">
+
+    <div class="form-row">
+        <label for="id_customer">Cliente</label>
+        <select name="customer" id="id_customer" required>
+            <option value="">-- Seleziona cliente --</option>
+            {% for customer in customers %}
+            <option value="{{ customer.id }}" {% if selected_customer and customer.id == selected_customer.id %}selected{% endif %}>
+                {{ customer.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="id_date_from">Dal</label>
+        <input type="date" name="date_from" id="id_date_from" value="{{ date_from|default:'' }}" required>
+    </div>
+
+    <div class="form-row">
+        <label for="id_date_to">Al</label>
+        <input type="date" name="date_to" id="id_date_to" value="{{ date_to|default:'' }}" required>
+    </div>
+
+    <div class="form-row">
+        <label for="id_vat_percentage">IVA %</label>
+        <input type="number" step="0.01" name="vat_percentage" id="id_vat_percentage" value="{{ vat_percentage }}">
+    </div>
+</div>
+
+<div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
+    <button type="submit">Genera report</button>
+
+    {% if selected_customer and date_from and date_to %}
+    <a href="/accounting/pdf/?customer={{ selected_customer.id }}&date_from={{ date_from }}&date_to={{ date_to }}&vat_percentage={{ vat_percentage }}">
+        <button type="button">Scarica PDF</button>
+    </a>
+
+    <a href="/accounting/export/?customer={{ selected_customer.id }}&date_from={{ date_from }}&date_to={{ date_to }}">
+        <button type="button">Esporta Excel</button>
+    </a>
+    {% endif %}
+</div>
+</form>
+</div>
+
+{% if selected_customer and date_from and date_to %}
+<div class="box">
+    <h1>{{ selected_customer.name }}</h1>
+
+    {% if rows %}
+    <table>
+        <thead>
+            <tr>
+                <th>Immobile</th>
+                <th>Prenotazione</th>
+                <th>Ospite</th>
+                <th class="number">Pulizia</th>
+                <th class="number">Kit fisso</th>
+                <th class="number">Kit persona</th>
+                <th class="number">Letti matr.</th>
+                <th class="number">Letti sing.</th>
+                <th class="number">Tappetino</th>
+                <th class="number">Extra</th>
+                <th class="number">Totale</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                <td>{{ row.apartment.name }}</td>
+                <td>{{ row.booking.check_in|date:"d/m/Y" }} → {{ row.booking.check_out|date:"d/m/Y" }}</td>
+                <td>{{ row.booking.guest_name|default:"-" }}</td>
+                <td class="number">€ {{ row.cleaning_cost }}</td>
+                <td class="number">€ {{ row.fixed_kit_cost }}</td>
+                <td class="number">€ {{ row.per_person_kit_cost }} x {{ row.people_count }}</td>
+                <td class="number">€ {{ row.double_bed_cost }} x {{ row.double_beds_count }}</td>
+                <td class="number">€ {{ row.single_bed_cost }} x {{ row.single_beds_count }}</td>
+                <td class="number">€ {{ row.mat_cost }}</td>
+                <td class="number">€ {{ row.extra_cost }}</td>
+                <td class="number"><strong>€ {{ row.total_cost }}</strong></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="summary">
+        <div class="summary-box">
+            <div class="summary-row">
+                <span>Imponibile</span>
+                <strong>€ {{ subtotal }}</strong>
+            </div>
+            <div class="summary-row">
+                <span>IVA {{ vat_percentage }}%</span>
+                <strong>€ {{ vat_amount }}</strong>
+            </div>
+            <div class="summary-row summary-total">
+                <span>Totale finale</span>
+                <strong>€ {{ total_with_vat }}</strong>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="empty">
+        Nessuna prenotazione trovata nel periodo selezionato.
+    </div>
+    {% endif %}
+</div>
+{% endif %}
+
+</div>
+
+{% include "includes/footer.html" %}
+</body>
+</html>

@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<script>(function(){var t=localStorage.getItem("cleaning_boost_theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>    
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
+<title>Cleaning Boost - Calendario operativo</title>
+
+<style>
+body{
+font-family:Arial, Helvetica, sans-serif;
+margin:0;
+background:#f4f6f8;
+}
+
+.secondary-toolbar{
+background:white;
+border-bottom:1px solid #d1d5db;
+padding:12px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:16px;
+flex-wrap:wrap;
+}
+
+.secondary-toolbar-left{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.secondary-toolbar-right{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.toolbar-btn,
+.toolbar-link,
+.generate-btn{
+text-decoration:none;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:8px 12px;
+border-radius:6px;
+font-size:13px;
+font-weight:600;
+border:none;
+cursor:pointer;
+}
+
+.toolbar-btn{
+background:#111827;
+color:white;
+border:1px solid #4b5563;
+}
+
+.toolbar-btn:hover{
+background:#374151;
+}
+
+.toolbar-link{
+background:#e5e7eb;
+color:#111827;
+}
+
+.toolbar-link:hover{
+background:#d1d5db;
+}
+
+.generate-btn{
+background:#16a34a;
+color:white;
+}
+
+.generate-btn:hover{
+background:#15803d;
+}
+
+.topbar-dropdown{
+position:relative;
+display:inline-block;
+}
+
+.dropdown-toggle{
+background:#111827;
+color:white;
+border:1px solid #4b5563;
+padding:8px 12px;
+border-radius:6px;
+font-size:13px;
+cursor:pointer;
+display:inline-flex;
+align-items:center;
+gap:8px;
+min-width:120px;
+justify-content:center;
+}
+
+.dropdown-toggle:hover{
+background:#374151;
+}
+
+.dropdown-menu{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+margin-top:6px;
+background:white;
+border:1px solid #d1d5db;
+border-radius:8px;
+box-shadow:0 10px 25px rgba(0,0,0,0.18);
+min-width:180px;
+z-index:1200;
+overflow:hidden;
+}
+
+.dropdown-menu a{
+display:block;
+color:#111827;
+padding:10px 12px;
+font-size:13px;
+border-radius:0;
+background:white;
+text-decoration:none;
+}
+
+.dropdown-menu a:hover{
+background:#f3f4f6;
+}
+
+.dropdown-menu a.active-link{
+background:#e5e7eb;
+color:#111827;
+font-weight:bold;
+}
+
+.topbar-dropdown.open .dropdown-menu{
+display:block;
+}
+
+.page-container{
+padding:20px;
+}
+
+.message-box{
+background:#dcfce7;
+border:1px solid #86efac;
+color:#166534;
+padding:10px 14px;
+margin-bottom:16px;
+border-radius:4px;
+}
+
+.calendar-nav{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:16px;
+flex-wrap:wrap;
+}
+
+.calendar-nav a{
+background:#e5e7eb;
+color:#111827;
+text-decoration:none;
+padding:8px 12px;
+border-radius:4px;
+font-size:14px;
+}
+
+.calendar-nav a:hover{
+background:#d1d5db;
+}
+
+.calendar-nav .nav-current{
+font-weight:bold;
+}
+
+h2{
+margin-top:0;
+margin-bottom:18px;
+}
+
+.calendar-wrapper{
+overflow-x:auto;
+border:1px solid #ddd;
+background:white;
+}
+
+table{
+border-collapse:collapse;
+min-width:1400px;
+}
+
+th,td{
+border:1px solid #ddd;
+text-align:center;
+font-size:12px;
+padding:0;
+}
+
+.month-header{
+background:#374151;
+color:white;
+font-weight:bold;
+height:30px;
+}
+
+.day-header{
+background:#f5f5f5;
+height:38px;
+min-width:34px;
+font-size:11px;
+line-height:1.1;
+}
+
+.day-header .day-number{
+display:block;
+font-weight:bold;
+margin-top:3px;
+}
+
+.day-header .day-name{
+display:block;
+font-size:10px;
+color:#4b5563;
+margin-top:2px;
+margin-bottom:3px;
+text-transform:lowercase;
+}
+
+.weekend-header{
+background:#fde68a;
+}
+
+.weekend-cell{
+background-color:#fffaf0;
+}
+
+.today-header{
+background:#bfdbfe !important;
+}
+
+.today-cell{
+background-color:#eff6ff !important;
+}
+
+.apartment-col{
+position:sticky;
+left:0;
+background:white;
+min-width:170px;
+width:170px;
+text-align:left;
+font-weight:bold;
+z-index:3;
+padding:8px;
+}
+
+.month-left-sticky{
+position:sticky;
+left:0;
+background:white;
+z-index:4;
+min-width:170px;
+}
+
+.cell{
+min-width:34px;
+width:34px;
+height:54px;
+cursor:pointer;
+user-select:none;
+position:relative;
+vertical-align:top;
+}
+
+body.view-week .cell{
+min-width:70px;
+width:70px;
+}
+
+body.view-15days .cell{
+min-width:55px;
+width:55px;
+}
+
+body.view-quarter .cell{
+min-width:24px;
+width:24px;
+}
+
+.booking{
+background:#b7d7ff;
+}
+
+.checkin{
+background:
+linear-gradient(
+135deg,
+white 0%,
+white 49%,
+#60a5fa 50%,
+#93c5fd 100%
+) !important;
+}
+
+.checkout{
+background:
+linear-gradient(
+135deg,
+#c4b5fd 0%,
+#818cf8 49%,
+white 50%,
+white 100%
+) !important;
+}
+
+.turnover{
+background:
+linear-gradient(
+135deg,
+#818cf8 0%,
+#818cf8 49.5%,
+#60a5fa 50%,
+#60a5fa 100%
+) !important;
+}
+
+.cleaning-icon{
+font-size:18px;
+cursor:grab;
+display:inline-block;
+margin-top:2px;
+font-weight:bold;
+}
+
+.cleaning-icon:active{
+cursor:grabbing;
+}
+
+.cleaning-completed{
+color:#15803d;
+}
+
+.cleaning-scheduled{
+color:#111827;
+}
+
+.cleaning-employees{
+font-size:9px;
+font-weight:bold;
+line-height:10px;
+margin-top:2px;
+}
+
+.month-separator{
+border-left:3px solid #444 !important;
+}
+
+.week-separator{
+border-left:3px solid #111827 !important;
+}
+
+.booking-summary{
+font-size:10px;
+font-weight:bold;
+color:#1f2d3d;
+padding:1px 2px;
+}
+
+.day-note-badge{
+display:block;
+font-size:9px;
+line-height:1.1;
+padding:1px 2px;
+margin-top:1px;
+color:#7a0019;
+font-weight:bold;
+}
+
+.context-menu{
+position:absolute;
+background:white;
+border:1px solid #ccc;
+box-shadow:0 3px 8px rgba(0,0,0,0.2);
+display:none;
+z-index:999;
+min-width:240px;
+max-height:420px;
+overflow-y:auto;
+}
+
+.context-menu div{
+padding:8px;
+cursor:pointer;
+}
+
+.context-menu div:hover{
+background:#f2f2f2;
+}
+
+.context-menu hr{
+margin:0;
+border:none;
+border-top:1px solid #ddd;
+}
+
+.drop-target{
+outline:2px solid #2c3e50;
+outline-offset:-2px;
+}
+
+.selection{
+background:#9bd3ff !important;
+}
+
+.employee-menu-title{
+font-weight:bold;
+background:#f9fafb;
+cursor:default !important;
+}
+
+.employee-menu-title:hover{
+background:#f9fafb !important;
+}
+
+.employee-item.assigned{
+background:#dcfce7;
+font-weight:bold;
+}
+</style>
+{% include "includes/ui_theme.html" %}
+</head>
+
+<body class="view-{{ context_view }}">
+
+{% include "includes/topbar.html" %}
+
+<div class="secondary-toolbar">
+    <div class="secondary-toolbar-left">
+        <div class="topbar-dropdown" id="viewDropdown">
+            <button type="button" class="dropdown-toggle">VISTA ▾</button>
+            <div class="dropdown-menu">
+                <a href="/?view=week{% if selected_type %}&type={{ selected_type }}{% endif %}" class="{% if context_view == 'week' %}active-link{% endif %}">Settimana</a>
+                <a href="/?view=15days{% if selected_type %}&type={{ selected_type }}{% endif %}" class="{% if context_view == '15days' %}active-link{% endif %}">15 giorni</a>
+                <a href="/?view=month{% if selected_type %}&type={{ selected_type }}{% endif %}" class="{% if context_view == 'month' %}active-link{% endif %}">Mese</a>
+                <a href="/?view=quarter{% if selected_type %}&type={{ selected_type }}{% endif %}" class="{% if context_view == 'quarter' %}active-link{% endif %}">3 mesi</a>
+            </div>
+        </div>
+
+        <div class="topbar-dropdown" id="categoryDropdown">
+            <button type="button" class="dropdown-toggle">CATEGORIA ▾</button>
+            <div class="dropdown-menu">
+                <a href="/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}" class="{% if not selected_type %}active-link{% endif %}">Tutti</a>
+                <a href="/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}&type=house" class="{% if selected_type == 'house' %}active-link{% endif %}">Case</a>
+                <a href="/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}&type=condo" class="{% if selected_type == 'condo' %}active-link{% endif %}">Condomini</a>
+                <a href="/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}&type=office" class="{% if selected_type == 'office' %}active-link{% endif %}">Uffici</a>
+                <a href="/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}&type=shop" class="{% if selected_type == 'shop' %}active-link{% endif %}">Locali</a>
+                <a href="/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}&type=other" class="{% if selected_type == 'other' %}active-link{% endif %}">Altro</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="secondary-toolbar-right">
+        <form method="post" action="/condominiums/generate-cleanings/" style="margin:0;">
+            {% csrf_token %}
+            <button type="submit" class="generate-btn">Genera pulizie condomini</button>
+        </form>
+    </div>
+</div>
+
+<div class="page-container">
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="message-box">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+<div class="calendar-nav">
+<a href="/?view={{ context_view }}&start={{ prev_start|date:'Y-m-d' }}{% if selected_type %}&type={{ selected_type }}{% endif %}">← Indietro</a>
+<a href="/?view={{ context_view }}{% if selected_type %}&type={{ selected_type }}{% endif %}">Oggi</a>
+<a href="/?view={{ context_view }}&start={{ next_start|date:'Y-m-d' }}{% if selected_type %}&type={{ selected_type }}{% endif %}">Avanti →</a>
+<span class="nav-current">{{ start_date|date:"d/m/Y" }} - {{ end_date|date:"d/m/Y" }}</span>
+</div>
+
+<h2 style="margin-top:0; display:flex; align-items:center; gap:10px;">Calendario operativo <span style="font-size:12px; padding:5px 10px; border-radius:999px; background:#dbeafe; color:#1d4ed8; font-weight:800;">Live</span></h2>
+
+<div class="calendar-wrapper">
+<table>
+
+<thead>
+<tr>
+<th class="month-left-sticky"></th>
+
+{% for month in month_groups %}
+<th colspan="{{ month.count }}" class="month-header">
+{{ month.label }}
+</th>
+{% endfor %}
+</tr>
+
+<tr>
+<th class="apartment-col">Appartamento</th>
+
+{% for day in days %}
+<th class="day-header{% if day.day == 1 %} month-separator{% endif %}{% if day.weekday == 0 %} week-separator{% endif %}{% if day.weekday == 5 or day.weekday == 6 %} weekend-header{% endif %}{% if day == today %} today-header{% endif %}">
+<span class="day-number">{{ day|date:"d" }}</span>
+<span class="day-name">
+{% if day.weekday == 0 %}lun{% elif day.weekday == 1 %}mar{% elif day.weekday == 2 %}mer{% elif day.weekday == 3 %}gio{% elif day.weekday == 4 %}ven{% elif day.weekday == 5 %}sab{% elif day.weekday == 6 %}dom{% endif %}
+</span>
+</th>
+{% endfor %}
+</tr>
+</thead>
+
+<tbody>
+{% for row in apartment_rows %}
+<tr>
+
+<td class="apartment-col">
+<a href="/apartment/{{ row.apartment.id }}/" style="text-decoration:none;">
+{{ row.apartment.code }}<br>
+{{ row.apartment.name }}
+</a>
+</td>
+
+{% for cell in row.cells %}
+<td class="cell{% if cell.booking and not cell.is_check_in and not cell.is_check_out %} booking{% endif %}{% if cell.is_check_in and not cell.is_check_out %} checkin{% endif %}{% if cell.is_check_out and not cell.is_check_in %} checkout{% endif %}{% if cell.is_check_in and cell.is_check_out %} turnover{% endif %}{% if cell.day.day == 1 %} month-separator{% endif %}{% if cell.day.weekday == 0 %} week-separator{% endif %}{% if cell.day.weekday == 5 or cell.day.weekday == 6 %} weekend-cell{% endif %}{% if cell.day == today %} today-cell{% endif %}"
+data-apartment="{{ row.apartment.id }}"
+data-date="{{ cell.day|date:'Y-m-d' }}"
+data-booking-id="{% if cell.booking %}{{ cell.booking.id }}{% endif %}"
+data-cleaning-id="{% if cell.cleaning %}{{ cell.cleaning.id }}{% endif %}"
+data-has-notes="{% if cell.day_notes %}1{% else %}0{% endif %}"
+data-cleaning-employees="{% if cell.cleaning %}{% for emp in cell.cleaning.employees.all %}{{ emp.id }}{% if not forloop.last %},{% endif %}{% endfor %}{% endif %}">
+
+{% if cell.cleaning %}
+<span class="cleaning-icon {% if cell.cleaning.status == 'completed' %}cleaning-completed{% else %}cleaning-scheduled{% endif %}"
+draggable="true"
+data-cleaning-id="{{ cell.cleaning.id }}">
+
+{% if cell.cleaning.status == 'completed' %}
+✅🧹
+{% else %}
+🧹
+{% endif %}
+
+{% if cell.cleaning.employees.all %}
+<div class="cleaning-employees">
+{% for emp in cell.cleaning.employees.all %}
+{{ emp.initials }}
+{% endfor %}
+</div>
+{% endif %}
+
+</span>
+{% endif %}
+
+{% if cell.is_check_in and cell.booking and cell.booking.check_in_time %}
+<div class="booking-summary">
+IN {{ cell.booking.check_in_time|time:"H:i" }}
+</div>
+{% endif %}
+
+{% if cell.show_booking_summary and cell.booking_summary %}
+<div class="booking-summary">
+{{ cell.booking_summary }}
+{% if cell.booking.people_count %}<br>{{ cell.booking.people_count }} pers.{% endif %}
+{% if cell.booking.double_beds or cell.booking.single_beds %}
+<br>
+{% if cell.booking.double_beds %}{{ cell.booking.double_beds }}M{% endif %}
+{% if cell.booking.double_beds and cell.booking.single_beds %} {% endif %}
+{% if cell.booking.single_beds %}{{ cell.booking.single_beds }}S{% endif %}
+{% endif %}
+</div>
+{% endif %}
+
+{% if cell.is_check_out and cell.booking and cell.booking.check_out_time %}
+<div class="booking-summary">
+OUT {{ cell.booking.check_out_time|time:"H:i" }}
+</div>
+{% endif %}
+
+{% for note in cell.day_notes %}
+<span class="day-note-badge">{{ note.short_label }}</span>
+{% endfor %}
+
+</td>
+{% endfor %}
+
+</tr>
+{% endfor %}
+</tbody>
+
+</table>
+</div>
+
+<div id="contextMenu" class="context-menu">
+<div id="menuBooking">➕ Nuova prenotazione</div>
+<div id="menuCleaning">🧹 Nuova pulizia</div>
+
+<hr>
+
+<div id="markCleaningCompleted">✅ Segna pulizia eseguita</div>
+
+<hr>
+
+<div class="employee-menu-title">Assegna / rimuovi dipendenti</div>
+{% for employee in employees %}
+<div class="employee-item" data-employee-id="{{ employee.id }}">
+{{ employee.name }}
+</div>
+{% endfor %}
+
+<hr>
+
+<div class="note-item" data-note="PROP">Prop</div>
+<div class="note-item" data-note="CANE">Cane</div>
+<div class="note-item" data-note="SOLO_PULIZIA">Solo pulizia</div>
+<div class="note-item" data-note="NO_BIANCHERIA">No biancheria</div>
+<div class="note-item" data-note="TUTTI_LETTI">Tutti i letti</div>
+
+<hr>
+
+<div id="deleteBooking">❌ Elimina prenotazione</div>
+<div id="deleteCleaning">❌ Elimina pulizia</div>
+<div id="deleteNotes">❌ Elimina note</div>
+</div>
+
+<script>
+let isSelecting = false;
+let isDraggingCleaning = false;
+let selectionApartment = null;
+let selectedCells = [];
+let draggedCleaningId = null;
+let dragStarted = false;
+
+let selectedApartmentForMenu = null;
+let selectedDateForMenu = null;
+let selectedBookingIdForMenu = null;
+let selectedCleaningIdForMenu = null;
+let selectedHasNotesForMenu = false;
+let selectedCleaningEmployeesForMenu = [];
+
+const contextMenu = document.getElementById("contextMenu");
+const viewDropdown = document.getElementById("viewDropdown");
+const categoryDropdown = document.getElementById("categoryDropdown");
+
+function clearSelection() {
+    document.querySelectorAll(".cell.selection").forEach(cell => {
+        cell.classList.remove("selection");
+    });
+    selectedCells = [];
+}
+
+function clearDropTargets() {
+    document.querySelectorAll(".cell.drop-target").forEach(cell => {
+        cell.classList.remove("drop-target");
+    });
+}
+
+function refreshEmployeeMenuState() {
+    document.querySelectorAll(".employee-item").forEach(item => {
+        const employeeId = item.dataset.employeeId;
+        if (selectedCleaningEmployeesForMenu.includes(employeeId)) {
+            item.classList.add("assigned");
+        } else {
+            item.classList.remove("assigned");
+        }
+    });
+}
+
+function postJson(url, payload) {
+    return fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(async response => {
+        const data = await response.json();
+
+        if (!response.ok || data.status !== "ok") {
+            throw new Error(data.message || "Errore operazione");
+        }
+
+        return data;
+    });
+}
+
+function closeTopDropdowns() {
+    viewDropdown.classList.remove("open");
+    categoryDropdown.classList.remove("open");
+}
+
+viewDropdown.querySelector(".dropdown-toggle").addEventListener("click", function(e) {
+    e.stopPropagation();
+    const isOpen = viewDropdown.classList.contains("open");
+    closeTopDropdowns();
+    if (!isOpen) {
+        viewDropdown.classList.add("open");
+    }
+});
+
+categoryDropdown.querySelector(".dropdown-toggle").addEventListener("click", function(e) {
+    e.stopPropagation();
+    const isOpen = categoryDropdown.classList.contains("open");
+    closeTopDropdowns();
+    if (!isOpen) {
+        categoryDropdown.classList.add("open");
+    }
+});
+
+document.querySelectorAll(".cleaning-icon").forEach(icon => {
+    icon.addEventListener("click", function(e) {
+        if (dragStarted) {
+            e.preventDefault();
+            e.stopPropagation();
+            dragStarted = false;
+            return;
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        const cleaningId = this.dataset.cleaningId;
+        window.location.href = "/cleaning/" + cleaningId + "/";
+    });
+
+    icon.addEventListener("dragstart", function(e) {
+        isDraggingCleaning = true;
+        dragStarted = true;
+        draggedCleaningId = this.dataset.cleaningId;
+        e.dataTransfer.setData("text/plain", draggedCleaningId);
+        e.dataTransfer.effectAllowed = "move";
+        clearSelection();
+    });
+
+    icon.addEventListener("dragend", function() {
+        isDraggingCleaning = false;
+        draggedCleaningId = null;
+        clearDropTargets();
+
+        setTimeout(() => {
+            dragStarted = false;
+        }, 50);
+    });
+});
+
+document.querySelectorAll(".cell").forEach(cell => {
+    cell.addEventListener("mousedown", function(e) {
+        if (e.target.closest(".cleaning-icon")) {
+            return;
+        }
+
+        if (e.button !== 0) {
+            return;
+        }
+
+        isSelecting = true;
+        selectionApartment = this.dataset.apartment;
+
+        clearSelection();
+        this.classList.add("selection");
+        selectedCells = [this];
+    });
+
+    cell.addEventListener("mouseover", function() {
+        if (!isSelecting || isDraggingCleaning) {
+            return;
+        }
+
+        if (this.dataset.apartment !== selectionApartment) {
+            return;
+        }
+
+        if (!selectedCells.includes(this)) {
+            this.classList.add("selection");
+            selectedCells.push(this);
+        }
+    });
+
+    cell.addEventListener("dragover", function(e) {
+        if (!isDraggingCleaning) {
+            return;
+        }
+
+        e.preventDefault();
+        clearDropTargets();
+        this.classList.add("drop-target");
+    });
+
+    cell.addEventListener("drop", function(e) {
+        if (!isDraggingCleaning || !draggedCleaningId) {
+            return;
+        }
+
+        e.preventDefault();
+        clearDropTargets();
+
+        const newDate = this.dataset.date;
+
+        postJson("/move-cleaning/", {
+            cleaning_id: draggedCleaningId,
+            date: newDate
+        })
+        .then(() => {
+            window.location.reload();
+        })
+        .catch(error => {
+            alert("Errore: " + error.message);
+        });
+    });
+
+    cell.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+
+        selectedApartmentForMenu = this.dataset.apartment;
+        selectedDateForMenu = this.dataset.date;
+        selectedBookingIdForMenu = this.dataset.bookingId || null;
+        selectedCleaningIdForMenu = this.dataset.cleaningId || null;
+        selectedHasNotesForMenu = this.dataset.hasNotes === "1";
+
+        const employeesRaw = this.dataset.cleaningEmployees || "";
+        selectedCleaningEmployeesForMenu = employeesRaw ? employeesRaw.split(",") : [];
+
+        refreshEmployeeMenuState();
+
+        contextMenu.style.display = "block";
+        contextMenu.style.left = e.pageX + "px";
+        contextMenu.style.top = e.pageY + "px";
+    });
+});
+
+document.addEventListener("mouseup", function() {
+    if (!isSelecting || isDraggingCleaning) {
+        return;
+    }
+
+    isSelecting = false;
+
+    if (selectedCells.length > 0) {
+        const first = selectedCells[0];
+        const last = selectedCells[selectedCells.length - 1];
+
+        const apartmentId = first.dataset.apartment;
+        const startDate = first.dataset.date;
+        const endDate = last.dataset.date;
+        const bookingId = first.dataset.bookingId;
+
+        if (selectedCells.length === 1 && bookingId) {
+            window.location.href =
+                "/admin/bookings/booking/" +
+                bookingId +
+                "/change/";
+            return;
+        }
+
+        window.location.href =
+            "/admin/bookings/booking/add/?apartment=" +
+            apartmentId +
+            "&check_in=" +
+            startDate +
+            "&check_out=" +
+            endDate;
+    }
+});
+
+document.addEventListener("click", function(e) {
+    if (!e.target.closest("#contextMenu")) {
+        contextMenu.style.display = "none";
+    }
+
+    if (!e.target.closest(".topbar-dropdown")) {
+        closeTopDropdowns();
+    }
+});
+
+document.getElementById("menuBooking").onclick = function() {
+    window.location.href =
+        "/admin/bookings/booking/add/?apartment=" +
+        selectedApartmentForMenu +
+        "&check_in=" +
+        selectedDateForMenu;
+};
+
+document.getElementById("menuCleaning").onclick = function() {
+    window.location.href =
+        "/admin/cleanings/cleaning/add/?apartment=" +
+        selectedApartmentForMenu +
+        "&date=" +
+        selectedDateForMenu;
+};
+
+document.getElementById("markCleaningCompleted").onclick = function() {
+    if (!selectedCleaningIdForMenu) {
+        alert("In questa cella non c'è una pulizia.");
+        return;
+    }
+
+    postJson("/update-cleaning-status/", {
+        cleaning_id: selectedCleaningIdForMenu,
+        status: "completed"
+    })
+    .then(() => {
+        window.location.reload();
+    })
+    .catch(error => {
+        alert("Errore: " + error.message);
+    });
+};
+
+document.querySelectorAll(".employee-item").forEach(item => {
+    item.onclick = function() {
+        if (!selectedCleaningIdForMenu) {
+            alert("Prima crea o seleziona una pulizia in questa cella.");
+            return;
+        }
+
+        postJson("/toggle-cleaning-employee/", {
+            cleaning_id: selectedCleaningIdForMenu,
+            employee_id: this.dataset.employeeId
+        })
+        .then(() => {
+            window.location.reload();
+        })
+        .catch(error => {
+            alert("Errore: " + error.message);
+        });
+    };
+});
+
+document.querySelectorAll(".note-item").forEach(item => {
+    item.onclick = function() {
+        postJson("/create-day-note/", {
+            apartment_id: selectedApartmentForMenu,
+            date: selectedDateForMenu,
+            note_type: this.dataset.note
+        })
+        .then(() => {
+            window.location.reload();
+        })
+        .catch(error => {
+            alert("Errore: " + error.message);
+        });
+    };
+});
+
+document.getElementById("deleteBooking").onclick = function() {
+    if (!selectedBookingIdForMenu) {
+        alert("In questa cella non c'è una prenotazione da eliminare.");
+        return;
+    }
+
+    if (!confirm("Vuoi eliminare questa prenotazione?")) {
+        return;
+    }
+
+    postJson("/delete-booking/", {
+        booking_id: selectedBookingIdForMenu
+    })
+    .then(() => {
+        window.location.reload();
+    })
+    .catch(error => {
+        alert("Errore: " + error.message);
+    });
+};
+
+document.getElementById("deleteCleaning").onclick = function() {
+    if (!selectedCleaningIdForMenu) {
+        alert("In questa cella non c'è una pulizia da eliminare.");
+        return;
+    }
+
+    if (!confirm("Vuoi eliminare questa pulizia?")) {
+        return;
+    }
+
+    postJson("/delete-cleaning/", {
+        cleaning_id: selectedCleaningIdForMenu
+    })
+    .then(() => {
+        window.location.reload();
+    })
+    .catch(error => {
+        alert("Errore: " + error.message);
+    });
+};
+
+document.getElementById("deleteNotes").onclick = function() {
+    if (!selectedHasNotesForMenu) {
+        alert("In questa cella non ci sono note da eliminare.");
+        return;
+    }
+
+    if (!confirm("Vuoi eliminare tutte le note di questo giorno?")) {
+        return;
+    }
+
+    postJson("/delete-day-notes/", {
+        apartment_id: selectedApartmentForMenu,
+        date: selectedDateForMenu
+    })
+    .then(() => {
+        window.location.reload();
+    })
+    .catch(error => {
+        alert("Errore: " + error.message);
+    });
+};
+
+window.addEventListener("load", function(){
+    const todayCell = document.querySelector(".today-cell");
+
+    if(todayCell){
+        todayCell.scrollIntoView({
+            behavior: "smooth",
+            inline: "center",
+            block: "nearest"
+        });
+    }
+});
+</script>
+
+{% include "includes/footer.html" %}
+</body>
+</html>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+  <rect width="300" height="80" rx="16" fill="#16a34a"/>
+  <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="28" font-family="Arial" dy=".3em">
+    Cleaning Boost
+  </text>
+</svg>

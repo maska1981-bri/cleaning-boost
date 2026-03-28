@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<script>(function(){var t=localStorage.getItem("cleaning_boost_theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>    
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
+<title>Cleaning Boost - Scheda immobile</title>
+
+<style>
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    margin:0;
+    background:#f4f6f8;
+}
+
+.page-container{
+    max-width:1400px;
+    margin:0 auto;
+    padding:24px;
+}
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.page-title{
+    margin:0;
+    font-size:28px;
+    font-weight:800;
+    color:#0f172a;
+}
+
+.page-subtitle{
+    margin:4px 0 0 0;
+    color:#64748b;
+    font-size:14px;
+    font-weight:600;
+}
+
+.box{
+    background:white;
+    border:1px solid #dbe3ee;
+    padding:20px;
+    margin-bottom:18px;
+    border-radius:16px;
+    box-shadow:0 12px 35px rgba(15, 23, 42, 0.08);
+}
+
+.section-title{
+    margin:0 0 14px 0;
+    font-size:18px;
+    font-weight:800;
+    color:#0f172a;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:16px;
+}
+
+.label{
+    font-size:13px;
+    font-weight:800;
+    color:#334155;
+    margin-bottom:6px;
+}
+
+.value{
+    color:#0f172a;
+    line-height:1.5;
+}
+
+.media-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(210px, 210px));
+    gap:14px;
+}
+
+.media-card{
+    width:210px;
+    background:#f8fafc;
+    border:1px solid #dbe3ee;
+    border-radius:14px;
+    padding:12px;
+    box-sizing:border-box;
+}
+
+.media-thumb-link{
+    display:block;
+    text-decoration:none;
+}
+
+.media-thumb{
+    width:186px;
+    height:140px;
+    max-width:186px;
+    max-height:140px;
+    object-fit:cover;
+    border-radius:12px;
+    border:1px solid #dbe3ee;
+    display:block;
+    margin:0 auto;
+    background:white;
+}
+
+.media-caption{
+    margin-top:10px;
+    font-size:12px;
+    color:#475569;
+    line-height:1.4;
+}
+
+.note-box{
+    white-space:pre-wrap;
+    line-height:1.5;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:14px;
+    color:#0f172a;
+}
+
+.back-link{
+    display:inline-flex;
+    align-items:center;
+    text-decoration:none;
+    background:#ffffff;
+    color:#0f172a;
+    border:1px solid #dbe3ee;
+    border-radius:10px;
+    padding:10px 14px;
+    font-weight:700;
+    box-shadow:0 6px 16px rgba(15, 23, 42, 0.06);
+}
+
+.back-link:hover{
+    background:#f8fafc;
+}
+
+.map-link{
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:700;
+}
+
+.map-link:hover{
+    text-decoration:underline;
+}
+
+.empty-text{
+    color:#64748b;
+    font-size:14px;
+}
+
+@media (max-width: 900px){
+    .page-container{
+        padding:14px;
+    }
+
+    .media-grid{
+        grid-template-columns:1fr;
+    }
+
+    .media-card{
+        width:100%;
+    }
+
+    .media-thumb{
+        width:100%;
+        max-width:100%;
+        height:200px;
+        max-height:200px;
+    }
+}
+</style>
+
+{% include "includes/ui_theme.html" %}
+</head>
+<body>
+
+{% include "includes/topbar.html" %}
+
+<div class="page-container">
+
+    <div class="page-header">
+        <div>
+            <h2 class="page-title">{{ apartment.name }}</h2>
+            <div class="page-subtitle">Scheda immobile dipendente</div>
+        </div>
+
+        <a href="/employee-calendar/" class="back-link">← Torna al calendario</a>
+    </div>
+
+    <div class="box">
+        <h3 class="section-title">Informazioni principali</h3>
+
+        <div class="info-grid">
+            <div>
+                <div class="label">Indirizzo</div>
+                <div class="value">{{ apartment.address|default:"-" }}</div>
+            </div>
+
+            <div>
+                <div class="label">Google Maps</div>
+                <div class="value">
+                    {% if apartment.google_maps_link %}
+                        <a class="map-link" href="{{ apartment.google_maps_link }}" target="_blank">Apri mappa</a>
+                    {% else %}
+                        -
+                    {% endif %}
+                </div>
+            </div>
+
+            <div>
+                <div class="label">Numero massimo persone</div>
+                <div class="value">{{ apartment.max_people|default:"-" }}</div>
+            </div>
+
+            <div>
+                <div class="label">Letti matrimoniali</div>
+                <div class="value">{{ apartment.double_beds|default:"-" }}</div>
+            </div>
+
+            <div>
+                <div class="label">Letti singoli</div>
+                <div class="value">{{ apartment.single_beds|default:"-" }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <h3 class="section-title">Note</h3>
+
+        {% if apartment.notes %}
+            <div class="note-box">{{ apartment.notes }}</div>
+        {% else %}
+            <div class="empty-text">Nessuna nota disponibile.</div>
+        {% endif %}
+    </div>
+
+    <div class="box">
+        <h3 class="section-title">Foto immobile</h3>
+
+        <div class="media-grid">
+            {% for photo in photos %}
+            <div class="media-card">
+                <a class="media-thumb-link" href="{{ photo.image.url }}" target="_blank">
+                    <img class="media-thumb" src="{{ photo.image.url }}" alt="Foto immobile">
+                </a>
+
+                {% if photo.caption %}
+                <div class="media-caption">{{ photo.caption }}</div>
+                {% else %}
+                <div class="media-caption">Clicca per aprire</div>
+                {% endif %}
+            </div>
+            {% empty %}
+            <div class="empty-text">Nessuna foto caricata.</div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+{% include "includes/footer.html" %}
+</body>
+</html>

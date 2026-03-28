@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+<meta charset="UTF-8">
+<title>{{ apartment.name }}</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f8;
+padding:30px;
+}
+
+.container{
+background:white;
+padding:30px;
+max-width:700px;
+border-radius:6px;
+box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+h1{
+margin-top:0;
+}
+
+.section{
+margin-top:25px;
+}
+
+.label{
+font-weight:bold;
+margin-top:10px;
+}
+
+.photo{
+margin-top:20px;
+max-width:100%;
+border-radius:6px;
+}
+
+.maps-button{
+display:inline-block;
+margin-top:10px;
+padding:8px 12px;
+background:#2563eb;
+color:white;
+text-decoration:none;
+border-radius:4px;
+font-size:14px;
+}
+
+.maps-button:hover{
+background:#1e4ed8;
+}
+
+.back{
+margin-top:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>{{ apartment.code }} - {{ apartment.name }}</h1>
+
+<div class="section">
+
+<div class="label">Indirizzo</div>
+<div>{{ apartment.address }}</div>
+
+{% if apartment.google_maps_url %}
+
+<a class="maps-button" href="{{ apartment.google_maps_url }}" target="_blank">
+Apri su Google Maps
+</a>
+
+{% endif %}
+
+</div>
+
+<div class="section">
+
+<div class="label">Dimensione</div>
+<div>{{ apartment.square_meters }} mq</div>
+
+<div class="label">Posti letto</div>
+<div>{{ apartment.max_guests }}</div>
+
+<div class="label">Letti</div>
+<div>{{ apartment.double_beds }}M {{ apartment.single_beds }}S</div>
+
+<div class="label">Bagni</div>
+<div>{{ apartment.bathrooms }}</div>
+
+</div>
+
+{% if apartment.operational_notes %}
+
+<div class="section">
+
+<div class="label">Note operative</div>
+<div>{{ apartment.operational_notes }}</div>
+
+</div>
+
+{% endif %}
+
+{% if apartment.photo %}
+
+<div class="section">
+
+<img class="photo" src="{{ apartment.photo.url }}">
+
+</div>
+
+{% endif %}
+
+<div class="back">
+
+<a href="/">← Torna al calendario</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

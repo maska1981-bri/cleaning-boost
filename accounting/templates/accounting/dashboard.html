@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<script>(function(){var t=localStorage.getItem("cleaning_boost_theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>   
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
+<title>Cleaning Boost - Dashboard</title>
+
+<style>
+body{
+font-family:Arial, Helvetica, sans-serif;
+margin:0;
+background:#f4f6f8;
+color:#111827;
+}
+
+.page{
+padding:20px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(4, minmax(220px, 1fr));
+gap:16px;
+margin-bottom:20px;
+}
+
+.card{
+background:white;
+border:1px solid #ddd;
+border-radius:8px;
+padding:20px;
+}
+
+.card-title{
+font-size:13px;
+font-weight:bold;
+color:#6b7280;
+margin-bottom:10px;
+text-transform:uppercase;
+}
+
+.card-value{
+font-size:28px;
+font-weight:bold;
+}
+
+.box{
+background:white;
+border:1px solid #ddd;
+border-radius:8px;
+padding:20px;
+}
+
+.quick-link{
+display:inline-block;
+margin:20px 20px 0 20px;
+padding:10px 14px;
+background:#0d6efd;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+}
+
+.quick-link:hover{
+background:#0b5ed7;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+th,td{
+border:1px solid #ddd;
+padding:10px;
+text-align:left;
+}
+
+th{
+background:#f3f4f6;
+}
+
+.number{
+text-align:right;
+}
+</style>
+{% include "includes/ui_theme.html" %}
+</head>
+<body>
+
+{% include "includes/topbar.html" %}
+
+<a href="/employee-hours/" class="quick-link" style="box-shadow:0 8px 20px rgba(13, 110, 253, 0.22); font-weight:800;">Gestione ore dipendenti</a>
+
+<div class="page">
+
+<div class="cards">
+    <div class="card">
+        <div class="card-title">Fatturato mese</div>
+        <div class="card-value">€ {{ month_total }}</div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Fatturato anno</div>
+        <div class="card-value">€ {{ year_total }}</div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Pulizie mese</div>
+        <div class="card-value">{{ monthly_cleanings_count }}</div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Media per pulizia</div>
+        <div class="card-value">€ {{ average_per_cleaning }}</div>
+    </div>
+</div>
+
+<div class="box">
+    <h2 style="margin-top:0;">Top immobili del mese</h2>
+
+    {% if top_apartments %}
+    <table>
+        <tr>
+            <th>Immobile</th>
+            <th class="number">Pulizie</th>
+            <th class="number">Totale</th>
+        </tr>
+
+        {% for row in top_apartments %}
+        <tr>
+            <td>{{ row.apartment.code }} - {{ row.apartment.name }}</td>
+            <td class="number">{{ row.count }}</td>
+            <td class="number">€ {{ row.total }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Nessun dato disponibile per questo mese.</p>
+    {% endif %}
+</div>
+
+</div>
+
+{% include "includes/footer.html" %}
+</body>
+</html>

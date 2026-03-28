@@ -1,0 +1,402 @@
+[
+    {
+        "model": "customers.customer",
+        "pk": 1,
+        "fields": {
+            "name": "Ale Longo",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 2,
+        "fields": {
+            "name": "Catherine",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 3,
+        "fields": {
+            "name": "Chiara Ferrarese",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 4,
+        "fields": {
+            "name": "CLAUDIA GROSSO",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 5,
+        "fields": {
+            "name": "Cristina Mazzi",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 6,
+        "fields": {
+            "name": "Elena general",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 7,
+        "fields": {
+            "name": "Filippo Pontieri",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 8,
+        "fields": {
+            "name": "Giulia",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 9,
+        "fields": {
+            "name": "HELLOCHALET",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 10,
+        "fields": {
+            "name": "Homeby ambra",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 11,
+        "fields": {
+            "name": "Iflat Pineta",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 12,
+        "fields": {
+            "name": "Lago Maen",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 13,
+        "fields": {
+            "name": "Lele Scalia",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 14,
+        "fields": {
+            "name": "Leone Ambra",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 15,
+        "fields": {
+            "name": "LUKASZ",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 16,
+        "fields": {
+            "name": "Maia",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 17,
+        "fields": {
+            "name": "MASKA",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 18,
+        "fields": {
+            "name": "Massimo Boario",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 19,
+        "fields": {
+            "name": "MCX",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 20,
+        "fields": {
+            "name": "Melania",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 21,
+        "fields": {
+            "name": "Stefania",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 22,
+        "fields": {
+            "name": "STEFANO PAVESIO",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 23,
+        "fields": {
+            "name": "Stephanie",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 24,
+        "fields": {
+            "name": "Vibeke",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 25,
+        "fields": {
+            "name": "Zaccaria",
+            "company_name": "",
+            "vat_number": "",
+            "tax_code": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "notes": "",
+            "is_active": true,
+            "created_at": "2026-03-18T10:00:00Z"
+        }
+    }
+]

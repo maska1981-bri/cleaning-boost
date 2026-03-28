@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<script>(function(){var t=localStorage.getItem("cleaning_boost_theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>    
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
+<title>Cleaning Boost - Dettaglio pulizia</title>
+
+<style>
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    margin:0;
+    background:#f4f6f8;
+}
+
+.page-container{
+    max-width:1400px;
+    margin:0 auto;
+    padding:24px;
+}
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.page-title{
+    margin:0;
+    font-size:28px;
+    font-weight:800;
+    color:#0f172a;
+}
+
+.page-subtitle{
+    margin:4px 0 0 0;
+    color:#64748b;
+    font-size:14px;
+    font-weight:600;
+}
+
+.box{
+    border:1px solid #dbe3ee;
+    padding:20px;
+    margin-bottom:18px;
+    background:white;
+    border-radius:16px;
+    box-shadow:0 12px 35px rgba(15, 23, 42, 0.08);
+}
+
+.section-title{
+    margin:0 0 14px 0;
+    font-size:18px;
+    font-weight:800;
+    color:#0f172a;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:16px;
+}
+
+.label{
+    font-size:13px;
+    font-weight:800;
+    color:#334155;
+    margin-bottom:6px;
+}
+
+.value{
+    color:#0f172a;
+    line-height:1.5;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 12px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:800;
+}
+
+.badge-scheduled{
+    background:#e5e7eb;
+    color:#111827;
+}
+
+.badge-completed{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.btn{
+    background:#1f2937;
+    color:white;
+    padding:11px 14px;
+    border:none;
+    border-radius:10px;
+    width:100%;
+    font-size:15px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.btn:hover{
+    background:#374151;
+}
+
+.attachments{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 240px));
+    gap:14px;
+}
+
+.attachment-card{
+    width:240px;
+    border:1px solid #dbe3ee;
+    border-radius:14px;
+    padding:12px;
+    background:#f8fafc;
+    box-sizing:border-box;
+}
+
+.attachment-title{
+    font-weight:800;
+    color:#0f172a;
+    word-break:break-word;
+}
+
+input[type="file"],
+input[type="text"],
+textarea{
+    width:100%;
+    padding:10px 12px;
+    margin-bottom:12px;
+    box-sizing:border-box;
+    border:1px solid #cfd8e3;
+    border-radius:10px;
+    background:#ffffff;
+    font-size:14px;
+}
+
+input[type="file"]:focus,
+input[type="text"]:focus,
+textarea:focus{
+    outline:none;
+    border-color:#93c5fd;
+    box-shadow:0 0 0 4px rgba(147, 197, 253, 0.22);
+}
+
+textarea{
+    resize:vertical;
+    min-height:130px;
+}
+
+.media-thumb-link{
+    display:block;
+    text-decoration:none;
+    margin-top:10px;
+}
+
+.media-thumb{
+    width:214px;
+    height:150px;
+    max-width:214px;
+    max-height:150px;
+    object-fit:cover;
+    border-radius:12px;
+    border:1px solid #dbe3ee;
+    display:block;
+    background:#fff;
+    margin:0 auto;
+}
+
+.media-video{
+    width:214px;
+    height:150px;
+    max-width:214px;
+    max-height:150px;
+    object-fit:cover;
+    border-radius:12px;
+    border:1px solid #dbe3ee;
+    display:block;
+    background:black;
+    margin:0 auto;
+}
+
+.file-actions{
+    margin-top:10px;
+    font-size:13px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.file-actions a{
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:700;
+}
+
+.file-actions a:hover{
+    text-decoration:underline;
+}
+
+.file-meta{
+    margin:8px 0;
+    font-size:12px;
+    color:#64748b;
+}
+
+.note-box{
+    white-space:pre-wrap;
+    line-height:1.5;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:14px;
+    color:#0f172a;
+}
+
+.back-link{
+    display:inline-flex;
+    align-items:center;
+    text-decoration:none;
+    background:#ffffff;
+    color:#0f172a;
+    border:1px solid #dbe3ee;
+    border-radius:10px;
+    padding:10px 14px;
+    font-weight:700;
+    box-shadow:0 6px 16px rgba(15, 23, 42, 0.06);
+}
+
+.back-link:hover{
+    background:#f8fafc;
+}
+
+.empty-text{
+    color:#64748b;
+    font-size:14px;
+}
+
+@media (max-width: 900px){
+    .page-container{
+        padding:14px;
+    }
+
+    .attachments{
+        grid-template-columns:1fr;
+    }
+
+    .attachment-card{
+        width:100%;
+    }
+
+    .media-thumb,
+    .media-video{
+        width:100%;
+        max-width:100%;
+        height:190px;
+        max-height:190px;
+    }
+}
+</style>
+
+{% include "includes/ui_theme.html" %}
+</head>
+<body>
+
+{% include "includes/topbar.html" %}
+
+<div class="page-container">
+
+    <div class="page-header">
+        <div>
+            <h2 class="page-title">{{ apartment.name }}</h2>
+            <div class="page-subtitle">Pulizia del {{ cleaning.date|date:"d/m/Y" }}</div>
+        </div>
+
+        <a href="/employee-calendar/" class="back-link">← Torna al calendario</a>
+    </div>
+
+    <div class="box">
+        <h3 class="section-title">Dettagli pulizia</h3>
+
+        <div class="info-grid">
+            <div>
+                <div class="label">Stato</div>
+                <div class="value">
+                    {% if cleaning.status == "completed" %}
+                        <span class="badge badge-completed">{{ cleaning.get_status_display }}</span>
+                    {% else %}
+                        <span class="badge badge-scheduled">{{ cleaning.get_status_display }}</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if booking %}
+            <div>
+                <div class="label">Persone</div>
+                <div class="value">{{ booking.people_count|default:"0" }}</div>
+            </div>
+
+            <div>
+                <div class="label">Letti</div>
+                <div class="value">{{ booking.double_beds|default:"0" }}M {{ booking.single_beds|default:"0" }}S</div>
+            </div>
+
+            <div>
+                <div class="label">Check-in</div>
+                <div class="value">
+                    {% if booking.check_in_time %}
+                        {{ booking.check_in_time|time:"H:i" }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </div>
+            </div>
+
+            <div>
+                <div class="label">Check-out</div>
+                <div class="value">
+                    {% if booking.check_out_time %}
+                        {{ booking.check_out_time|time:"H:i" }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="box">
+        <h3 class="section-title">Nota finale dipendente</h3>
+
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="complete">
+            <textarea name="employee_note" rows="5" placeholder="Scrivi una nota finale...">{{ cleaning.employee_note }}</textarea>
+            <button type="submit" class="btn">✅ Segna come completato</button>
+        </form>
+    </div>
+
+    <div class="box">
+        <h3 class="section-title">Carica foto o video</h3>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="upload">
+            <input type="file" name="attachment_file" accept="image/*,video/*" required>
+            <input type="text" name="attachment_note" placeholder="Nota facoltativa">
+            <button type="submit" class="btn">Carica file</button>
+        </form>
+    </div>
+
+    <div class="box">
+        <h3 class="section-title">File caricati</h3>
+
+        <div class="attachments">
+            {% for attachment in attachments %}
+            <div class="attachment-card">
+                <div class="attachment-title">{{ attachment.filename }}</div>
+
+                {% if attachment.note %}
+                <div style="margin:8px 0; color:#334155;">{{ attachment.note }}</div>
+                {% endif %}
+
+                <div class="file-meta">{{ attachment.uploaded_at|date:"d/m/Y H:i" }}</div>
+
+                {% if ".mp4" in attachment.file.url or ".mov" in attachment.file.url or ".webm" in attachment.file.url %}
+                    <a class="media-thumb-link" href="{{ attachment.file.url }}" target="_blank">
+                        <video class="media-video" muted preload="metadata">
+                            <source src="{{ attachment.file.url }}">
+                        </video>
+                    </a>
+                {% else %}
+                    <a class="media-thumb-link" href="{{ attachment.file.url }}" target="_blank">
+                        <img class="media-thumb" src="{{ attachment.file.url }}" alt="{{ attachment.filename }}">
+                    </a>
+                {% endif %}
+
+                <div class="file-actions">
+                    <a href="{{ attachment.file.url }}" target="_blank">Apri</a>
+                    <a href="{{ attachment.file.url }}" download>Scarica</a>
+                </div>
+            </div>
+            {% empty %}
+            <div class="empty-text">Nessun file caricato.</div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+{% include "includes/footer.html" %}
+</body>
+</html>

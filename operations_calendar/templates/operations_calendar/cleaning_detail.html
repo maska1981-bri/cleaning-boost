@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<script>(function(){var t=localStorage.getItem("cleaning_boost_theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>   
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
+<title>Cleaning Boost - Scheda pulizia</title>
+
+<style>
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    margin:0;
+    background:#f4f6f8;
+}
+
+.page-container{
+    max-width:1400px;
+    margin:0 auto;
+    padding:24px;
+}
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.page-title{
+    margin:0;
+    font-size:28px;
+    font-weight:800;
+    color:#0f172a;
+}
+
+.page-subtitle{
+    margin:4px 0 0 0;
+    color:#64748b;
+    font-size:14px;
+    font-weight:600;
+}
+
+.box{
+    background:white;
+    border:1px solid #dbe3ee;
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:18px;
+    box-shadow:0 12px 35px rgba(15, 23, 42, 0.08);
+}
+
+.section-title{
+    margin:0 0 14px 0;
+    font-size:18px;
+    font-weight:800;
+    color:#0f172a;
+}
+
+.label{
+    font-weight:800;
+    color:#334155;
+    font-size:13px;
+    margin-bottom:6px;
+}
+
+.value{
+    color:#0f172a;
+    line-height:1.45;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:16px;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 12px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:800;
+}
+
+.badge-scheduled{
+    background:#e5e7eb;
+    color:#111827;
+}
+
+.badge-completed{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.attachments{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 240px));
+    gap:14px;
+}
+
+.attachment-card{
+    width:240px;
+    border:1px solid #dbe3ee;
+    border-radius:14px;
+    background:#f8fafc;
+    padding:12px;
+    box-sizing:border-box;
+}
+
+.attachment-title{
+    font-weight:800;
+    color:#0f172a;
+    word-break:break-word;
+}
+
+.note-box{
+    white-space:pre-wrap;
+    line-height:1.5;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:14px;
+}
+
+.back-link{
+    display:inline-flex;
+    align-items:center;
+    text-decoration:none;
+    background:#ffffff;
+    color:#0f172a;
+    border:1px solid #dbe3ee;
+    border-radius:10px;
+    padding:10px 14px;
+    font-weight:700;
+    box-shadow:0 6px 16px rgba(15, 23, 42, 0.06);
+}
+
+.back-link:hover{
+    background:#f8fafc;
+}
+
+.small{
+    font-size:12px;
+    color:#64748b;
+}
+
+.cost-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:14px;
+}
+
+.cost-field label{
+    display:block;
+    font-weight:800;
+    margin-bottom:6px;
+    color:#334155;
+    font-size:13px;
+}
+
+.cost-field input{
+    width:100%;
+    padding:10px 12px;
+    box-sizing:border-box;
+    border:1px solid #cfd8e3;
+    border-radius:10px;
+    background:#ffffff;
+    font-size:14px;
+}
+
+.cost-field input:focus{
+    outline:none;
+    border-color:#93c5fd;
+    box-shadow:0 0 0 4px rgba(147, 197, 253, 0.22);
+}
+
+.total-box{
+    margin-top:16px;
+    padding:14px 16px;
+    border-radius:14px;
+    background:linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+    border:1px solid #bbf7d0;
+    font-size:20px;
+    font-weight:800;
+    color:#166534;
+}
+
+.save-btn{
+    margin-top:16px;
+    background:#1f2937;
+    color:white;
+    border:none;
+    border-radius:10px;
+    padding:11px 16px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:800;
+    box-shadow:0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.save-btn:hover{
+    background:#374151;
+}
+
+.media-thumb-link{
+    display:block;
+    text-decoration:none;
+    margin-top:10px;
+    width:100%;
+}
+
+.media-thumb{
+    display:block;
+    width:214px;
+    height:150px;
+    max-width:214px;
+    max-height:150px;
+    object-fit:cover;
+    border-radius:12px;
+    border:1px solid #dbe3ee;
+    background:#fff;
+    margin:0 auto;
+}
+
+.media-video{
+    display:block;
+    width:214px;
+    height:150px;
+    max-width:214px;
+    max-height:150px;
+    object-fit:cover;
+    border-radius:12px;
+    border:1px solid #dbe3ee;
+    background:black;
+    margin:0 auto;
+}
+
+.actions-row{
+    margin-top:10px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.file-link{
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:700;
+    font-size:13px;
+}
+
+.file-link:hover{
+    text-decoration:underline;
+}
+
+@media (max-width: 900px){
+    .page-container{
+        padding:14px;
+    }
+
+    .attachments{
+        grid-template-columns:1fr;
+    }
+
+    .attachment-card{
+        width:100%;
+    }
+
+    .media-thumb,
+    .media-video{
+        width:100%;
+        max-width:100%;
+        height:190px;
+        max-height:190px;
+    }
+}
+</style>
+
+{% include "includes/ui_theme.html" %}
+</head>
+<body>
+
+{% include "includes/topbar.html" %}
+
+<div class="page-container">
+
+    <div class="page-header">
+        <div>
+            <h2 class="page-title">Scheda Pulizia</h2>
+            <div class="page-subtitle">{{ apartment.name }} • {{ cleaning.date|date:"d/m/Y" }}</div>
+        </div>
+
+        <a href="/" class="back-link">← Torna al calendario</a>
+    </div>
+
+    <div class="box">
+        <h3 class="section-title">Dati principali</h3>
+
+        <div class="grid">
+            <div>
+                <div class="label">Immobile</div>
+                <div class="value">{{ apartment.name }}</div>
+            </div>
+
+            <div>
+                <div class="label">Data</div>
+                <div class="value">{{ cleaning.date|date:"d/m/Y" }}</div>
+            </div>
+
+            <div>
+                <div class="label">Stato</div>
+                <div class="value">
+                    {% if cleaning.status == "completed" %}
+                        <span class="badge badge-completed">Completata</span>
+                    {% else %}
+                        <span class="badge badge-scheduled">Programmato</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div>
+                <div class="label">Dipendenti assegnati</div>
+                <div class="value">
+                    {% for emp in cleaning.employees.all %}
+                        {{ emp.name }}{% if not forloop.last %}, {% endif %}
+                    {% empty %}
+                        Nessuno
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <h3 class="section-title">Dati operativi</h3>
+
+        <div class="grid">
+            <div>
+                <div class="label">Persone</div>
+                <div class="value">{{ cleaning.people_count }}</div>
+            </div>
+
+            <div>
+                <div class="label">Letti matrimoniali</div>
+                <div class="value">{{ cleaning.double_beds_count }}</div>
+            </div>
+
+            <div>
+                <div class="label">Letti singoli</div>
+                <div class="value">{{ cleaning.single_beds_count }}</div>
+            </div>
+
+            <div>
+                <div class="label">Costo totale attuale</div>
+                <div class="value"><strong>€ {{ cleaning.total_cost }}</strong></div>
+            </div>
+        </div>
+    </div>
+
+    {% if booking %}
+    <div class="box">
+        <h3 class="section-title">Prenotazione collegata</h3>
+
+        <div class="grid">
+            <div>
+                <div class="label">Check-in</div>
+                <div class="value">
+                    {{ booking.check_in|date:"d/m/Y" }}
+                    {% if booking.check_in_time %} - {{ booking.check_in_time|time:"H:i" }}{% endif %}
+                </div>
+            </div>
+
+            <div>
+                <div class="label">Check-out</div>
+                <div class="value">
+                    {{ booking.check_out|date:"d/m/Y" }}
+                    {% if booking.check_out_time %} - {{ booking.check_out_time|time:"H:i" }}{% endif %}
+                </div>
+            </div>
+
+            <div>
+                <div class="label">Prenotazione collegata</div>
+                <div class="value">#{{ booking.id }}</div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="box">
+        <h3 class="section-title">Costi pulizia</h3>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="cost-grid">
+                <div class="cost-field">
+                    <label>Costo pulizia</label>
+                    <input type="number" step="0.01" name="cleaning_cost" value="{{ cleaning.cleaning_cost }}">
+                </div>
+
+                <div class="cost-field">
+                    <label>Kit fisso</label>
+                    <input type="number" step="0.01" name="fixed_kit_cost" value="{{ cleaning.fixed_kit_cost }}">
+                </div>
+
+                <div class="cost-field">
+                    <label>Kit a persona</label>
+                    <input type="number" step="0.01" name="per_person_kit_cost" value="{{ cleaning.per_person_kit_cost }}">
+                </div>
+
+                <div class="cost-field">
+                    <label>Costo letto matrimoniale</label>
+                    <input type="number" step="0.01" name="double_bed_cost" value="{{ cleaning.double_bed_cost }}">
+                </div>
+
+                <div class="cost-field">
+                    <label>Costo letto singolo</label>
+                    <input type="number" step="0.01" name="single_bed_cost" value="{{ cleaning.single_bed_cost }}">
+                </div>
+
+                <div class="cost-field">
+                    <label>Tappetino</label>
+                    <input type="number" step="0.01" name="mat_cost" value="{{ cleaning.mat_cost }}">
+                </div>
+
+                <div class="cost-field">
+                    <label>Extra</label>
+                    <input type="number" step="0.01" name="extra_cost" value="{{ cleaning.extra_cost }}">
+                </div>
+            </div>
+
+            <div class="total-box">
+                Totale pulizia: € {{ cleaning.total_cost }}
+            </div>
+
+            <button type="submit" class="save-btn">Salva costi</button>
+        </form>
+    </div>
+
+    <div class="box">
+        <h3 class="section-title">Nota finale dipendente</h3>
+
+        {% if cleaning.employee_note %}
+            <div class="note-box">{{ cleaning.employee_note }}</div>
+        {% else %}
+            <div class="small">Nessuna nota inserita.</div>
+        {% endif %}
+    </div>
+
+    <div class="box">
+        <h3 class="section-title">Foto e video caricati dal dipendente</h3>
+
+        <div class="attachments">
+            {% for attachment in attachments %}
+            <div class="attachment-card">
+                <div class="attachment-title">{{ attachment.filename }}</div>
+
+                {% if attachment.note %}
+                    <div style="margin-top:8px; color:#334155;">{{ attachment.note }}</div>
+                {% endif %}
+
+                <div class="small" style="margin-top:8px;">
+                    Caricato il {{ attachment.uploaded_at|date:"d/m/Y H:i" }}
+                </div>
+
+                {% if ".mp4" in attachment.file.url or ".mov" in attachment.file.url or ".webm" in attachment.file.url %}
+                    <a class="media-thumb-link" href="{{ attachment.file.url }}" target="_blank">
+                        <video class="media-video" muted preload="metadata">
+                            <source src="{{ attachment.file.url }}">
+                        </video>
+                    </a>
+                {% else %}
+                    <a class="media-thumb-link" href="{{ attachment.file.url }}" target="_blank">
+                        <img class="media-thumb" src="{{ attachment.file.url }}" alt="{{ attachment.filename }}">
+                    </a>
+                {% endif %}
+
+                <div class="actions-row">
+                    <a class="file-link" href="{{ attachment.file.url }}" target="_blank">Apri</a>
+                    <a class="file-link" href="{{ attachment.file.url }}" download>Scarica</a>
+                </div>
+            </div>
+            {% empty %}
+            <div class="small">Nessun allegato caricato.</div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+{% include "includes/footer.html" %}
+</body>
+</html>

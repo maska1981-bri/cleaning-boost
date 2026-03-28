@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<script>(function(){var t=localStorage.getItem("cleaning_boost_theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>    
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
+<title>Cleaning Boost - Consuntivo mensile</title>
+
+<style>
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#f4f6f8;
+margin:0;
+color:#111827;
+}
+
+.page{
+padding:20px;
+}
+
+.box{
+background:white;
+padding:20px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+.page-actions{
+display:flex;
+justify-content:flex-end;
+margin-bottom:16px;
+}
+
+.action-btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+background:#2563eb;
+color:white;
+text-decoration:none;
+border:none;
+padding:10px 16px;
+border-radius:6px;
+font-size:14px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.action-btn:hover{
+background:#1d4ed8;
+}
+
+h2{
+margin-top:0;
+}
+
+form{
+display:flex;
+gap:12px;
+align-items:end;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+
+.form-row{
+display:flex;
+flex-direction:column;
+gap:6px;
+}
+
+label{
+font-size:13px;
+font-weight:bold;
+}
+
+select,input{
+padding:10px 12px;
+border:1px solid #d1d5db;
+border-radius:6px;
+font-size:14px;
+background:white;
+}
+
+button{
+background:#2563eb;
+color:white;
+border:none;
+padding:10px 16px;
+border-radius:6px;
+font-size:14px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th,td{
+border:1px solid #ddd;
+padding:10px;
+}
+
+th{
+background:#f3f4f6;
+text-align:left;
+}
+
+.number{
+text-align:right;
+}
+
+.empty{
+padding:20px;
+background:white;
+border:1px dashed #d1d5db;
+border-radius:8px;
+margin-top:20px;
+}
+</style>
+{% include "includes/ui_theme.html" %}
+</head>
+
+<body>
+
+{% include "includes/topbar.html" %}
+
+<div class="page">
+<div class="page-actions">
+    {% if month and year %}
+    <a class="action-btn" href="/accounting/monthly-invoices/?month={{ month }}&year={{ year }}">
+        Scarica tutte le fatture
+    </a>
+    {% endif %}
+</div>
+
+<div class="box">
+
+<h2>Report mensile</h2>
+
+<form method="get">
+    <div class="form-row">
+        <label for="id_month">Mese</label>
+        <select name="month" id="id_month" required>
+            <option value="">Seleziona</option>
+            <option value="1" {% if month == "1" %}selected{% endif %}>1</option>
+            <option value="2" {% if month == "2" %}selected{% endif %}>2</option>
+            <option value="3" {% if month == "3" %}selected{% endif %}>3</option>
+            <option value="4" {% if month == "4" %}selected{% endif %}>4</option>
+            <option value="5" {% if month == "5" %}selected{% endif %}>5</option>
+            <option value="6" {% if month == "6" %}selected{% endif %}>6</option>
+            <option value="7" {% if month == "7" %}selected{% endif %}>7</option>
+            <option value="8" {% if month == "8" %}selected{% endif %}>8</option>
+            <option value="9" {% if month == "9" %}selected{% endif %}>9</option>
+            <option value="10" {% if month == "10" %}selected{% endif %}>10</option>
+            <option value="11" {% if month == "11" %}selected{% endif %}>11</option>
+            <option value="12" {% if month == "12" %}selected{% endif %}>12</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="id_year">Anno</label>
+        <input type="number" name="year" id="id_year" value="{{ year }}" required>
+    </div>
+
+    <button type="submit">Genera</button>
+</form>
+
+{% if data %}
+<table>
+    <tr>
+        <th>Immobile</th>
+        <th class="number">Totale</th>
+    </tr>
+
+    {% for row in data %}
+    <tr>
+        <td>{{ row.apartment.code }} - {{ row.apartment.name }}</td>
+        <td class="number">€ {{ row.total }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% elif month and year %}
+<div class="empty">
+    Nessun dato disponibile per il mese selezionato.
+</div>
+{% endif %}
+
+</div>
+</div>
+
+{% include "includes/footer.html" %}
+</body>
+</html>

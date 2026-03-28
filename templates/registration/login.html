@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<script>(function(){var t=localStorage.getItem("cleaning_boost_theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>
+<meta charset="UTF-8">
+<title>Cleaning Boost - Login</title>
+<link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+.login-box{
+    width:100%;
+    max-width:400px;
+    background:white;
+    border-radius:18px;
+    padding:32px;
+    box-shadow:0 24px 60px rgba(0,0,0,0.28);
+}
+.logo{
+    text-align:center;
+    margin-bottom:18px;
+}
+.logo img{
+    width:150px;
+    max-width:100%;
+}
+h1{
+    text-align:center;
+    margin:0 0 8px 0;
+    color:#0f172a;
+}
+.subtitle{
+    text-align:center;
+    color:#64748b;
+    margin-bottom:22px;
+    font-size:14px;
+}
+.errornote{
+    background:#fee2e2;
+    color:#991b1b;
+    border:1px solid #fca5a5;
+    padding:10px 12px;
+    border-radius:10px;
+    margin-bottom:14px;
+    font-size:14px;
+}
+input{
+    width:100%;
+    padding:12px 14px;
+    margin-bottom:12px;
+    border-radius:10px;
+    border:1px solid #d1d5db;
+    font-size:14px;
+    box-sizing:border-box;
+}
+input:focus{
+    outline:none;
+    border-color:#93c5fd;
+    box-shadow:0 0 0 4px rgba(147, 197, 253, 0.22);
+}
+button{
+    width:100%;
+    padding:12px 14px;
+    background:#16a34a;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-weight:800;
+    cursor:pointer;
+    font-size:15px;
+}
+button:hover{
+    background:#15803d;
+}
+</style>
+</head>
+<body>
+
+<div class="login-box">
+    <div class="logo">
+        <img src="/static/img/logo.svg" alt="Cleaning Boost">
+    </div>
+
+    <h1>Cleaning Boost</h1>
+    <div class="subtitle">Accesso dipendenti e amministrazione</div>
+
+    {% if form.errors %}
+        <div class="errornote">Credenziali non valide.</div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        {% if next %}
+            <input type="hidden" name="next" value="{{ next }}">
+        {% endif %}
+        <button type="submit">Accedi</button>
+    </form>
+</div>
+
+</body>
+</html>
