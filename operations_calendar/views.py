@@ -47,9 +47,17 @@ def staff_required(view_func):
 
 
 def get_request_employee(request):
+    if not request.user.is_authenticated:
+        return None
+
+    if request.user.is_staff or request.user.is_superuser:
+        return None
+
     employee = getattr(request.user, "employee_profile", None)
+
     if employee and employee.is_active:
         return employee
+
     return None
 
 

@@ -1,78 +1,134 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<script>(function(){var t=localStorage.getItem("cleaning_boost_theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>    
+<script>
+(function(){
+    var t = localStorage.getItem("cleaning_boost_theme") || "light";
+    document.documentElement.setAttribute("data-theme", t);
+})();
+</script>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
 <title>Cleaning Boost - Dettaglio pulizia</title>
 
 <style>
+:root{
+    --bg:#f4f6f8;
+    --card:#ffffff;
+    --text:#0f172a;
+    --muted:#64748b;
+    --line:#dbe3ee;
+    --soft:#f8fafc;
+    --accent:#2563eb;
+    --btn:#1f2937;
+    --btn-hover:#374151;
+    --ok-bg:#dcfce7;
+    --ok-text:#166534;
+    --todo-bg:#e5e7eb;
+    --todo-text:#111827;
+}
+
+html[data-theme="dark"]{
+    --bg:#0f172a;
+    --card:#111827;
+    --text:#f3f4f6;
+    --muted:#94a3b8;
+    --line:#334155;
+    --soft:#1f2937;
+    --accent:#60a5fa;
+    --btn:#2563eb;
+    --btn-hover:#1d4ed8;
+    --ok-bg:#14532d;
+    --ok-text:#bbf7d0;
+    --todo-bg:#374151;
+    --todo-text:#f3f4f6;
+}
+
+*{
+    box-sizing:border-box;
+}
+
 body{
     font-family:Arial, Helvetica, sans-serif;
     margin:0;
-    background:#f4f6f8;
+    background:var(--bg);
+    color:var(--text);
 }
 
 .page-container{
-    max-width:1400px;
+    max-width:1100px;
     margin:0 auto;
-    padding:24px;
+    padding:14px;
 }
 
 .page-header{
     display:flex;
     justify-content:space-between;
-    align-items:center;
+    align-items:flex-start;
     gap:12px;
     flex-wrap:wrap;
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
 .page-title{
     margin:0;
-    font-size:28px;
+    font-size:24px;
     font-weight:800;
-    color:#0f172a;
+    color:var(--text);
 }
 
 .page-subtitle{
-    margin:4px 0 0 0;
-    color:#64748b;
+    margin:5px 0 0 0;
+    color:var(--muted);
     font-size:14px;
     font-weight:600;
 }
 
+.back-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    background:var(--card);
+    color:var(--text);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:11px 14px;
+    font-weight:700;
+    min-height:44px;
+}
+
 .box{
-    border:1px solid #dbe3ee;
-    padding:20px;
-    margin-bottom:18px;
-    background:white;
+    border:1px solid var(--line);
+    padding:16px;
+    margin-bottom:16px;
+    background:var(--card);
     border-radius:16px;
-    box-shadow:0 12px 35px rgba(15, 23, 42, 0.08);
 }
 
 .section-title{
     margin:0 0 14px 0;
     font-size:18px;
     font-weight:800;
-    color:#0f172a;
+    color:var(--text);
 }
 
 .info-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-    gap:16px;
+    grid-template-columns:1fr;
+    gap:14px;
 }
 
 .label{
     font-size:13px;
     font-weight:800;
-    color:#334155;
+    color:var(--muted);
     margin-bottom:6px;
 }
 
 .value{
-    color:#0f172a;
+    color:var(--text);
     line-height:1.5;
 }
 
@@ -85,77 +141,74 @@ body{
 }
 
 .badge-scheduled{
-    background:#e5e7eb;
-    color:#111827;
+    background:var(--todo-bg);
+    color:var(--todo-text);
 }
 
 .badge-completed{
-    background:#dcfce7;
-    color:#166534;
+    background:var(--ok-bg);
+    color:var(--ok-text);
 }
 
 .btn{
-    background:#1f2937;
+    background:var(--btn);
     color:white;
-    padding:11px 14px;
+    padding:12px 14px;
     border:none;
-    border-radius:10px;
+    border-radius:12px;
     width:100%;
+    min-height:46px;
     font-size:15px;
     font-weight:800;
     cursor:pointer;
-    box-shadow:0 6px 16px rgba(15, 23, 42, 0.08);
 }
 
 .btn:hover{
-    background:#374151;
-}
-
-.attachments{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(240px, 240px));
-    gap:14px;
-}
-
-.attachment-card{
-    width:240px;
-    border:1px solid #dbe3ee;
-    border-radius:14px;
-    padding:12px;
-    background:#f8fafc;
-    box-sizing:border-box;
-}
-
-.attachment-title{
-    font-weight:800;
-    color:#0f172a;
-    word-break:break-word;
+    background:var(--btn-hover);
 }
 
 input[type="file"],
 input[type="text"],
 textarea{
     width:100%;
-    padding:10px 12px;
+    padding:12px;
     margin-bottom:12px;
     box-sizing:border-box;
-    border:1px solid #cfd8e3;
-    border-radius:10px;
-    background:#ffffff;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:var(--card);
+    color:var(--text);
     font-size:14px;
-}
-
-input[type="file"]:focus,
-input[type="text"]:focus,
-textarea:focus{
-    outline:none;
-    border-color:#93c5fd;
-    box-shadow:0 0 0 4px rgba(147, 197, 253, 0.22);
 }
 
 textarea{
     resize:vertical;
     min-height:130px;
+}
+
+.attachments{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+}
+
+.attachment-card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:12px;
+    background:var(--soft);
+}
+
+.attachment-title{
+    font-weight:800;
+    color:var(--text);
+    word-break:break-word;
+}
+
+.file-meta{
+    margin:8px 0;
+    font-size:12px;
+    color:var(--muted);
 }
 
 .media-thumb-link{
@@ -164,30 +217,15 @@ textarea{
     margin-top:10px;
 }
 
-.media-thumb{
-    width:214px;
-    height:150px;
-    max-width:214px;
-    max-height:150px;
-    object-fit:cover;
-    border-radius:12px;
-    border:1px solid #dbe3ee;
-    display:block;
-    background:#fff;
-    margin:0 auto;
-}
-
+.media-thumb,
 .media-video{
-    width:214px;
-    height:150px;
-    max-width:214px;
-    max-height:150px;
+    width:100%;
+    height:220px;
     object-fit:cover;
     border-radius:12px;
-    border:1px solid #dbe3ee;
+    border:1px solid var(--line);
     display:block;
-    background:black;
-    margin:0 auto;
+    background:#000;
 }
 
 .file-actions{
@@ -199,72 +237,36 @@ textarea{
 }
 
 .file-actions a{
-    color:#2563eb;
+    color:var(--accent);
     text-decoration:none;
     font-weight:700;
-}
-
-.file-actions a:hover{
-    text-decoration:underline;
-}
-
-.file-meta{
-    margin:8px 0;
-    font-size:12px;
-    color:#64748b;
-}
-
-.note-box{
-    white-space:pre-wrap;
-    line-height:1.5;
-    background:#f8fafc;
-    border:1px solid #e2e8f0;
-    border-radius:12px;
-    padding:14px;
-    color:#0f172a;
-}
-
-.back-link{
-    display:inline-flex;
-    align-items:center;
-    text-decoration:none;
-    background:#ffffff;
-    color:#0f172a;
-    border:1px solid #dbe3ee;
-    border-radius:10px;
-    padding:10px 14px;
-    font-weight:700;
-    box-shadow:0 6px 16px rgba(15, 23, 42, 0.06);
-}
-
-.back-link:hover{
-    background:#f8fafc;
 }
 
 .empty-text{
-    color:#64748b;
+    color:var(--muted);
     font-size:14px;
 }
 
-@media (max-width: 900px){
+@media (min-width: 900px){
     .page-container{
-        padding:14px;
+        padding:24px;
+    }
+
+    .page-title{
+        font-size:28px;
+    }
+
+    .info-grid{
+        grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
     }
 
     .attachments{
-        grid-template-columns:1fr;
-    }
-
-    .attachment-card{
-        width:100%;
+        grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
     }
 
     .media-thumb,
     .media-video{
-        width:100%;
-        max-width:100%;
-        height:190px;
-        max-height:190px;
+        height:180px;
     }
 }
 </style>
@@ -369,27 +371,31 @@ textarea{
                 <div class="attachment-title">{{ attachment.filename }}</div>
 
                 {% if attachment.note %}
-                <div style="margin:8px 0; color:#334155;">{{ attachment.note }}</div>
+                <div style="margin:8px 0; color:var(--text);">{{ attachment.note }}</div>
                 {% endif %}
 
                 <div class="file-meta">{{ attachment.uploaded_at|date:"d/m/Y H:i" }}</div>
 
-                {% if ".mp4" in attachment.file.url or ".mov" in attachment.file.url or ".webm" in attachment.file.url %}
-                    <a class="media-thumb-link" href="{{ attachment.file.url }}" target="_blank">
-                        <video class="media-video" muted preload="metadata">
-                            <source src="{{ attachment.file.url }}">
-                        </video>
-                    </a>
-                {% else %}
-                    <a class="media-thumb-link" href="{{ attachment.file.url }}" target="_blank">
-                        <img class="media-thumb" src="{{ attachment.file.url }}" alt="{{ attachment.filename }}">
-                    </a>
-                {% endif %}
+                {% if attachment.file.url %}
+                    {% if ".mp4" in attachment.file.url or ".mov" in attachment.file.url or ".webm" in attachment.file.url %}
+                        <a class="media-thumb-link" href="{{ attachment.file.url }}" target="_blank" rel="noopener">
+                            <video class="media-video" controls preload="metadata">
+                                <source src="{{ attachment.file.url }}">
+                            </video>
+                        </a>
+                    {% else %}
+                        <a class="media-thumb-link" href="{{ attachment.file.url }}" target="_blank" rel="noopener">
+                            <img class="media-thumb" src="{{ attachment.file.url }}" alt="{{ attachment.filename }}">
+                        </a>
+                    {% endif %}
 
-                <div class="file-actions">
-                    <a href="{{ attachment.file.url }}" target="_blank">Apri</a>
-                    <a href="{{ attachment.file.url }}" download>Scarica</a>
-                </div>
+                    <div class="file-actions">
+                        <a href="{{ attachment.file.url }}" target="_blank" rel="noopener">Apri</a>
+                        <a href="{{ attachment.file.url }}" target="_blank" rel="noopener">Scarica</a>
+                    </div>
+                {% else %}
+                    <div class="empty-text">File non disponibile.</div>
+                {% endif %}
             </div>
             {% empty %}
             <div class="empty-text">Nessun file caricato.</div>

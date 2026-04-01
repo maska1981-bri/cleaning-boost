@@ -7,6 +7,13 @@
 <title>Cleaning Boost - Calendario operativo</title>
 
 <style>
+thead th {
+position: sticky;
+top: 0;
+z-index: 5;
+background: #f5f5f5;
+}
+
 body{
 font-family:Arial, Helvetica, sans-serif;
 margin:0;
@@ -188,7 +195,8 @@ margin-bottom:18px;
 }
 
 .calendar-wrapper{
-overflow-x:auto;
+overflow:auto;
+max-height:calc(100vh - 180px);
 border:1px solid #ddd;
 background:white;
 }
@@ -210,6 +218,18 @@ background:#374151;
 color:white;
 font-weight:bold;
 height:30px;
+}
+
+.weekend-header{
+position: sticky;
+top: 0;
+z-index: 6;
+}
+
+.today-header{
+position: sticky;
+top: 0;
+z-index: 7;
 }
 
 .day-header{
@@ -434,6 +454,41 @@ background:#f9fafb !important;
 .employee-item.assigned{
 background:#dcfce7;
 font-weight:bold;
+}
+
+.calendar-wrapper thead th{
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background:#f5f5f5;
+}
+
+.calendar-wrapper .day-header{
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background:#f5f5f5;
+}
+
+.calendar-wrapper .weekend-header{
+    position: sticky;
+    top: 0;
+    z-index: 21;
+}
+
+.calendar-wrapper .today-header{
+    position: sticky;
+    top: 0;
+    z-index: 22;
+}
+
+.calendar-wrapper .apartment-col{
+    z-index: 10;
+}
+
+.calendar-wrapper thead .apartment-col{
+    z-index: 30;
+    top: 0;
 }
 </style>
 {% include "includes/ui_theme.html" %}

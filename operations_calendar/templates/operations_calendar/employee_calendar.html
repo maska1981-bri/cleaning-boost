@@ -1,221 +1,420 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<script>(function(){var t=localStorage.getItem("cleaning_boost_theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>    
+<script>
+(function(){
+    var t = localStorage.getItem("cleaning_boost_theme") || "light";
+    document.documentElement.setAttribute("data-theme", t);
+})();
+</script>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
 <title>Cleaning Boost - Calendario dipendenti</title>
 
 <style>
+:root{
+    --bg:#f4f6f8;
+    --card:#ffffff;
+    --text:#111827;
+    --muted:#6b7280;
+    --line:#dbe1e8;
+    --soft:#eef2f7;
+    --accent:#2563eb;
+    --ok-bg:#dcfce7;
+    --ok-text:#166534;
+    --todo-bg:#e5e7eb;
+    --todo-text:#111827;
+}
+
+html[data-theme="dark"]{
+    --bg:#0f172a;
+    --card:#111827;
+    --text:#f3f4f6;
+    --muted:#9ca3af;
+    --line:#374151;
+    --soft:#1f2937;
+    --accent:#60a5fa;
+    --ok-bg:#14532d;
+    --ok-text:#bbf7d0;
+    --todo-bg:#374151;
+    --todo-text:#f3f4f6;
+}
+
+*{
+    box-sizing:border-box;
+}
+
 body{
     font-family:Arial, Helvetica, sans-serif;
     margin:0;
-    background:#f4f6f8;
+    background:var(--bg);
+    color:var(--text);
 }
 
 .page-container{
-    padding:20px;
+    padding:12px;
+    max-width:1100px;
+    margin:0 auto;
 }
 
-.calendar-nav{
+.page-header{
     display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:16px;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:14px;
     flex-wrap:wrap;
 }
 
-.calendar-nav a{
-    background:#e5e7eb;
-    color:#111827;
-    text-decoration:none;
-    padding:8px 12px;
-    border-radius:4px;
-    font-size:14px;
+.page-title{
+    margin:0;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    font-size:22px;
 }
 
-.calendar-nav a:hover{
-    background:#d1d5db;
+.status-badge{
+    font-size:12px;
+    padding:6px 10px;
+    border-radius:999px;
+    background:var(--ok-bg);
+    color:var(--ok-text);
+    font-weight:800;
+}
+
+.calendar-nav{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:8px;
+    margin-bottom:14px;
+}
+
+.calendar-nav a,
+.calendar-nav .nav-current{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:44px;
+    padding:10px 14px;
+    border-radius:12px;
+    font-size:14px;
+    font-weight:700;
+    text-align:center;
+    border:1px solid var(--line);
+}
+
+.calendar-nav a{
+    background:var(--soft);
+    color:var(--text);
+    text-decoration:none;
 }
 
 .calendar-nav .nav-current{
-    font-weight:bold;
+    background:var(--card);
+    color:var(--text);
 }
 
-h2{
-    margin-top:0;
-    margin-bottom:18px;
+.day-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:12px;
+    margin-bottom:12px;
 }
 
-.calendar-wrapper{
-    overflow-x:auto;
-    border:1px solid #ddd;
-    background:white;
+.day-title{
+    font-size:16px;
+    font-weight:800;
+    margin-bottom:10px;
 }
 
-table{
-    border-collapse:collapse;
-    min-width:1400px;
-    width:100%;
+.day-title .today{
+    color:var(--accent);
 }
 
-th,td{
-    border:1px solid #ddd;
-    text-align:center;
-    font-size:12px;
-    padding:0;
+.cleaning-card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:12px;
+    margin-bottom:10px;
+    background:var(--soft);
 }
 
-.day-header{
-    background:#f5f5f5;
-    height:38px;
-    min-width:90px;
-    font-size:11px;
-    line-height:1.1;
+.cleaning-card:last-child{
+    margin-bottom:0;
 }
 
-.day-header .day-number{
-    display:block;
-    font-weight:bold;
-    margin-top:3px;
+.apartment-name{
+    font-size:16px;
+    font-weight:800;
+    margin-bottom:6px;
 }
 
-.day-header .day-name{
-    display:block;
-    font-size:10px;
-    color:#4b5563;
-    margin-top:2px;
-    margin-bottom:3px;
-    text-transform:lowercase;
-}
-
-.weekend-header{
-    background:#fde68a;
-}
-
-.weekend-cell{
-    background-color:#fffaf0;
-}
-
-.today-header{
-    background:#bfdbfe !important;
-}
-
-.today-cell{
-    background-color:#eff6ff !important;
-}
-
-.apartment-col{
-    position:sticky;
-    left:0;
-    background:white;
-    min-width:170px;
-    width:170px;
-    text-align:left;
-    font-weight:bold;
-    z-index:3;
-    padding:8px;
-}
-
-.cell{
-    min-width:90px;
-    width:90px;
-    height:95px;
-    position:relative;
-    vertical-align:top;
-    padding:4px;
-}
-
-.booking{
-    background:#b7d7ff;
-}
-
-.checkin{
-    background:
-    linear-gradient(
-        135deg,
-        white 0%,
-        white 49%,
-        #60a5fa 50%,
-        #93c5fd 100%
-    ) !important;
-}
-
-.checkout{
-    background:
-    linear-gradient(
-        135deg,
-        #c4b5fd 0%,
-        #818cf8 49%,
-        white 50%,
-        white 100%
-    ) !important;
-}
-
-.turnover{
-    background:
-    linear-gradient(
-        135deg,
-        #818cf8 0%,
-        #818cf8 49.5%,
-        #60a5fa 50%,
-        #60a5fa 100%
-    ) !important;
-}
-
-.booking-summary{
-    font-size:10px;
-    font-weight:bold;
-    color:#1f2d3d;
-    padding:1px 2px;
-    line-height:1.25;
-}
-
-.cleaning-link{
+.state-badge{
     display:inline-block;
-    margin-top:5px;
-    font-size:18px;
+    font-size:12px;
+    font-weight:800;
+    border-radius:999px;
+    padding:6px 10px;
+    margin-bottom:8px;
+}
+
+.state-badge.done{
+    background:var(--ok-bg);
+    color:var(--ok-text);
+}
+
+.state-badge.todo{
+    background:var(--todo-bg);
+    color:var(--todo-text);
+}
+
+.booking-box{
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.45;
+    margin-bottom:10px;
+}
+
+.booking-line{
+    margin-bottom:3px;
+}
+
+.action-row{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:44px;
+    padding:10px 14px;
+    border-radius:12px;
     text-decoration:none;
+    font-size:14px;
+    font-weight:700;
+    border:1px solid var(--line);
+    color:var(--text);
+    background:var(--card);
 }
 
-.cleaning-done{
-    color:#15803d;
+.btn-primary{
+    background:var(--accent);
+    color:#fff;
+    border-color:var(--accent);
 }
 
-.cleaning-todo{
-    color:#111827;
+.empty-box{
+    padding:14px;
+    border:1px dashed var(--line);
+    border-radius:12px;
+    color:var(--muted);
+    background:var(--card);
+    font-size:14px;
 }
 
-.cleaning-employees{
-    font-size:9px;
-    font-weight:bold;
-    line-height:10px;
-    margin-top:2px;
+.desktop-table{
+    display:none;
 }
 
-.apartment-link{
-    color:#111827;
-    text-decoration:none;
-}
-
-.apartment-link:hover{
-    text-decoration:underline;
-}
-
-@media (max-width: 900px){
+@media (min-width: 901px){
     .page-container{
-        padding:12px;
+        padding:20px;
     }
 
-    .cell{
-        min-width:100px;
-        width:100px;
-        height:105px;
+    .calendar-nav{
+        grid-template-columns:auto auto auto 1fr;
+        align-items:center;
+    }
+
+    .page-title{
+        font-size:24px;
+    }
+
+    .mobile-list{
+        display:none;
+    }
+
+    .desktop-table{
+        display:block;
+    }
+
+    .calendar-wrapper{
+        overflow-x:auto;
+        border:1px solid var(--line);
+        background:var(--card);
+        border-radius:14px;
+    }
+
+    table{
+        border-collapse:collapse;
+        min-width:1400px;
+        width:100%;
+    }
+
+    th,td{
+        border:1px solid var(--line);
+        text-align:center;
+        font-size:12px;
+        padding:0;
+        color:var(--text);
+    }
+
+    .day-header{
+        background:var(--soft);
+        height:42px;
+        min-width:90px;
+        font-size:11px;
+        line-height:1.1;
+    }
+
+    .day-header .day-number{
+        display:block;
+        font-weight:bold;
+        margin-top:4px;
+    }
+
+    .day-header .day-name{
+        display:block;
+        font-size:10px;
+        color:var(--muted);
+        margin-top:2px;
+        margin-bottom:4px;
+        text-transform:lowercase;
+    }
+
+    .weekend-header{
+        background:#fde68a;
+        color:#111827;
+    }
+
+    .weekend-cell{
+        background:#fffaf0;
+    }
+
+    .today-header{
+        background:#bfdbfe !important;
+        color:#111827;
+    }
+
+    .today-cell{
+        background:#eff6ff !important;
+    }
+
+    html[data-theme="dark"] .weekend-cell{
+        background:#2b2412;
+    }
+
+    html[data-theme="dark"] .today-cell{
+        background:#172554 !important;
     }
 
     .apartment-col{
-        min-width:140px;
-        width:140px;
+        position:sticky;
+        left:0;
+        background:var(--card);
+        min-width:170px;
+        width:170px;
+        text-align:left;
+        font-weight:bold;
+        z-index:3;
+        padding:8px;
+    }
+
+    .cell{
+        min-width:90px;
+        width:90px;
+        height:95px;
+        position:relative;
+        vertical-align:top;
+        padding:4px;
+    }
+
+    .booking{
+        background:#b7d7ff;
+        color:#111827;
+    }
+
+    .checkin{
+        background:
+        linear-gradient(
+            135deg,
+            white 0%,
+            white 49%,
+            #60a5fa 50%,
+            #93c5fd 100%
+        ) !important;
+        color:#111827;
+    }
+
+    .checkout{
+        background:
+        linear-gradient(
+            135deg,
+            #c4b5fd 0%,
+            #818cf8 49%,
+            white 50%,
+            white 100%
+        ) !important;
+        color:#111827;
+    }
+
+    .turnover{
+        background:
+        linear-gradient(
+            135deg,
+            #818cf8 0%,
+            #818cf8 49.5%,
+            #60a5fa 50%,
+            #60a5fa 100%
+        ) !important;
+        color:#111827;
+    }
+
+    .booking-summary{
+        font-size:10px;
+        font-weight:bold;
+        color:#1f2937;
+        padding:1px 2px;
+        line-height:1.25;
+    }
+
+    .cleaning-link{
+        display:inline-block;
+        margin-top:5px;
+        font-size:18px;
+        text-decoration:none;
+    }
+
+    .cleaning-done{
+        color:#15803d;
+    }
+
+    .cleaning-todo{
+        color:#111827;
+    }
+
+    .cleaning-employees{
+        font-size:9px;
+        font-weight:bold;
+        line-height:10px;
+        margin-top:2px;
+        color:#111827;
+    }
+
+    .apartment-link{
+        color:var(--text);
+        text-decoration:none;
+    }
+
+    .apartment-link:hover{
+        text-decoration:underline;
     }
 }
 </style>
@@ -228,6 +427,13 @@ th,td{
 
 <div class="page-container">
 
+    <div class="page-header">
+        <h2 class="page-title">
+            Calendario dipendenti
+            <span class="status-badge">Operativo</span>
+        </h2>
+    </div>
+
     <div class="calendar-nav">
         <a href="/employee-calendar/?start={{ prev_start|date:'Y-m-d' }}">← Indietro</a>
         <a href="/employee-calendar/">Oggi</a>
@@ -235,84 +441,148 @@ th,td{
         <span class="nav-current">{{ start_date|date:"d/m/Y" }} - {{ end_date|date:"d/m/Y" }}</span>
     </div>
 
-    <h2 style="margin-top:0; display:flex; align-items:center; gap:10px;">Calendario dipendenti <span style="font-size:12px; padding:5px 10px; border-radius:999px; background:#dcfce7; color:#166534; font-weight:800;">Operativo</span></h2>
+    <!-- MOBILE -->
+    <div class="mobile-list">
+        {% for day in days %}
+            <div class="day-card">
+                <div class="day-title">
+                    {{ day|date:"D d/m" }}
+                    {% if day == today %}
+                        <span class="today">· Oggi</span>
+                    {% endif %}
+                </div>
 
-    <div class="calendar-wrapper">
-        <table>
-            <thead>
-                <tr>
-                    <th class="apartment-col">Immobile</th>
-
-                    {% for day in days %}
-                    <th class="day-header{% if day.weekday == 5 or day.weekday == 6 %} weekend-header{% endif %}{% if day == today %} today-header{% endif %}">
-                        <span class="day-number">{{ day|date:"d" }}</span>
-                        <span class="day-name">
-                            {% if day.weekday == 0 %}lun{% elif day.weekday == 1 %}mar{% elif day.weekday == 2 %}mer{% elif day.weekday == 3 %}gio{% elif day.weekday == 4 %}ven{% elif day.weekday == 5 %}sab{% elif day.weekday == 6 %}dom{% endif %}
-                        </span>
-                    </th>
-                    {% endfor %}
-                </tr>
-            </thead>
-
-            <tbody>
                 {% for row in apartment_rows %}
-                <tr>
-                    <td class="apartment-col">
-                        <a class="apartment-link" href="/employee-apartment/{{ row.apartment.id }}/">
-                            {{ row.apartment.name }}
-                        </a>
-                    </td>
-
                     {% for cell in row.cells %}
-                    <td class="cell{% if cell.booking and not cell.is_check_in and not cell.is_check_out %} booking{% endif %}{% if cell.is_check_in and not cell.is_check_out %} checkin{% endif %}{% if cell.is_check_out and not cell.is_check_in %} checkout{% endif %}{% if cell.is_check_in and cell.is_check_out %} turnover{% endif %}{% if cell.day.weekday == 5 or cell.day.weekday == 6 %} weekend-cell{% endif %}{% if cell.day == today %} today-cell{% endif %}">
+                        {% if cell.day == day and cell.cleaning %}
+                            <div class="cleaning-card">
+                                <div class="apartment-name">{{ row.apartment.name }}</div>
 
-                        {% if cell.is_check_out and cell.booking and cell.booking.check_out_time %}
-                        <div class="booking-summary">
-                            OUT {{ cell.booking.check_out_time|time:"H:i" }}
-                        </div>
-                        {% elif cell.is_check_out %}
-                        <div class="booking-summary">OUT</div>
-                        {% endif %}
-
-                        {% if cell.is_check_in and cell.booking and cell.booking.check_in_time %}
-                        <div class="booking-summary">
-                            IN {{ cell.booking.check_in_time|time:"H:i" }}
-                        </div>
-                        {% elif cell.is_check_in %}
-                        <div class="booking-summary">IN</div>
-                        {% endif %}
-
-                        {% if cell.booking_summary %}
-                        <div class="booking-summary">
-                            {{ cell.booking_summary }}
-                        </div>
-                        {% endif %}
-
-                        {% if cell.cleaning %}
-                            <a class="cleaning-link {% if cell.cleaning.status == 'completed' %}cleaning-done{% else %}cleaning-todo{% endif %}"
-                               href="/employee-cleaning/{{ cell.cleaning.id }}/">
-                                {% if cell.cleaning.status == 'completed' %}
-                                    ✅🧹
+                                {% if cell.cleaning.status == "completed" %}
+                                    <div class="state-badge done">Completata</div>
                                 {% else %}
-                                    🧹
+                                    <div class="state-badge todo">Da fare</div>
                                 {% endif %}
-                            </a>
 
-                            {% if cell.cleaning.employees.all %}
-                            <div class="cleaning-employees">
-                                {% for emp in cell.cleaning.employees.all %}
-                                    {{ emp.initials }}
-                                {% endfor %}
+                                <div class="booking-box">
+                                    {% if cell.is_check_in and cell.booking and cell.booking.check_in_time %}
+                                        <div class="booking-line">IN {{ cell.booking.check_in_time|time:"H:i" }}</div>
+                                    {% elif cell.is_check_in %}
+                                        <div class="booking-line">IN</div>
+                                    {% endif %}
+
+                                    {% if cell.is_check_out and cell.booking and cell.booking.check_out_time %}
+                                        <div class="booking-line">OUT {{ cell.booking.check_out_time|time:"H:i" }}</div>
+                                    {% elif cell.is_check_out %}
+                                        <div class="booking-line">OUT</div>
+                                    {% endif %}
+
+                                    {% if cell.booking_summary %}
+                                        <div class="booking-line">{{ cell.booking_summary }}</div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="action-row">
+                                    <a class="btn" href="/employee-apartment/{{ row.apartment.id }}/">Immobile</a>
+                                    <a class="btn btn-primary" href="/employee-cleaning/{{ cell.cleaning.id }}/">Apri pulizia</a>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% empty %}
+            <div class="empty-box">Nessuna pulizia trovata.</div>
+        {% endfor %}
+    </div>
+
+    <!-- DESKTOP -->
+    <div class="desktop-table">
+        <div class="calendar-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="apartment-col">Immobile</th>
+
+                        {% for day in days %}
+                        <th class="day-header{% if day.weekday == 5 or day.weekday == 6 %} weekend-header{% endif %}{% if day == today %} today-header{% endif %}">
+                            <span class="day-number">{{ day|date:"d" }}</span>
+                            <span class="day-name">
+                                {% if day.weekday == 0 %}lun{% elif day.weekday == 1 %}mar{% elif day.weekday == 2 %}mer{% elif day.weekday == 3 %}gio{% elif day.weekday == 4 %}ven{% elif day.weekday == 5 %}sab{% elif day.weekday == 6 %}dom{% endif %}
+                            </span>
+                        </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for row in apartment_rows %}
+                    <tr>
+                        <td class="apartment-col">
+                            <a class="apartment-link" href="/employee-apartment/{{ row.apartment.id }}/">
+                                {{ row.apartment.name }}
+                            </a>
+                        </td>
+
+                        {% for cell in row.cells %}
+                        <td class="cell{% if cell.booking and not cell.is_check_in and not cell.is_check_out %} booking{% endif %}{% if cell.is_check_in and not cell.is_check_out %} checkin{% endif %}{% if cell.is_check_out and not cell.is_check_in %} checkout{% endif %}{% if cell.is_check_in and cell.is_check_out %} turnover{% endif %}{% if cell.day.weekday == 5 or cell.day.weekday == 6 %} weekend-cell{% endif %}{% if cell.day == today %} today-cell{% endif %}">
+
+                            {% if cell.is_check_out and cell.booking and cell.booking.check_out_time %}
+                            <div class="booking-summary">
+                                OUT {{ cell.booking.check_out_time|time:"H:i" }}
+                            </div>
+                            {% elif cell.is_check_out %}
+                            <div class="booking-summary">OUT</div>
+                            {% endif %}
+
+                            {% if cell.is_check_in and cell.booking and cell.booking.check_in_time %}
+                            <div class="booking-summary">
+                                IN {{ cell.booking.check_in_time|time:"H:i" }}
+                            </div>
+                            {% elif cell.is_check_in %}
+                            <div class="booking-summary">IN</div>
+                            {% endif %}
+
+                            {% if cell.booking_summary %}
+                            <div class="booking-summary">
+                                {{ cell.booking_summary }}
                             </div>
                             {% endif %}
-                        {% endif %}
-                    </td>
+
+                            {% if cell.cleaning %}
+                                <a class="cleaning-link {% if cell.cleaning.status == 'completed' %}cleaning-done{% else %}cleaning-todo{% endif %}"
+                                   href="/employee-cleaning/{{ cell.cleaning.id }}/">
+                                    {% if cell.cleaning.status == 'completed' %}
+                                        ✅🧹
+                                    {% else %}
+                                        🧹
+                                    {% endif %}
+                                </a>
+
+                                {% if cell.cleaning.employees.all %}
+                                <div class="cleaning-employees">
+                                    {% for emp in cell.cleaning.employees.all %}
+                                        {{ emp.initials }}
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td class="apartment-col">Nessun immobile</td>
+                        {% for day in days %}
+                        <td class="cell"></td>
+                        {% endfor %}
+                    </tr>
                     {% endfor %}
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
+
 </div>
 
 {% include "includes/footer.html" %}

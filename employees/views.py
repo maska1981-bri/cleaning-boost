@@ -6,7 +6,7 @@ from django.shortcuts import redirect
 @login_required
 def post_login_redirect(request):
     if request.user.is_staff or request.user.is_superuser:
-        return redirect("/")
+        return redirect("/admin/")
 
     employee = getattr(request.user, "employee_profile", None)
     if employee and employee.is_active:
@@ -17,6 +17,7 @@ def post_login_redirect(request):
 
 
 def custom_logout(request):
+    request.session.flush()
     logout(request)
     response = redirect("/login/")
     response.delete_cookie("sessionid")

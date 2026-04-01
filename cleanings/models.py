@@ -1,6 +1,8 @@
 from decimal import Decimal
 
 from django.db import models
+from cloudinary.models import CloudinaryField
+
 from apartments.models import Apartment
 from employees.models import Employee
 
@@ -27,9 +29,7 @@ class Cleaning(models.Model):
         verbose_name="Prenotazione collegata"
     )
 
-    date = models.DateField(
-        verbose_name="Data"
-    )
+    date = models.DateField(verbose_name="Data")
 
     status = models.CharField(
         max_length=20,
@@ -203,8 +203,9 @@ class CleaningAttachment(models.Model):
         verbose_name="Pulizia"
     )
 
-    file = models.FileField(
-        upload_to="cleaning_attachments/",
+    file = CloudinaryField(
+        resource_type="auto",
+        folder="cleaning_boost/cleaning_attachments",
         verbose_name="File"
     )
 
@@ -229,4 +230,5 @@ class CleaningAttachment(models.Model):
 
     @property
     def filename(self):
-        return self.file.name.split("/")[-1]
+        value = str(self.file)
+        return value.split("/")[-1]
