@@ -490,6 +490,60 @@ font-weight:bold;
     z-index: 30;
     top: 0;
 }
+
+.apartment-filter-box{
+    background:white;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:14px;
+}
+
+.apartment-filter-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.filter-toggle-btn,
+.filter-action-btn{
+    border:none;
+    background:#1f2937;
+    color:white;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:700;
+}
+
+.filter-action-btn{
+    background:#475569;
+}
+
+.filter-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.apartment-filter-panel{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:8px;
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px solid #e5e7eb;
+}
+
+.apartment-filter-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+}
 </style>
 {% include "includes/ui_theme.html" %}
 </head>
@@ -548,6 +602,34 @@ font-weight:bold;
 
 <h2 style="margin-top:0; display:flex; align-items:center; gap:10px;">Calendario operativo <span style="font-size:12px; padding:5px 10px; border-radius:999px; background:#dbeafe; color:#1d4ed8; font-weight:800;">Live</span></h2>
 
+<div class="apartment-filter-box">
+    <div class="apartment-filter-header">
+        <button type="button" class="filter-toggle-btn" onclick="toggleApartmentFilter()">
+            Mostra / Nascondi immobili
+        </button>
+
+        <div class="filter-actions">
+            <button type="button" class="filter-action-btn" onclick="selectAllApartments()">Tutte</button>
+            <button type="button" class="filter-action-btn" onclick="clearAllApartments()">Nessuna</button>
+        </div>
+    </div>
+
+    <div id="apartmentFilterPanel" class="apartment-filter-panel" style="display:none;">
+        {% for row in apartment_rows %}
+            <label class="apartment-filter-item">
+                <input
+                    type="checkbox"
+                    class="apartment-filter-checkbox"
+                    value="{{ row.apartment.id }}"
+                    checked
+                    onchange="applyApartmentFilter()"
+                >
+                <span>{{ row.apartment.name }}</span>
+            </label>
+        {% endfor %}
+    </div>
+</div>
+
 <div class="calendar-wrapper">
 <table>
 
@@ -578,7 +660,7 @@ font-weight:bold;
 
 <tbody>
 {% for row in apartment_rows %}
-<tr>
+<tr class="apartment-row" data-apartment-id="{{ row.apartment.id }}">
 
 <td class="apartment-col">
 <a href="/apartment/{{ row.apartment.id }}/" style="text-decoration:none;">
@@ -1087,5 +1169,74 @@ window.addEventListener("load", function(){
 </script>
 
 {% include "includes/footer.html" %}
+
+<script>
+const APARTMENT_FILTER_KEY = "cleaning_boost_hidden_apartments";
+
+function getHiddenApartments() {
+    try {
+        return JSON.parse(localStorage.getItem(APARTMENT_FILTER_KEY) || "[]");
+    } catch (e) {
+        return [];
+    }
+}
+
+function saveHiddenApartments(hiddenIds) {
+    localStorage.setItem(APARTMENT_FILTER_KEY, JSON.stringify(hiddenIds));
+}
+
+function toggleApartmentFilter() {
+    const panel = document.getElementById("apartmentFilterPanel");
+    if (!panel) return;
+    panel.style.display = panel.style.display === "none" ? "grid" : "none";
+}
+
+function applyApartmentFilter() {
+    const checkboxes = document.querySelectorAll(".apartment-filter-checkbox");
+    const rows = document.querySelectorAll(".apartment-row");
+
+    const hiddenIds = [];
+
+    checkboxes.forEach((checkbox) => {
+        if (!checkbox.checked) {
+            hiddenIds.push(String(checkbox.value));
+        }
+    });
+
+    saveHiddenApartments(hiddenIds);
+
+    rows.forEach((row) => {
+        const apartmentId = row.dataset.apartmentId;
+        row.style.display = hiddenIds.includes(String(apartmentId)) ? "none" : "";
+    });
+}
+
+function restoreApartmentFilter() {
+    const hiddenIds = getHiddenApartments();
+    const checkboxes = document.querySelectorAll(".apartment-filter-checkbox");
+
+    checkboxes.forEach((checkbox) => {
+        checkbox.checked = !hiddenIds.includes(String(checkbox.value));
+    });
+
+    applyApartmentFilter();
+}
+
+function selectAllApartments() {
+    document.querySelectorAll(".apartment-filter-checkbox").forEach((checkbox) => {
+        checkbox.checked = true;
+    });
+    applyApartmentFilter();
+}
+
+function clearAllApartments() {
+    document.querySelectorAll(".apartment-filter-checkbox").forEach((checkbox) => {
+        checkbox.checked = false;
+    });
+    applyApartmentFilter();
+}
+
+document.addEventListener("DOMContentLoaded", restoreApartmentFilter);
+</script>
 </body>
 </html>
