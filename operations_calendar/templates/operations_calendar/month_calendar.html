@@ -438,7 +438,17 @@ outline-offset:-2px;
 }
 
 .selection{
-background:#9bd3ff !important;
+    box-shadow: inset 0 0 0 9999px rgba(59, 130, 246, 0.35) !important;
+    outline:2px solid #2563eb !important;
+    outline-offset:-2px;
+}
+
+.calendar-wrapper .cell.selection .booking-summary,
+.calendar-wrapper .cell.selection .cleaning-icon,
+.calendar-wrapper .cell.selection .day-note-badge,
+.calendar-wrapper .cell.selection .cleaning-employees{
+    position:relative;
+    z-index:2;
 }
 
 .employee-menu-title{
@@ -543,6 +553,18 @@ font-weight:bold;
     align-items:center;
     gap:8px;
     font-size:14px;
+}
+
+.calendar-wrapper .cell,
+.calendar-wrapper .cell *{
+    opacity:1 !important;
+    filter:none !important;
+}
+
+.calendar-wrapper .cell:hover,
+.calendar-wrapper .cell:hover *{
+    opacity:1 !important;
+    filter:none !important;
 }
 </style>
 {% include "includes/ui_theme.html" %}
