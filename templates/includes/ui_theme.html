@@ -182,8 +182,24 @@ td{
     color: var(--app-text) !important;
 }
 
-tr:hover td{
+tr:hover td:not(.booking):not(.checkin):not(.checkout):not(.turnover){
     background: var(--app-surface-soft) !important;
+}
+
+tr:hover td.booking{
+    background: linear-gradient(180deg, #dbeafe 0%, #bfdbfe 100%) !important;
+}
+
+tr:hover td.checkin{
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 49%, #60a5fa 50%, #93c5fd 100%) !important;
+}
+
+tr:hover td.checkout{
+    background: linear-gradient(135deg, #ddd6fe 0%, #a78bfa 49%, #ffffff 50%, #ffffff 100%) !important;
+}
+
+tr:hover td.turnover{
+    background: linear-gradient(135deg, #8b5cf6 0%, #8b5cf6 49.5%, #60a5fa 50%, #60a5fa 100%) !important;
 }
 
 .message-box,
