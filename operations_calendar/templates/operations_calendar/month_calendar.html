@@ -455,17 +455,6 @@ outline-offset:-2px;
     z-index:2;
 }
 
-.cell:hover{
-    box-shadow: inset 0 0 0 9999px rgba(59, 130, 246, 0.18);
-}
-
-.cell.booking:hover,
-.cell.checkin:hover,
-.cell.checkout:hover,
-.cell.turnover:hover{
-    box-shadow: inset 0 0 0 9999px rgba(37, 99, 235, 0.22) !important;
-}
-
 .cell.selection:hover,
 .cell.booking.selection,
 .cell.checkin.selection,
@@ -580,16 +569,49 @@ font-weight:bold;
     font-size:14px;
 }
 
-.calendar-wrapper .cell,
-.calendar-wrapper .cell *{
-    opacity:1 !important;
-    filter:none !important;
+tbody tr td{
+    transition: background-color 0.12s ease, box-shadow 0.12s ease, outline 0.12s ease;
 }
 
-.calendar-wrapper .cell:hover,
-.calendar-wrapper .cell:hover *{
-    opacity:1 !important;
-    filter:none !important;
+.cell.booking:hover *,
+.cell.checkin:hover *,
+.cell.checkout:hover *,
+.cell.turnover:hover *{
+    opacity: 1 !important;
+}
+
+tr.apartment-row:hover td.apartment-col{
+    opacity: 1 !important;
+}
+
+/* HOVER PULITO */
+.cell:hover{
+    outline: 2px solid rgba(37, 99, 235, 0.4);
+    outline-offset: -2px;
+}
+
+/* SELEZIONE (sempre visibile) */
+.selection{
+    box-shadow: inset 0 0 0 9999px rgba(59, 130, 246, 0.35) !important;
+    outline:2px solid #2563eb !important;
+    outline-offset:-2px;
+}
+
+/* NON perdere selezione su booking */
+.cell.booking.selection,
+.cell.checkin.selection,
+.cell.checkout.selection,
+.cell.turnover.selection{
+    box-shadow: inset 0 0 0 9999px rgba(59, 130, 246, 0.35) !important;
+}
+
+/* Mantieni testo sopra */
+.cell.selection .booking-summary,
+.cell.selection .cleaning-icon,
+.cell.selection .day-note-badge,
+.cell.selection .cleaning-employees{
+    position:relative;
+    z-index:2;
 }
 </style>
 {% include "includes/ui_theme.html" %}
