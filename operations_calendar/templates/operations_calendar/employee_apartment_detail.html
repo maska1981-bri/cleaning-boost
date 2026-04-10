@@ -202,6 +202,11 @@ body{
 
         <div class="info-grid">
             <div>
+                <div class="label">Codice immobile</div>
+                <div class="value">{{ apartment.code|default:"-" }}</div>
+            </div>
+
+            <div>
                 <div class="label">Indirizzo</div>
                 <div class="value">{{ apartment.address|default:"-" }}</div>
             </div>
@@ -209,8 +214,8 @@ body{
             <div>
                 <div class="label">Google Maps</div>
                 <div class="value">
-                    {% if apartment.google_maps_link %}
-                        <a class="map-link" href="{{ apartment.google_maps_link }}" target="_blank">Apri mappa</a>
+                    {% if apartment.google_maps_url %}
+                        <a class="map-link" href="{{ apartment.google_maps_url }}" target="_blank">Apri mappa</a>
                     {% else %}
                         -
                     {% endif %}
@@ -218,8 +223,8 @@ body{
             </div>
 
             <div>
-                <div class="label">Numero massimo persone</div>
-                <div class="value">{{ apartment.max_people|default:"-" }}</div>
+                <div class="label">Numero massimo ospiti</div>
+                <div class="value">{{ apartment.max_guests|default:"-" }}</div>
             </div>
 
             <div>
@@ -235,10 +240,10 @@ body{
     </div>
 
     <div class="box">
-        <h3 class="section-title">Note</h3>
+        <h3 class="section-title">Note operative</h3>
 
-        {% if apartment.notes %}
-            <div class="note-box">{{ apartment.notes }}</div>
+        {% if apartment.operational_notes %}
+            <div class="note-box">{{ apartment.operational_notes }}</div>
         {% else %}
             <div class="empty-text">Nessuna nota disponibile.</div>
         {% endif %}
