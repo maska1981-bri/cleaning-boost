@@ -151,7 +151,7 @@ def calendar_month_view(request):
     if property_type:
         apartments = apartments.filter(property_type=property_type)
 
-    apartments = apartments.order_by("name")
+    apartments = apartments.order_by("code")
 
     bookings = Booking.objects.filter(
         apartment__is_active=True,
@@ -580,7 +580,7 @@ def employee_calendar(request):
     if not is_admin_user and current_employee is None:
         raise PermissionDenied
 
-    apartments = Apartment.objects.filter(is_active=True).order_by("name")
+    apartments = Apartment.objects.filter(is_active=True).order_by("code")
 
     if not is_admin_user:
         apartments = apartments.filter(
