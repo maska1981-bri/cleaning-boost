@@ -334,6 +334,32 @@ body{
     </div>
 
     <div class="box">
+        <h3 class="section-title">Dati immobile</h3>
+
+        <div class="grid">
+            <div>
+                <div class="label">Numero massimo ospiti</div>
+                <div class="value">{{ apartment.max_guests|default:"-" }}</div>
+            </div>
+
+            <div>
+                <div class="label">Letti matrimoniali immobile</div>
+                <div class="value">{{ apartment.double_beds|default:"-" }}</div>
+            </div>
+
+            <div>
+                <div class="label">Letti singoli immobile</div>
+                <div class="value">{{ apartment.single_beds|default:"-" }}</div>
+            </div>
+
+            <div>
+                <div class="label">Indirizzo</div>
+                <div class="value">{{ apartment.address|default:"-" }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
         <h3 class="section-title">Dati operativi</h3>
 
         <div class="grid">
@@ -357,6 +383,16 @@ body{
                 <div class="value"><strong>€ {{ cleaning.total_cost }}</strong></div>
             </div>
         </div>
+    </div>
+
+    <div class="box">
+        <h3 class="section-title">Note operative immobile</h3>
+
+        {% if apartment.operational_notes %}
+            <div class="note-box">{{ apartment.operational_notes }}</div>
+        {% else %}
+            <div class="small">Nessuna nota operativa.</div>
+        {% endif %}
     </div>
 
     {% if booking %}
