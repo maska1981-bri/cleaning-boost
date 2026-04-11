@@ -458,6 +458,7 @@ def delete_day_notes(request):
         )
 
 
+@csrf_exempt
 @login_required
 @require_POST
 def update_cleaning_status(request):
