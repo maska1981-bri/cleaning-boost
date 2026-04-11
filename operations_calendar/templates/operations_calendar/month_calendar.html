@@ -796,6 +796,7 @@ OUT {{ cell.booking.check_out_time|time:"H:i" }}
 <div class="note-item" data-note="SOLO_PULIZIA">Solo pulizia</div>
 <div class="note-item" data-note="NO_BIANCHERIA">No biancheria</div>
 <div class="note-item" data-note="TUTTI_LETTI">Tutti i letti</div>
+<div id="addCustomNote">📝 Nota libera</div>
 
 <hr>
 
@@ -1123,6 +1124,27 @@ document.querySelectorAll(".note-item").forEach(item => {
         });
     };
 });
+
+document.getElementById("addCustomNote").onclick = function() {
+    const noteText = prompt("Scrivi la nota:");
+
+    if (!noteText || !noteText.trim()) {
+        return;
+    }
+
+    postJson("/create-day-note/", {
+        apartment_id: selectedApartmentForMenu,
+        date: selectedDateForMenu,
+        note_type: "CUSTOM",
+        notes: noteText.trim()
+    })
+    .then(() => {
+        window.location.reload();
+    })
+    .catch(error => {
+        alert("Errore: " + error.message);
+    });
+};
 
 document.getElementById("deleteBooking").onclick = function() {
     if (!selectedBookingIdForMenu) {

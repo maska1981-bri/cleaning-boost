@@ -9,6 +9,7 @@ class DayNote(models.Model):
         ("SOLO_PULIZIA", "Solo pulizia"),
         ("NO_BIANCHERIA", "No biancheria"),
         ("TUTTI_LETTI", "Tutti i letti"),
+        ("CUSTOM", "Nota libera"),
     ]
 
     apartment = models.ForeignKey(
@@ -41,6 +42,9 @@ class DayNote(models.Model):
 
     @property
     def short_label(self):
+        if self.note_type == "CUSTOM":
+            return self.notes if self.notes else "Nota"
+
         labels = {
             "PROP": "Prop",
             "CANE": "Cane",

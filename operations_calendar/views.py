@@ -342,6 +342,7 @@ def create_day_note(request):
         apartment_id = data.get("apartment_id")
         date_value = data.get("date")
         note_type = data.get("note_type")
+        note_text = (data.get("notes") or "").strip()
 
         if not apartment_id or not date_value or not note_type:
             return JsonResponse(
@@ -349,14 +350,25 @@ def create_day_note(request):
                 status=400,
             )
 
+        if note_type == "CUSTOM" and not note_text:
+            return JsonResponse(
+                {"status": "error", "message": "Testo nota mancante"},
+                status=400,
+            )
+
         apartment = get_object_or_404(Apartment, id=apartment_id)
         note_date = datetime.strptime(date_value, "%Y-%m-%d").date()
 
-        DayNote.objects.get_or_create(
+        note, created = DayNote.objects.get_or_create(
             apartment=apartment,
             date=note_date,
             note_type=note_type,
+            defaults={"notes": note_text},
         )
+
+        if not created and note_type == "CUSTOM":
+            note.notes = note_text
+            note.save()
 
         return JsonResponse({"status": "ok"})
 
