@@ -90,18 +90,24 @@ def calendar_month_view(request):
         end_date = start_date + timedelta(days=6)
         prev_start = start_date - timedelta(days=7)
         next_start = start_date + timedelta(days=7)
+        buffer_before = 3
+        buffer_after = 3
 
     elif view_mode == "15days":
         start_date = anchor_date
         end_date = start_date + timedelta(days=14)
         prev_start = start_date - timedelta(days=15)
         next_start = start_date + timedelta(days=15)
+        buffer_before = 7
+        buffer_after = 7
 
     elif view_mode == "quarter":
         start_date = anchor_date
         end_date = start_date + timedelta(days=89)
         prev_start = start_date - timedelta(days=90)
         next_start = start_date + timedelta(days=90)
+        buffer_before = 30
+        buffer_after = 30
 
     else:
         view_mode = "month"
@@ -115,10 +121,15 @@ def calendar_month_view(request):
         end_date = next_month - timedelta(days=1)
         prev_start = add_months(start_date, -1).replace(day=1)
         next_start = add_months(start_date, 1).replace(day=1)
+        buffer_before = 15
+        buffer_after = 15
+
+    display_start = start_date - timedelta(days=buffer_before)
+    display_end = end_date + timedelta(days=buffer_after)
 
     days = []
-    current = start_date
-    while current <= end_date:
+    current = display_start
+    while current <= display_end:
         days.append(current)
         current += timedelta(days=1)
 
@@ -155,8 +166,8 @@ def calendar_month_view(request):
 
     bookings = Booking.objects.filter(
         apartment__is_active=True,
-        check_in__lte=end_date,
-        check_out__gte=start_date,
+        check_in__lte=display_end,
+        check_out__gte=display_start,
     ).select_related("apartment")
 
     if property_type:
@@ -164,7 +175,7 @@ def calendar_month_view(request):
 
     cleanings = Cleaning.objects.filter(
         apartment__is_active=True,
-        date__range=[start_date, end_date],
+        date__range=[display_start, display_end],
     ).prefetch_related("employees", "apartment")
 
     if property_type:
@@ -172,7 +183,7 @@ def calendar_month_view(request):
 
     day_notes = DayNote.objects.filter(
         apartment__is_active=True,
-        date__range=[start_date, end_date],
+        date__range=[display_start, display_end],
     ).select_related("apartment")
 
     if property_type:
