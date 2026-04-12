@@ -7,12 +7,10 @@ from tempfile import NamedTemporaryFile
 
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, FileResponse
-from django.db.models import Prefetch
 
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 
-from bookings.models import Booking
 from cleanings.models import Cleaning
 from customers.models import Customer
 
@@ -110,42 +108,36 @@ def accounting_report(request):
         selected_customer = get_object_or_404(Customer, id=customer_id, is_active=True)
 
     if selected_customer and date_from and date_to:
-        apartments = selected_customer.apartments.all()
-
-        bookings = (
-            Booking.objects
+        cleanings = (
+            Cleaning.objects
             .filter(
-                apartment__in=apartments,
-                check_in__lte=date_to,
-                check_out__gte=date_from,
+                apartment__customer=selected_customer,
+                date__gte=date_from,
+                date__lte=date_to,
             )
-            .select_related("apartment")
-            .prefetch_related(
-                Prefetch("cleanings", queryset=Cleaning.objects.order_by("date"))
-            )
-            .order_by("check_in", "check_out")
+            .select_related("apartment", "booking")
+            .prefetch_related("employees")
+            .order_by("date", "apartment__name")
         )
 
-        for booking in bookings:
-            cleaning = booking.cleanings.first()
-
-            cleaning_cost = cleaning.cleaning_cost if cleaning else Decimal("0.00")
-            fixed_kit_cost = cleaning.fixed_kit_cost if cleaning else Decimal("0.00")
-            per_person_kit_cost = cleaning.per_person_kit_cost if cleaning else Decimal("0.00")
-            double_bed_cost = cleaning.double_bed_cost if cleaning else Decimal("0.00")
-            single_bed_cost = cleaning.single_bed_cost if cleaning else Decimal("0.00")
-            mat_cost = cleaning.mat_cost if cleaning else Decimal("0.00")
-            extra_cost = cleaning.extra_cost if cleaning else Decimal("0.00")
-            people_count = cleaning.people_count if cleaning else 0
-            double_beds_count = cleaning.double_beds_count if cleaning else 0
-            single_beds_count = cleaning.single_beds_count if cleaning else 0
-            total_cost = cleaning.total_cost if cleaning else Decimal("0.00")
+        for cleaning in cleanings:
+            cleaning_cost = cleaning.cleaning_cost or Decimal("0.00")
+            fixed_kit_cost = cleaning.fixed_kit_cost or Decimal("0.00")
+            per_person_kit_cost = cleaning.per_person_kit_cost or Decimal("0.00")
+            double_bed_cost = cleaning.double_bed_cost or Decimal("0.00")
+            single_bed_cost = cleaning.single_bed_cost or Decimal("0.00")
+            mat_cost = cleaning.mat_cost or Decimal("0.00")
+            extra_cost = cleaning.extra_cost or Decimal("0.00")
+            people_count = cleaning.people_count or 0
+            double_beds_count = cleaning.double_beds_count or 0
+            single_beds_count = cleaning.single_beds_count or 0
+            total_cost = cleaning.total_cost or Decimal("0.00")
 
             subtotal += total_cost
 
             rows.append({
-                "booking": booking,
-                "apartment": booking.apartment,
+                "booking": cleaning.booking,
+                "apartment": cleaning.apartment,
                 "cleaning": cleaning,
                 "cleaning_cost": cleaning_cost,
                 "fixed_kit_cost": fixed_kit_cost,
@@ -188,30 +180,25 @@ def accounting_pdf(request):
         vat_percentage = Decimal("22")
 
     customer = get_object_or_404(Customer, id=customer_id, is_active=True)
-    apartments = customer.apartments.all()
 
-    bookings = (
-        Booking.objects
+    cleanings = (
+        Cleaning.objects
         .filter(
-            apartment__in=apartments,
-            check_in__lte=date_to,
-            check_out__gte=date_from,
+            apartment__customer=customer,
+            date__gte=date_from,
+            date__lte=date_to,
         )
-        .select_related("apartment")
-        .prefetch_related(
-            Prefetch("cleanings", queryset=Cleaning.objects.order_by("date"))
-        )
-        .order_by("check_in", "check_out")
+        .select_related("apartment", "booking")
+        .order_by("date", "apartment__name")
     )
 
     subtotal = Decimal("0.00")
     rows = []
 
-    for booking in bookings:
-        cleaning = booking.cleanings.first()
-        cost = cleaning.total_cost if cleaning else Decimal("0.00")
+    for cleaning in cleanings:
+        cost = cleaning.total_cost or Decimal("0.00")
         subtotal += cost
-        rows.append((booking, cleaning, cost))
+        rows.append((cleaning, cost))
 
     vat = (subtotal * vat_percentage / Decimal("100")).quantize(Decimal("0.01"))
     total = (subtotal + vat).quantize(Decimal("0.01"))
@@ -233,8 +220,17 @@ def accounting_pdf(request):
 
     y -= 30
 
-    for booking, cleaning, cost in rows:
-        text = f"{booking.apartment.name} | {booking.check_in} -> {booking.check_out} | EUR {cost}"
+    for cleaning, cost in rows:
+        if cleaning.booking:
+            text = (
+                f"{cleaning.apartment.name} | "
+                f"{cleaning.date} | "
+                f"Booking #{cleaning.booking.id} | "
+                f"EUR {cost}"
+            )
+        else:
+            text = f"{cleaning.apartment.name} | {cleaning.date} | Pulizia manuale | EUR {cost}"
+
         p.drawString(50, y, text)
         y -= 18
 
@@ -328,32 +324,26 @@ def monthly_invoices_zip(request):
     zipf = zipfile.ZipFile(temp_zip.name, "w")
 
     for customer in customers:
-        apartments = customer.apartments.all()
-
-        bookings = (
-            Booking.objects
+        cleanings = (
+            Cleaning.objects
             .filter(
-                apartment__in=apartments,
-                check_in__lte=date_to,
-                check_out__gte=date_from,
+                apartment__customer=customer,
+                date__gte=date_from,
+                date__lt=date_to,
             )
-            .select_related("apartment")
-            .prefetch_related(
-                Prefetch("cleanings", queryset=Cleaning.objects.order_by("date"))
-            )
-            .order_by("check_in", "check_out")
+            .select_related("apartment", "booking")
+            .order_by("date", "apartment__name")
         )
 
         subtotal = Decimal("0.00")
         rows = []
 
-        for booking in bookings:
-            cleaning = booking.cleanings.first()
-            cost = cleaning.total_cost if cleaning else Decimal("0.00")
+        for cleaning in cleanings:
+            cost = cleaning.total_cost or Decimal("0.00")
 
             if cost > 0:
                 subtotal += cost
-                rows.append((booking, cost))
+                rows.append((cleaning, cost))
 
         if subtotal == 0:
             continue
@@ -387,8 +377,17 @@ def monthly_invoices_zip(request):
 
         y -= 30
 
-        for booking, cost in rows:
-            text = f"{booking.apartment.name} | {booking.check_in} -> {booking.check_out} | EUR {cost}"
+        for cleaning, cost in rows:
+            if cleaning.booking:
+                text = (
+                    f"{cleaning.apartment.name} | "
+                    f"{cleaning.date} | "
+                    f"Booking #{cleaning.booking.id} | "
+                    f"EUR {cost}"
+                )
+            else:
+                text = f"{cleaning.apartment.name} | {cleaning.date} | Pulizia manuale | EUR {cost}"
+
             p.drawString(50, y, text)
             y -= 18
 
@@ -416,24 +415,23 @@ def monthly_invoices_zip(request):
 
     return FileResponse(open(temp_zip.name, "rb"), as_attachment=True, filename="fatture.zip")
 
+
 def export_excel(request):
     customer_id = request.GET.get("customer")
     date_from = request.GET.get("date_from")
     date_to = request.GET.get("date_to")
 
     customer = Customer.objects.get(id=customer_id)
-    apartments = customer.apartments.all()
 
-    bookings = (
-        Booking.objects
+    cleanings = (
+        Cleaning.objects
         .filter(
-            apartment__in=apartments,
-            check_in__lte=date_to,
-            check_out__gte=date_from,
+            apartment__customer=customer,
+            date__gte=date_from,
+            date__lte=date_to,
         )
-        .select_related("apartment")
-        .prefetch_related("cleanings")
-        .order_by("check_in", "check_out")
+        .select_related("apartment", "booking")
+        .order_by("date", "apartment__name")
     )
 
     response = HttpResponse(content_type="text/csv")
@@ -442,22 +440,19 @@ def export_excel(request):
     writer = csv.writer(response)
     writer.writerow([
         "Immobile",
-        "Check-in",
-        "Check-out",
+        "Data pulizia",
+        "Prenotazione",
         "Ospite",
         "Totale"
     ])
 
-    for booking in bookings:
-        cleaning = booking.cleanings.first()
-        total = cleaning.total_cost if cleaning else 0
-
+    for cleaning in cleanings:
         writer.writerow([
-            booking.apartment.name,
-            booking.check_in,
-            booking.check_out,
-            booking.guest_name,
-            total
+            cleaning.apartment.name,
+            cleaning.date,
+            cleaning.booking.id if cleaning.booking else "",
+            cleaning.booking.guest_name if cleaning.booking else "Pulizia manuale",
+            cleaning.total_cost
         ])
 
     return response

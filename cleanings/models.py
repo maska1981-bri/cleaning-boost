@@ -136,9 +136,6 @@ class Cleaning(models.Model):
 
     def load_booking_values(self):
         if not self.booking_id:
-            self.people_count = 0
-            self.double_beds_count = 0
-            self.single_beds_count = 0
             return
 
         self.people_count = self.booking.people_count or 0
