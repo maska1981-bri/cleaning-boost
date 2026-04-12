@@ -35,7 +35,7 @@ def cleaning_detail(request, cleaning_id):
         cleaning.mat_cost = to_decimal(request.POST.get("mat_cost"))
         cleaning.extra_cost = to_decimal(request.POST.get("extra_cost"))
 
-        cleaning.save()
+        cleaning.save(recalculate=False)
         return redirect(f"/cleaning/{cleaning.id}/")
 
     attachments = cleaning.attachments.all() if hasattr(cleaning, "attachments") else []

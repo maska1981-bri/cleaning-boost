@@ -179,7 +179,11 @@ class Cleaning(models.Model):
         self.load_apartment_default_costs(force=force_costs)
 
     def save(self, *args, **kwargs):
-        self.recalculate_from_sources(force_costs=False)
+        recalculate = kwargs.pop("recalculate", True)
+
+        if recalculate:
+            self.recalculate_from_sources(force_costs=False)
+
         super().save(*args, **kwargs)
 
     @property
