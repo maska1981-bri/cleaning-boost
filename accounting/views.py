@@ -196,56 +196,143 @@ def accounting_pdf(request):
     rows = []
 
     for cleaning in cleanings:
-        cost = cleaning.total_cost or Decimal("0.00")
-        subtotal += cost
-        rows.append((cleaning, cost))
+        total_cost = cleaning.total_cost or Decimal("0.00")
+        subtotal += total_cost
+
+        rows.append({
+            "cleaning": cleaning,
+            "apartment_name": cleaning.apartment.name,
+            "date": cleaning.date,
+            "booking_label": f"Booking #{cleaning.booking.id}" if cleaning.booking else "Pulizia manuale",
+            "guest_name": cleaning.booking.guest_name if cleaning.booking and cleaning.booking.guest_name else "-",
+            "people_count": cleaning.people_count or 0,
+            "double_beds_count": cleaning.double_beds_count or 0,
+            "single_beds_count": cleaning.single_beds_count or 0,
+            "cleaning_cost": cleaning.cleaning_cost or Decimal("0.00"),
+            "fixed_kit_cost": cleaning.fixed_kit_cost or Decimal("0.00"),
+            "per_person_kit_cost": cleaning.per_person_kit_cost or Decimal("0.00"),
+            "double_bed_cost": cleaning.double_bed_cost or Decimal("0.00"),
+            "single_bed_cost": cleaning.single_bed_cost or Decimal("0.00"),
+            "mat_cost": cleaning.mat_cost or Decimal("0.00"),
+            "extra_cost": cleaning.extra_cost or Decimal("0.00"),
+            "total_cost": total_cost,
+        })
 
     vat = (subtotal * vat_percentage / Decimal("100")).quantize(Decimal("0.01"))
     total = (subtotal + vat).quantize(Decimal("0.01"))
 
     buffer = BytesIO()
     p = canvas.Canvas(buffer, pagesize=A4)
+    width, height = A4
 
-    y = 800
+    left = 40
+    right = width - 40
+    y = height - 40
 
-    p.setFont("Helvetica-Bold", 16)
-    p.drawString(50, y, "Report servizi")
+    def ensure_space(current_y, needed=80):
+        nonlocal p, y
+        if current_y < needed:
+            p.showPage()
+            y = height - 40
+            draw_header()
 
-    y -= 30
-    p.setFont("Helvetica", 11)
-    p.drawString(50, y, f"Cliente: {customer.name}")
+    def money(value):
+        return f"EUR {Decimal(value).quantize(Decimal('0.01'))}"
 
-    y -= 20
-    p.drawString(50, y, f"Periodo: {date_from} - {date_to}")
+    def draw_header():
+        nonlocal y
+        p.setFont("Helvetica-Bold", 16)
+        p.drawString(left, y, "Report servizi")
 
-    y -= 30
+        y -= 24
+        p.setFont("Helvetica", 10)
+        p.drawString(left, y, f"Cliente: {customer.name}")
 
-    for cleaning, cost in rows:
-        if cleaning.booking:
-            text = (
-                f"{cleaning.apartment.name} | "
-                f"{cleaning.date} | "
-                f"Booking #{cleaning.booking.id} | "
-                f"EUR {cost}"
-            )
-        else:
-            text = f"{cleaning.apartment.name} | {cleaning.date} | Pulizia manuale | EUR {cost}"
+        y -= 16
+        p.drawString(left, y, f"Periodo: {date_from} - {date_to}")
 
-        p.drawString(50, y, text)
+        y -= 16
+        p.drawString(left, y, f"IVA: {vat_percentage}%")
+
+        y -= 18
+        p.line(left, y, right, y)
         y -= 18
 
-        if y < 100:
-            p.showPage()
-            y = 800
+    draw_header()
 
-    y -= 20
-    p.drawString(50, y, f"Imponibile: EUR {subtotal}")
+    for row in rows:
+        ensure_space(y, 140)
 
-    y -= 20
-    p.drawString(50, y, f"IVA {vat_percentage}%: EUR {vat}")
+        p.setFont("Helvetica-Bold", 11)
+        p.drawString(left, y, row["apartment_name"])
 
-    y -= 20
-    p.drawString(50, y, f"Totale: EUR {total}")
+        y -= 14
+        p.setFont("Helvetica", 10)
+        p.drawString(left, y, f"Data pulizia: {row['date']}")
+        p.drawString(250, y, row["booking_label"])
+
+        y -= 14
+        p.drawString(left, y, f"Ospite: {row['guest_name']}")
+
+        y -= 14
+        p.drawString(
+            left,
+            y,
+            f"Persone: {row['people_count']}   Matrimoniali: {row['double_beds_count']}   Singoli: {row['single_beds_count']}"
+        )
+
+        y -= 18
+        p.setFont("Helvetica", 9)
+        p.drawString(left + 10, y, f"Pulizia base: {money(row['cleaning_cost'])}")
+
+        y -= 12
+        p.drawString(left + 10, y, f"Kit fisso: {money(row['fixed_kit_cost'])}")
+
+        y -= 12
+        p.drawString(
+            left + 10,
+            y,
+            f"Kit persona: {money(row['per_person_kit_cost'])} x {row['people_count']}"
+        )
+
+        y -= 12
+        p.drawString(
+            left + 10,
+            y,
+            f"Letti matrimoniali: {money(row['double_bed_cost'])} x {row['double_beds_count']}"
+        )
+
+        y -= 12
+        p.drawString(
+            left + 10,
+            y,
+            f"Letti singoli: {money(row['single_bed_cost'])} x {row['single_beds_count']}"
+        )
+
+        y -= 12
+        p.drawString(left + 10, y, f"Tappetino: {money(row['mat_cost'])}")
+
+        y -= 12
+        p.drawString(left + 10, y, f"Extra: {money(row['extra_cost'])}")
+
+        y -= 16
+        p.setFont("Helvetica-Bold", 10)
+        p.drawString(left + 10, y, f"Totale pulizia: {money(row['total_cost'])}")
+
+        y -= 12
+        p.line(left, y, right, y)
+        y -= 18
+
+    ensure_space(y, 80)
+
+    p.setFont("Helvetica-Bold", 11)
+    p.drawString(left, y, f"Imponibile: {money(subtotal)}")
+
+    y -= 16
+    p.drawString(left, y, f"IVA {vat_percentage}%: {money(vat)}")
+
+    y -= 16
+    p.drawString(left, y, f"Totale: {money(total)}")
 
     p.save()
     buffer.seek(0)
