@@ -1319,13 +1319,20 @@ document.getElementById("deleteNotes").onclick = function() {
 
 window.addEventListener("load", function(){
     const todayCell = document.querySelector(".today-cell");
+    const calendarWrapper = document.querySelector(".calendar-wrapper");
+    const topScroll = document.getElementById("calendarTopScroll");
 
-    if(todayCell){
-        todayCell.scrollIntoView({
-            behavior: "smooth",
-            inline: "center",
-            block: "nearest"
-        });
+    if (!todayCell || !calendarWrapper) {
+        return;
+    }
+
+    const wrapperWidth = calendarWrapper.clientWidth;
+    const targetLeft = todayCell.offsetLeft - (wrapperWidth / 2) + (todayCell.offsetWidth / 2);
+
+    calendarWrapper.scrollLeft = Math.max(0, targetLeft);
+
+    if (topScroll) {
+        topScroll.scrollLeft = calendarWrapper.scrollLeft;
     }
 });
 </script>
