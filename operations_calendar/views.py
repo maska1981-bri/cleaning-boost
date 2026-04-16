@@ -109,6 +109,14 @@ def calendar_month_view(request):
         buffer_before = 30
         buffer_after = 30
 
+    elif view_mode == "compact":
+        start_date = anchor_date
+        end_date = start_date + timedelta(days=13)
+        prev_start = start_date - timedelta(days=14)
+        next_start = start_date + timedelta(days=14)
+        buffer_before = 0
+        buffer_after = 0   
+
     else:
         view_mode = "month"
         start_date = anchor_date.replace(day=1)
@@ -278,6 +286,7 @@ def calendar_month_view(request):
         "employees": employees,
         "selected_type": property_type or "",
         "context_view": view_mode,
+        "is_compact_view": view_mode == "compact",
         "today": today,
         "start_date": start_date,
         "end_date": end_date,
@@ -359,25 +368,33 @@ def create_day_note(request):
         apartment = get_object_or_404(Apartment, id=apartment_id)
         note_date = datetime.strptime(date_value, "%Y-%m-%d").date()
 
-        note, created = DayNote.objects.get_or_create(
-            apartment=apartment,
-            date=note_date,
-            note_type=note_type,
-            defaults={"notes": note_text},
-        )
+        if note_type == "CUSTOM":
+            note, created = DayNote.objects.update_or_create(
+                apartment=apartment,
+                date=note_date,
+                note_type=note_type,
+                defaults={"notes": note_text},
+            )
+        else:
+            note, created = DayNote.objects.get_or_create(
+                apartment=apartment,
+                date=note_date,
+                note_type=note_type,
+            )
 
-        if not created and note_type == "CUSTOM":
-            note.notes = note_text
-            note.save()
-
-        return JsonResponse({"status": "ok"})
+        return JsonResponse({
+            "status": "ok",
+            "created": created,
+            "note_id": note.id,
+            "short_label": note.short_label,
+            "notes": note.notes,
+        })
 
     except Exception as e:
         return JsonResponse(
             {"status": "error", "message": str(e)},
             status=500,
         )
-
 
 @csrf_exempt
 @require_POST
@@ -612,6 +629,18 @@ def employee_calendar(request):
             cleanings__date__range=[start_date, end_date],
         ).distinct()
 
+    day_notes = DayNote.objects.filter(
+        apartment__in=apartments,
+        date__range=[start_date, end_date],
+    ).select_related("apartment")
+
+    day_note_map = {}
+    for note in day_notes:
+        key = (note.apartment_id, note.date)
+        if key not in day_note_map:
+            day_note_map[key] = []
+        day_note_map[key].append(note)
+
     apartment_rows = []
 
     for apartment in apartments:
@@ -623,6 +652,8 @@ def employee_calendar(request):
                 check_in__lte=day,
                 check_out__gte=day
             ).first()
+
+            notes_for_day = day_note_map.get((apartment.id, day), [])
 
             cleaning_qs = Cleaning.objects.filter(
                 apartment=apartment,
@@ -637,19 +668,23 @@ def employee_calendar(request):
             is_check_in = bool(booking and booking.check_in == day)
             is_check_out = bool(booking and booking.check_out == day)
 
+            show_booking_summary = False
             booking_summary = ""
+
             if booking:
+                if booking.check_in == booking.check_out:
+                    show_booking_summary = day == booking.check_in
+                else:
+                    show_booking_summary = day == (booking.check_in + timedelta(days=1))
+
+                parts = []
                 if booking.people_count:
-                    booking_summary += f"{booking.people_count} pers."
-                if booking.double_beds or booking.single_beds:
-                    beds = []
-                    if booking.double_beds:
-                        beds.append(f"{booking.double_beds}M")
-                    if booking.single_beds:
-                        beds.append(f"{booking.single_beds}S")
-                    if booking_summary:
-                        booking_summary += " "
-                    booking_summary += " ".join(beds)
+                    parts.append(f"{booking.people_count}p")
+                if booking.double_beds:
+                    parts.append(f"{booking.double_beds}M")
+                if booking.single_beds:
+                    parts.append(f"{booking.single_beds}S")
+                booking_summary = " ".join(parts)
 
             cells.append({
                 "day": day,
@@ -657,7 +692,9 @@ def employee_calendar(request):
                 "cleaning": cleaning,
                 "is_check_in": is_check_in,
                 "is_check_out": is_check_out,
+                "show_booking_summary": show_booking_summary,
                 "booking_summary": booking_summary,
+                "day_notes": notes_for_day,
             })
 
         apartment_rows.append({

@@ -7,6 +7,67 @@
     document.documentElement.setAttribute("data-theme", t);
 })();
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("notesModal");
+    const modalTitle = document.getElementById("notesModalTitle");
+    const modalList = document.getElementById("notesModalList");
+    const closeBtn = document.getElementById("notesModalClose");
+
+    function closeNotesModal() {
+        modal.classList.remove("open");
+        modalList.innerHTML = "";
+    }
+
+    document.querySelectorAll(".cell-notes-indicator").forEach(item => {
+        item.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const title = this.dataset.noteTitle || "Note";
+            const raw = this.dataset.noteContent || "";
+
+            modalTitle.textContent = title;
+            modalList.innerHTML = "";
+
+            raw.split("##NOTE##").forEach(part => {
+                const pieces = part.split("||");
+                const label = (pieces[0] || "").trim();
+                const text = (pieces[1] || "").trim();
+
+                const box = document.createElement("div");
+                box.className = "notes-modal-item";
+
+                const labelEl = document.createElement("div");
+                labelEl.className = "notes-modal-label";
+                labelEl.textContent = label || "Nota";
+
+                box.appendChild(labelEl);
+
+                if (text) {
+                    const textEl = document.createElement("div");
+                    textEl.className = "notes-modal-text";
+                    textEl.textContent = text;
+                    box.appendChild(textEl);
+                }
+
+                modalList.appendChild(box);
+            });
+
+            modal.classList.add("open");
+        });
+    });
+
+    closeBtn.addEventListener("click", closeNotesModal);
+
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            closeNotesModal();
+        }
+    });
+});
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
@@ -150,7 +211,7 @@ th,td{
 .day-header{
     background:var(--soft);
     height:46px;
-    min-width:82px;
+    min-width:58px;
     font-size:11px;
     line-height:1.1;
     position:sticky;
@@ -183,12 +244,13 @@ th,td{
 }
 
 .today-header{
-    background:#bfdbfe !important;
+    background:#fde68a !important;
     color:#111827;
 }
 
 .today-cell{
-    background:#eff6ff !important;
+    background:#fff7cc !important;
+    box-shadow:inset 0 0 0 2px #facc15;
 }
 
 html[data-theme="dark"] .weekend-cell{
@@ -196,15 +258,15 @@ html[data-theme="dark"] .weekend-cell{
 }
 
 html[data-theme="dark"] .today-cell{
-    background:#172554 !important;
+    background:#3a2f00 !important;
 }
 
 .apartment-col{
     position:sticky;
     left:0;
     background:var(--card);
-    min-width:140px;
-    width:140px;
+    min-width:150px;
+    width:150px;
     text-align:left;
     font-weight:bold;
     z-index:4;
@@ -212,12 +274,13 @@ html[data-theme="dark"] .today-cell{
 }
 
 .cell{
-    min-width:82px;
-    width:82px;
-    height:88px;
+    min-width:58px;
+    width:58px;
+    height:30px;
     position:relative;
-    vertical-align:top;
-    padding:4px;
+    vertical-align:middle;
+    padding:0;
+    overflow:hidden;
 }
 
 .booking{
@@ -262,34 +325,193 @@ html[data-theme="dark"] .today-cell{
 }
 
 .booking-summary{
-    font-size:10px;
+    position:absolute;
+    font-size:7px;
     font-weight:bold;
-    color:#1f2937;
-    padding:1px 2px;
-    line-height:1.25;
-}
-
-.cleaning-link{
-    display:inline-block;
-    margin-top:4px;
-    font-size:18px;
-    text-decoration:none;
-}
-
-.cleaning-done{
-    color:#15803d;
-}
-
-.cleaning-todo{
     color:#111827;
+    line-height:1;
+    padding:0;
+    margin:0;
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
+    z-index:2;
 }
 
-.cleaning-employees{
+.booking-summary.check-out-time{
+    top:1px;
+    left:2px;
+}
+
+.booking-summary.check-in-time{
+    right:2px;
+    bottom:1px;
+}
+
+.booking-mini-summary{
+    position:absolute;
+    left:50%;
+    bottom:1px;
+    transform:translateX(-50%);
     font-size:9px;
     font-weight:bold;
-    line-height:10px;
-    margin-top:2px;
     color:#111827;
+    line-height:1;
+    white-space:nowrap;
+    max-width:90%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    z-index:2;
+    pointer-events:none;
+}
+
+.cell-center-content{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:2;
+}
+
+.cell-notes-indicator{
+position:absolute;
+top:0;
+right:0;
+width:0;
+height:0;
+border-top:12px solid #000;
+border-left:12px solid transparent;
+z-index:3;
+cursor:help;
+}
+
+.cell-notes-indicator::after{
+content:"";
+position:absolute;
+top:-11px;
+right:0;
+width:0;
+height:0;
+border-top:10px solid #facc15;
+border-left:10px solid transparent;
+}
+
+.cleaning-dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    border:2px solid #000;
+    display:inline-block;
+    box-sizing:border-box;
+}
+
+.cleaning-dot.todo{
+    background:#dc2626;
+}
+
+.cleaning-dot.done{
+    background:#16a34a;
+}
+
+.notes-modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.45);
+z-index:3000;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.notes-modal.open{
+display:flex;
+}
+
+.notes-modal-box{
+background:var(--card);
+color:var(--text);
+border:1px solid var(--line);
+border-radius:16px;
+box-shadow:0 20px 50px rgba(0,0,0,0.25);
+width:min(520px, 100%);
+max-height:80vh;
+overflow:auto;
+padding:18px;
+}
+
+.notes-modal-title{
+font-size:18px;
+font-weight:800;
+margin-bottom:12px;
+}
+
+.notes-modal-list{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.notes-modal-item{
+border:1px solid var(--line);
+background:var(--soft);
+border-radius:12px;
+padding:10px 12px;
+line-height:1.4;
+font-size:14px;
+}
+
+.notes-modal-label{
+font-weight:800;
+color:var(--text);
+margin-bottom:4px;
+}
+
+.notes-modal-text{
+color:var(--text);
+white-space:pre-wrap;
+}
+
+.notes-modal-close{
+margin-top:14px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+min-height:42px;
+padding:10px 14px;
+border-radius:12px;
+font-size:14px;
+font-weight:700;
+border:1px solid var(--line);
+background:var(--card);
+color:var(--text);
+cursor:pointer;
+}
+
+.cell-notes-indicator{
+position:absolute;
+top:0;
+right:0;
+width:0;
+height:0;
+border-top:12px solid #000;
+border-left:12px solid transparent;
+z-index:3;
+cursor:pointer;
+}
+
+.cell-notes-indicator::after{
+content:"";
+position:absolute;
+top:-11px;
+right:0;
+width:0;
+height:0;
+border-top:10px solid #facc15;
+border-left:10px solid transparent;
 }
 
 .apartment-link{
@@ -330,13 +552,13 @@ html[data-theme="dark"] .today-cell{
     }
 
     .cell{
-        min-width:90px;
-        width:90px;
-        height:95px;
+        min-width:58px;
+        width:58px;
+        height:30px;
     }
 
     .day-header{
-        min-width:90px;
+        min-width:58px;
     }
 }
 </style>
@@ -397,45 +619,40 @@ html[data-theme="dark"] .today-cell{
                         <td class="cell{% if cell.booking and not cell.is_check_in and not cell.is_check_out %} booking{% endif %}{% if cell.is_check_in and not cell.is_check_out %} checkin{% endif %}{% if cell.is_check_out and not cell.is_check_in %} checkout{% endif %}{% if cell.is_check_in and cell.is_check_out %} turnover{% endif %}{% if cell.day.weekday == 5 or cell.day.weekday == 6 %} weekend-cell{% endif %}{% if cell.day == today %} today-cell{% endif %}">
 
                             {% if cell.is_check_out and cell.booking and cell.booking.check_out_time %}
-                            <div class="booking-summary">
-                                OUT {{ cell.booking.check_out_time|time:"H:i" }}
-                            </div>
-                            {% elif cell.is_check_out %}
-                            <div class="booking-summary">OUT</div>
+                            <span class="booking-summary check-out-time">
+                                {{ cell.booking.check_out_time|time:"H:i" }}
+                            </span>
                             {% endif %}
 
                             {% if cell.is_check_in and cell.booking and cell.booking.check_in_time %}
-                            <div class="booking-summary">
-                                IN {{ cell.booking.check_in_time|time:"H:i" }}
-                            </div>
-                            {% elif cell.is_check_in %}
-                            <div class="booking-summary">IN</div>
+                            <span class="booking-summary check-in-time">
+                                {{ cell.booking.check_in_time|time:"H:i" }}
+                            </span>
                             {% endif %}
 
-                            {% if cell.booking_summary %}
-                            <div class="booking-summary">
-                                {{ cell.booking_summary }}
-                            </div>
+                            {% if cell.show_booking_summary and cell.booking %}
+                            <span class="booking-mini-summary">
+                                {% if cell.booking.people_count %}{{ cell.booking.people_count }}p{% endif %}
+                                {% if cell.booking.double_beds %} {{ cell.booking.double_beds }}M{% endif %}
+                                {% if cell.booking.single_beds %} {{ cell.booking.single_beds }}S{% endif %}
+                            </span>
                             {% endif %}
 
-                            {% if cell.cleaning %}
-                                <a class="cleaning-link {% if cell.cleaning.status == 'completed' %}cleaning-done{% else %}cleaning-todo{% endif %}"
-                                   href="/employee-cleaning/{{ cell.cleaning.id }}/">
-                                    {% if cell.cleaning.status == 'completed' %}
-                                        ✅🧹
-                                    {% else %}
-                                        🧹
-                                    {% endif %}
+                            {% if cell.day_notes %}
+                            <span
+                                class="cell-notes-indicator"
+                                data-note-title="{{ row.apartment.code }} - {{ row.apartment.name }} | {{ cell.day|date:'d/m/Y' }}"
+                                data-note-content="{% for note in cell.day_notes %}{{ note.short_label }}{% if note.notes %}||{{ note.notes|linebreaksbr|striptags }}{% endif %}{% if not forloop.last %}##NOTE##{% endif %}{% endfor %}"
+                            ></span>
+                            {% endif %}
+
+                            <div class="cell-center-content">
+                                {% if cell.cleaning %}
+                                <a href="/employee-cleaning/{{ cell.cleaning.id }}/" style="display:inline-flex; align-items:center; justify-content:center;">
+                                    <span class="cleaning-dot {% if cell.cleaning.status == 'completed' %}done{% else %}todo{% endif %}"></span>
                                 </a>
-
-                                {% if cell.cleaning.employees.all %}
-                                <div class="cleaning-employees">
-                                    {% for emp in cell.cleaning.employees.all %}
-                                        {{ emp.initials }}
-                                    {% endfor %}
-                                </div>
                                 {% endif %}
-                            {% endif %}
+                            </div>
                         </td>
                         {% endfor %}
                     </tr>
@@ -447,6 +664,14 @@ html[data-theme="dark"] .today-cell{
         <div class="empty-box">Nessuna pulizia trovata.</div>
     {% endif %}
 
+</div>
+
+<div id="notesModal" class="notes-modal">
+    <div class="notes-modal-box">
+        <div id="notesModalTitle" class="notes-modal-title">Note</div>
+        <div id="notesModalList" class="notes-modal-list"></div>
+        <button type="button" id="notesModalClose" class="notes-modal-close">Chiudi</button>
+    </div>
 </div>
 
 {% include "includes/footer.html" %}
