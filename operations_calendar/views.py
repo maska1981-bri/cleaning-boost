@@ -263,11 +263,18 @@ def calendar_month_view(request):
 
                 booking_summary = booking.stay_summary
 
+            visible_note_text = ""
+            for note in notes_for_day:
+                if note.note_type == "CUSTOM" and note.notes:
+                    visible_note_text = note.notes
+                    break
+
             row_cells.append({
                 "day": day,
                 "booking": booking,
                 "cleaning": cleaning,
                 "day_notes": notes_for_day,
+                "visible_note_text": visible_note_text,
                 "is_check_in": is_check_in,
                 "is_check_out": is_check_out,
                 "show_booking_summary": show_booking_summary,
