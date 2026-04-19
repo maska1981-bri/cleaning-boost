@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.http import HttpResponseRedirect
 from .models import Cleaning, CleaningAttachment
 
 
@@ -29,6 +30,22 @@ class CleaningAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         obj.apply_apartment_default_costs(force=False)
         super().save_model(request, obj, form, change)
+
+    def response_add(self, request, obj, post_url_continue=None):
+        next_url = request.GET.get("next") or request.POST.get("next")
+        if next_url:
+            return HttpResponseRedirect(next_url)
+        return super().response_add(request, obj, post_url_continue)
+
+    def response_change(self, request, obj):
+        next_url = request.GET.get("next") or request.POST.get("next")
+        if next_url:
+            return HttpResponseRedirect(next_url)
+        return super().response_change(request, obj)
+
+    def render_change_form(self, request, context, *args, **kwargs):
+        context["extra_next"] = request.GET.get("next", "")
+        return super().render_change_form(request, context, *args, **kwargs)
 
 
 @admin.register(CleaningAttachment)

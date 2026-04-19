@@ -1229,19 +1229,27 @@ document.addEventListener("click", function(e) {
 });
 
 document.getElementById("menuBooking").onclick = function() {
+    const nextUrl = encodeURIComponent(window.location.pathname + window.location.search);
+
     window.location.href =
         "/admin/bookings/booking/add/?apartment=" +
         selectedApartmentForMenu +
         "&check_in=" +
-        selectedDateForMenu;
+        selectedDateForMenu +
+        "&next=" +
+        nextUrl;
 };
 
 document.getElementById("menuCleaning").onclick = function() {
+    const nextUrl = encodeURIComponent(window.location.pathname + window.location.search);
+
     window.location.href =
         "/admin/cleanings/cleaning/add/?apartment=" +
         selectedApartmentForMenu +
         "&date=" +
-        selectedDateForMenu;
+        selectedDateForMenu +
+        "&next=" +
+        nextUrl;
 };
 
 document.getElementById("markCleaningCompleted").onclick = function() {
