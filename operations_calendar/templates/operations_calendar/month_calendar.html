@@ -1208,13 +1208,17 @@ document.addEventListener("mouseup", function() {
             return;
         }
 
+        const nextUrl = encodeURIComponent(window.location.pathname + window.location.search);
+
         window.location.href =
             "/admin/bookings/booking/add/?apartment=" +
             apartmentId +
             "&check_in=" +
             startDate +
             "&check_out=" +
-            endDate;
+            endDate +
+            "&next=" +
+            nextUrl;
     }
 });
 

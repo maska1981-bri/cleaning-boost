@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib import admin
+from django.http import HttpResponseRedirect
 from .models import Booking
 from apartments.models import Apartment
 
@@ -115,3 +116,19 @@ class BookingAdmin(admin.ModelAdmin):
                 super().__init__(*args, **kw)
 
         return RequestAwareForm
+
+    def response_add(self, request, obj, post_url_continue=None):
+        next_url = request.GET.get("next") or request.POST.get("next")
+        if next_url:
+            return HttpResponseRedirect(next_url)
+        return super().response_add(request, obj, post_url_continue)
+
+    def response_change(self, request, obj):
+        next_url = request.GET.get("next") or request.POST.get("next")
+        if next_url:
+            return HttpResponseRedirect(next_url)
+        return super().response_change(request, obj)
+
+    def render_change_form(self, request, context, *args, **kwargs):
+        context["extra_next"] = request.GET.get("next", "")
+        return super().render_change_form(request, context, *args, **kwargs)
