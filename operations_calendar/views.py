@@ -269,6 +269,12 @@ def calendar_month_view(request):
                     visible_note_text = note.notes
                     break
 
+            visible_note_text = ""
+            for note in notes_for_day:
+                if note.note_type == "VISIBLE" and note.notes:
+                    visible_note_text = note.notes
+                    break
+
             row_cells.append({
                 "day": day,
                 "booking": booking,
@@ -279,6 +285,7 @@ def calendar_month_view(request):
                 "is_check_out": is_check_out,
                 "show_booking_summary": show_booking_summary,
                 "booking_summary": booking_summary,
+                "visible_note_text": visible_note_text,
             })
 
         apartment_rows.append({
@@ -366,7 +373,7 @@ def create_day_note(request):
                 status=400,
             )
 
-        if note_type == "CUSTOM" and not note_text:
+        if note_type in ["CUSTOM", "VISIBLE"] and not note_text:
             return JsonResponse(
                 {"status": "error", "message": "Testo nota mancante"},
                 status=400,
@@ -375,7 +382,7 @@ def create_day_note(request):
         apartment = get_object_or_404(Apartment, id=apartment_id)
         note_date = datetime.strptime(date_value, "%Y-%m-%d").date()
 
-        if note_type == "CUSTOM":
+        if note_type in ["CUSTOM", "VISIBLE"]:
             note, created = DayNote.objects.update_or_create(
                 apartment=apartment,
                 date=note_date,
