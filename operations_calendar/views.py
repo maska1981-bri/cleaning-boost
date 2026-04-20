@@ -114,8 +114,8 @@ def calendar_month_view(request):
         end_date = start_date + timedelta(days=13)
         prev_start = start_date - timedelta(days=14)
         next_start = start_date + timedelta(days=14)
-        buffer_before = 0
-        buffer_after = 0   
+        buffer_before = 10
+        buffer_after = 10
 
     else:
         view_mode = "month"

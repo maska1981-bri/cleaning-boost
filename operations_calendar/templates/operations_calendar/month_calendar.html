@@ -370,9 +370,9 @@ line-height:1.1;
 }
 
 body.view-compact .cell{
-min-width:42px;
-width:42px;
-height:16px;
+min-width:48px;
+width:80px;
+height:18px;
 padding:0;
 vertical-align:middle;
 }
@@ -391,9 +391,9 @@ min-width:900px;
 }
 
 body.view-compact .day-header{
-height:28px;
-min-width:42px;
-font-size:9px;
+height:30px;
+min-width:80px;
+font-size:10px;
 }
 
 body.view-compact .day-header .day-number{
@@ -407,9 +407,30 @@ margin-top:1px;
 margin-bottom:2px;
 }
 
-body.view-compact .booking-summary,
+body.view-compact .booking-summary.check-out-time,
+body.view-compact .booking-summary.check-in-time,
 body.view-compact .cell-notes-indicator{
 display:none !important;
+}
+
+body.view-compact .booking-mini-summary{
+position:absolute;
+left:1px;
+right:1px;
+bottom:1px;
+transform:none;
+font-size:8px;
+font-weight:700;
+line-height:1;
+white-space:normal;
+word-break:break-word;
+overflow:hidden;
+text-overflow:clip;
+max-width:none;
+z-index:2;
+pointer-events:none;
+letter-spacing:0;
+text-align:center;
 }
 
 .booking{
@@ -903,14 +924,14 @@ data-cleaning-employees="{% if cell.cleaning %}{% for emp in cell.cleaning.emplo
         {{ cell.booking.check_in_time|time:"H:i" }}
     </span>
     {% endif %}
+{% endif %}
 
-    {% if not is_compact_view and cell.show_booking_summary and cell.booking %}
-    <span class="booking-mini-summary">
-        {% if cell.booking.people_count %}{{ cell.booking.people_count }}p{% endif %}
-        {% if cell.booking.double_beds %} {{ cell.booking.double_beds }}M{% endif %}
-        {% if cell.booking.single_beds %} {{ cell.booking.single_beds }}S{% endif %}
-    </span>
-    {% endif %}
+{% if cell.show_booking_summary and cell.booking %}
+<span class="booking-mini-summary">
+    {% if cell.booking.people_count %}{{ cell.booking.people_count }}p{% endif %}
+    {% if cell.booking.double_beds %} {{ cell.booking.double_beds }}M{% endif %}
+    {% if cell.booking.single_beds %} {{ cell.booking.single_beds }}S{% endif %}
+</span>
 {% endif %}
 
 {% if not is_compact_view and cell.day_notes %}
@@ -1200,13 +1221,16 @@ document.addEventListener("mouseup", function() {
         const endDate = last.dataset.date;
         const bookingId = first.dataset.bookingId;
 
-        if (selectedCells.length === 1 && bookingId) {
-            window.location.href =
-                "/admin/bookings/booking/" +
-                bookingId +
-                "/change/";
-            return;
-        }
+    if (selectedCells.length === 1 && bookingId) {
+        const nextUrl = encodeURIComponent(window.location.pathname + window.location.search);
+
+        window.location.href =
+            "/admin/bookings/booking/" +
+            bookingId +
+            "/change/?next=" +
+            nextUrl;
+        return;
+}
 
         const nextUrl = encodeURIComponent(window.location.pathname + window.location.search);
 
