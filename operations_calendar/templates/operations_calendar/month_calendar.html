@@ -306,7 +306,16 @@ left:0;
 top:0;
 background:white;
 z-index:31;
-min-width:170px;
+width:180px;
+min-width:180px;
+max-width:180px;
+overflow:hidden;
+}
+
+body.view-compact .month-left-sticky{
+width:180px !important;
+min-width:180px !important;
+max-width:180px !important;
 }
 
 .cell{
@@ -362,11 +371,23 @@ width:84px !important;
 }
 
 body.view-compact .apartment-col{
-min-width:120px;
-width:120px;
-font-size:10px;
+width:180px;
+min-width:180px;
+max-width:180px;
+height:16px;
+overflow:hidden;
 padding:2px 4px;
-line-height:1.1;
+font-size:10px;
+line-height:12px;
+}
+
+body.view-compact .apartment-col a{
+display:block;
+overflow:hidden;
+white-space:nowrap;
+text-overflow:ellipsis;
+line-height:12px;
+max-height:12px;
 }
 
 body.view-compact .cell{
