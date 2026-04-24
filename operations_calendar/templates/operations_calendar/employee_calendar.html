@@ -279,6 +279,9 @@ width:50px;
 height:26px;
 padding:0;
 font-size:11px;
+position:relative;
+overflow:hidden;
+vertical-align:middle;
 }
 
 .booking{
@@ -595,6 +598,8 @@ border-left:10px solid transparent;
         max-width:48px !important;
         height:24px !important;
         padding:0 !important;
+        position:relative !important;
+        overflow:hidden !important;
     }
 
     tbody tr{
@@ -621,13 +626,15 @@ border-left:10px solid transparent;
 }
 
 .today-cell .cell-center-content{
-z-index:10 !important;
+z-index:30 !important;
 }
 
 .today-cell .cleaning-dot{
-position:relative;
-z-index:11 !important;
+position:relative !important;
+z-index:31 !important;
 display:inline-block !important;
+visibility:visible !important;
+opacity:1 !important;
 }
 </style>
 {% include "includes/ui_theme.html" %}
