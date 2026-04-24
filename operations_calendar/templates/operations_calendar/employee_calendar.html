@@ -209,14 +209,10 @@ th,td{
 }
 
 .day-header{
-    background:var(--soft);
-    height:46px;
-    min-width:58px;
-    font-size:11px;
-    line-height:1.1;
-    position:sticky;
-    top:0;
-    z-index:5;
+height:32px;
+min-width:50px;
+width:50px;
+font-size:10px;
 }
 
 .day-header .day-number{
@@ -262,25 +258,27 @@ html[data-theme="dark"] .today-cell{
 }
 
 .apartment-col{
-    position:sticky;
-    left:0;
-    background:var(--card);
-    min-width:150px;
-    width:150px;
-    text-align:left;
-    font-weight:bold;
-    z-index:4;
-    padding:8px;
+width:90px;
+min-width:90px;
+max-width:90px;
+font-size:11px;
+padding:4px;
+overflow:hidden;
+}
+
+.apartment-col a{
+display:block;
+overflow:hidden;
+white-space:nowrap;
+text-overflow:ellipsis;
 }
 
 .cell{
-    min-width:58px;
-    width:58px;
-    height:30px;
-    position:relative;
-    vertical-align:middle;
-    padding:0;
-    overflow:hidden;
+min-width:50px;
+width:50px;
+height:26px;
+padding:0;
+font-size:11px;
 }
 
 .booking{
@@ -559,6 +557,66 @@ border-left:10px solid transparent;
 
     .day-header{
         min-width:58px;
+    }
+}
+
+/* MOBILE DIPENDENTI - vista super compatta */
+@media (max-width: 900px){
+
+    .calendar-wrapper table{
+        min-width:520px !important;
+    }
+
+    .apartment-col{
+        width:70px !important;
+        min-width:70px !important;
+        max-width:70px !important;
+        padding:3px !important;
+        font-size:10px !important;
+        line-height:11px !important;
+        overflow:hidden !important;
+        white-space:nowrap !important;
+        text-overflow:ellipsis !important;
+    }
+
+    .apartment-link{
+        display:block !important;
+        width:100% !important;
+        overflow:hidden !important;
+        white-space:nowrap !important;
+        text-overflow:ellipsis !important;
+        font-size:10px !important;
+        line-height:11px !important;
+    }
+
+    .cell{
+        width:48px !important;
+        min-width:48px !important;
+        max-width:48px !important;
+        height:24px !important;
+        padding:0 !important;
+    }
+
+    tbody tr{
+        height:24px !important;
+    }
+
+    .day-header{
+        width:48px !important;
+        min-width:48px !important;
+        max-width:48px !important;
+        height:32px !important;
+        font-size:10px !important;
+    }
+
+    .booking-mini-summary{
+        font-size:7px !important;
+    }
+
+    .cleaning-dot{
+        width:10px !important;
+        height:10px !important;
+        border:1.5px solid #000 !important;
     }
 }
 </style>
