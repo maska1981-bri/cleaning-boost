@@ -637,12 +637,7 @@ def employee_calendar(request):
 
     apartments = Apartment.objects.filter(is_active=True).order_by("code")
 
-    if not is_admin_user:
-        apartments = apartments.filter(
-            cleanings__employees=current_employee,
-            cleanings__date__range=[start_date, end_date],
-        ).distinct()
-
+    # 🔴 NOTE
     day_notes = DayNote.objects.filter(
         apartment__in=apartments,
         date__range=[start_date, end_date],
@@ -651,14 +646,14 @@ def employee_calendar(request):
     day_note_map = {}
     for note in day_notes:
         key = (note.apartment_id, note.date)
-        if key not in day_note_map:
-            day_note_map[key] = []
-        day_note_map[key].append(note)
+        day_note_map.setdefault(key, []).append(note)
 
     apartment_rows = []
 
     for apartment in apartments:
         cells = []
+        has_relevant_day = False
+        first_relevant_day = None
 
         for day in days:
             booking = Booking.objects.filter(
@@ -678,6 +673,11 @@ def employee_calendar(request):
                 cleaning_qs = cleaning_qs.filter(employees=current_employee)
 
             cleaning = cleaning_qs.first()
+
+            # 🔴 LOGICA ORDINAMENTO
+            if (cleaning or notes_for_day) and not has_relevant_day:
+                has_relevant_day = True
+                first_relevant_day = day
 
             is_check_in = bool(booking and booking.check_in == day)
             is_check_out = bool(booking and booking.check_out == day)
@@ -714,7 +714,17 @@ def employee_calendar(request):
         apartment_rows.append({
             "apartment": apartment,
             "cells": cells,
+            "has_relevant_day": has_relevant_day,
+            "first_relevant_day": first_relevant_day or date.max,
         })
+
+    # 🔴 ORDINAMENTO
+    apartment_rows.sort(
+        key=lambda x: (
+            not x["has_relevant_day"],  # prima quelli con lavoro
+            x["first_relevant_day"]     # poi per giorno
+        )
+    )
 
     context = {
         "today": today,
