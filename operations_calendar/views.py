@@ -753,15 +753,6 @@ def employee_apartment_detail(request, apartment_id):
     if not is_admin_user and current_employee is None:
         raise PermissionDenied
 
-    if not is_admin_user:
-        has_access = Cleaning.objects.filter(
-            apartment=apartment,
-            employees=current_employee
-        ).exists()
-
-        if not has_access:
-            raise PermissionDenied
-
     photos = apartment.photos.all() if hasattr(apartment, "photos") else []
 
     context = {
