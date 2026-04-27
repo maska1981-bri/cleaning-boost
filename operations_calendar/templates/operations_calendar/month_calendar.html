@@ -796,25 +796,63 @@ z-index:2;
 }
 
 @media (max-width: 900px){
+
+    /* struttura base */
     .calendar-wrapper{
-        position:relative !important;
-        overflow:auto !important;
+        overflow-x:auto;
+        position:relative;
     }
 
+    table{
+        display:block;
+        overflow-x:auto;
+        position:relative;
+    }
+
+    thead, tbody, tr{
+        display:table;
+        width:max-content;
+        table-layout:fixed;
+    }
+
+    /* 🔥 BLOCCO COLONNA IMMOBILI */
     .apartment-col{
-        position:sticky !important;
-        left:0 !important;
-        z-index:200 !important;
-        background:white !important;
-        box-shadow:4px 0 8px rgba(0,0,0,0.12);
+        position:sticky;
+        left:0;
+        z-index:1000;
+        background:white;
+        min-width:90px;
+        max-width:90px;
+        width:90px;
     }
 
     thead .apartment-col{
-        position:sticky !important;
-        left:0 !important;
-        z-index:220 !important;
-        background:white !important;
+        z-index:1100;
     }
+
+    /* 🔥 BLOCCO HEADER GIORNI */
+    thead th{
+        position:sticky;
+        top:0;
+        z-index:900;
+        background:#f5f5f5;
+    }
+
+    .today-header{
+        z-index:950;
+    }
+
+    /* effetto separazione tipo Excel */
+    .apartment-col::after{
+        content:"";
+        position:absolute;
+        top:0;
+        right:0;
+        width:6px;
+        height:100%;
+        background:linear-gradient(to right, rgba(0,0,0,0.15), transparent);
+    }
+
 }
 </style>
 {% include "includes/ui_theme.html" %}
@@ -1488,26 +1526,16 @@ document.getElementById("deleteNotes").onclick = function() {
 };
 
 window.addEventListener("load", function(){
+    if (window.innerWidth <= 900) return; // ❌ mobile: niente auto scroll
+
     const todayCell = document.querySelector(".today-cell");
     const calendarWrapper = document.querySelector(".calendar-wrapper");
     const topScroll = document.getElementById("calendarTopScroll");
 
-    if (!todayCell || !calendarWrapper) {
-        return;
-    }
+    if (!todayCell || !calendarWrapper) return;
 
-    const isMobile = window.innerWidth <= 900;
-
-    let targetLeft;
-
-    if (isMobile) {
-        // 👇 su mobile NON centrare → mostra pochi giorni prima
-        targetLeft = todayCell.offsetLeft - 150;
-    } else {
-        // 👇 desktop: centrato come prima
-        const wrapperWidth = calendarWrapper.clientWidth;
-        targetLeft = todayCell.offsetLeft - (wrapperWidth / 2) + (todayCell.offsetWidth / 2);
-    }
+    const wrapperWidth = calendarWrapper.clientWidth;
+    const targetLeft = todayCell.offsetLeft - (wrapperWidth / 2) + (todayCell.offsetWidth / 2);
 
     calendarWrapper.scrollLeft = Math.max(0, targetLeft);
 
