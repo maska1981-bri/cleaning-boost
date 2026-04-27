@@ -990,47 +990,6 @@ data-cleaning-employees="{% if cell.cleaning %}{% for emp in cell.cleaning.emplo
 </table>
 </div>
 
-<div class="mobile-admin-scroll">
-    <div class="mobile-admin-grid" style="--days-count: {{ days|length }};">
-
-        <div class="mobile-admin-corner"></div>
-
-        {% for day in days %}
-        <div class="mobile-admin-day{% if day == today %} today-header{% endif %}">
-            {{ day|date:"d" }}<br>
-            {{ day|date:"D" }}
-        </div>
-        {% endfor %}
-
-        {% for row in apartment_rows %}
-            <div class="mobile-admin-apartment">
-                <a href="/apartment/{{ row.apartment.id }}/">
-                    {{ row.apartment.code }} - {{ row.apartment.name }}
-                </a>
-            </div>
-
-            {% for cell in row.cells %}
-            <div class="mobile-admin-cell{% if cell.day == today %} today-cell{% endif %}">
-
-                {% if cell.cleaning %}
-                <span class="cleaning-dot {% if cell.cleaning.status == 'completed' %}done{% else %}todo{% endif %}"></span>
-                {% endif %}
-
-                {% if cell.booking %}
-                <span class="booking-mini-summary">
-                    {% if cell.booking.people_count %}{{ cell.booking.people_count }}p{% endif %}
-                    {% if cell.booking.double_beds %} {{ cell.booking.double_beds }}M{% endif %}
-                    {% if cell.booking.single_beds %} {{ cell.booking.single_beds }}S{% endif %}
-                </span>
-                {% endif %}
-
-            </div>
-            {% endfor %}
-        {% endfor %}
-
-    </div>
-</div>
-
 <div id="contextMenu" class="context-menu">
 <div id="menuBooking">➕ Nuova prenotazione</div>
 <div id="menuCleaning">🧹 Nuova pulizia</div>
