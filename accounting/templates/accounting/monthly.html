@@ -175,13 +175,13 @@ margin-top:20px;
 {% if data %}
 <table>
     <tr>
-        <th>Immobile</th>
+        <th>Cliente</th>
         <th class="number">Totale</th>
     </tr>
 
     {% for row in data %}
     <tr>
-        <td>{{ row.apartment.code }} - {{ row.apartment.name }}</td>
+        <td>{{ row.customer.name }}</td>
         <td class="number">€ {{ row.total }}</td>
     </tr>
     {% endfor %}
