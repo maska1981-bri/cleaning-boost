@@ -1496,8 +1496,18 @@ window.addEventListener("load", function(){
         return;
     }
 
-    const wrapperWidth = calendarWrapper.clientWidth;
-    const targetLeft = todayCell.offsetLeft - (wrapperWidth / 2) + (todayCell.offsetWidth / 2);
+    const isMobile = window.innerWidth <= 900;
+
+    let targetLeft;
+
+    if (isMobile) {
+        // 👇 su mobile NON centrare → mostra pochi giorni prima
+        targetLeft = todayCell.offsetLeft - 150;
+    } else {
+        // 👇 desktop: centrato come prima
+        const wrapperWidth = calendarWrapper.clientWidth;
+        targetLeft = todayCell.offsetLeft - (wrapperWidth / 2) + (todayCell.offsetWidth / 2);
+    }
 
     calendarWrapper.scrollLeft = Math.max(0, targetLeft);
 
