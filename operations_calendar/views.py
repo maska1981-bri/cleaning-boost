@@ -73,7 +73,7 @@ def add_months(source_date, months):
 def calendar_month_view(request):
     today = date.today()
 
-    view_mode = request.GET.get("view", "month")
+    view_mode = request.GET.get("view", "compact")
     property_type = request.GET.get("type")
     anchor_str = request.GET.get("start")
 
@@ -129,8 +129,8 @@ def calendar_month_view(request):
         end_date = next_month - timedelta(days=1)
         prev_start = add_months(start_date, -1).replace(day=1)
         next_start = add_months(start_date, 1).replace(day=1)
-        buffer_before = 15
-        buffer_after = 15
+        buffer_before = 7
+        buffer_after = 7
 
     display_start = start_date - timedelta(days=buffer_before)
     display_end = end_date + timedelta(days=buffer_after)
