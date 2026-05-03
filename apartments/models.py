@@ -1,5 +1,6 @@
 from django.db import models
 from customers.models import Customer
+from cloudinary.models import CloudinaryField
 
 
 class Apartment(models.Model):
@@ -132,7 +133,11 @@ class Apartment(models.Model):
 
 class ApartmentPhoto(models.Model):
     apartment = models.ForeignKey("Apartment", on_delete=models.CASCADE, related_name="photos")
-    image = models.ImageField(upload_to="apartment_photos/")
+    image = CloudinaryField(
+    resource_type="image",
+    folder="cleaning_boost/apartment_photos",
+    verbose_name="Foto"
+)
     caption = models.CharField(max_length=200, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

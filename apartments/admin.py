@@ -1,10 +1,18 @@
 from django.contrib import admin
-from .models import Apartment
-from .models import ApartmentPhoto
+from .models import Apartment, ApartmentPhoto
+
+
+class ApartmentPhotoInline(admin.TabularInline):
+    model = ApartmentPhoto
+    extra = 1
+    fields = ("image", "caption", "created_at")
+    readonly_fields = ("created_at",)
 
 
 @admin.register(Apartment)
 class ApartmentAdmin(admin.ModelAdmin):
+    inlines = [ApartmentPhotoInline]
+
     list_display = (
         "code",
         "name",
@@ -48,10 +56,9 @@ class ApartmentAdmin(admin.ModelAdmin):
         "default_extra_cost",
     )
 
-from .models import ApartmentPhoto
-
 
 @admin.register(ApartmentPhoto)
 class ApartmentPhotoAdmin(admin.ModelAdmin):
     list_display = ("apartment", "caption", "created_at")
     list_filter = ("apartment",)
+    search_fields = ("apartment__name", "apartment__code", "caption")
