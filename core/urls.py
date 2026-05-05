@@ -24,7 +24,12 @@ urlpatterns = [
     ),
     path("logout/", custom_logout, name="logout"),
 
+    # 👇 METTI QUESTO QUI (PRIMA)
+    path("", include("employees.urls")),
+
+    # 👇 POI LA LANDING
     path("", landing_page, name="landing"),
+
     path("app/", calendar_month_view, name="calendar"),
     path("demo/", public_demo_calendar),
 
@@ -34,8 +39,6 @@ urlpatterns = [
     path("", include("accounting.urls")),
     path("employee-hours/", include("employee_hours.urls")),
     path("laundry/", include("laundry.urls")),
-
-    path("", include("employees.urls")),
 ]
 
 if settings.DEBUG:
