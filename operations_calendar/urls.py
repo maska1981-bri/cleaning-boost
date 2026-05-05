@@ -16,7 +16,7 @@ from .views_apartment import apartment_detail
 from .views_cleaning import cleaning_detail
 
 urlpatterns = [
-    path("", calendar_month_view, name="calendar"),
+    path("old-calendar/", calendar_month_view, name="old_calendar"),
     path("move-cleaning/", move_cleaning, name="move_cleaning"),
     path("create-day-note/", create_day_note, name="create_day_note"),
     path("delete-booking/", delete_booking, name="delete_booking"),

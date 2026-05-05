@@ -1,4 +1,6 @@
 from django.contrib import admin
+admin.site.site_url = "/app/"
+
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
@@ -22,16 +24,18 @@ urlpatterns = [
     ),
     path("logout/", custom_logout, name="logout"),
 
-    path("", include("employees.urls")),
     path("", landing_page, name="landing"),
     path("app/", calendar_month_view, name="calendar"),
+    path("demo/", public_demo_calendar),
+
     path("", include("operations_calendar.urls")),
     path("", include("condominiums.urls")),
     path("", include("cleanings.urls")),
     path("", include("accounting.urls")),
     path("employee-hours/", include("employee_hours.urls")),
     path("laundry/", include("laundry.urls")),
-    path("demo/", public_demo_calendar),
+
+    path("employees/", include("employees.urls")),
 ]
 
 if settings.DEBUG:
