@@ -314,6 +314,9 @@ def calendar_month_view(request):
         context,
     )
 
+def public_demo_calendar(request):
+    return calendar_month_view(request)
+
 
 @csrf_exempt
 @require_POST
