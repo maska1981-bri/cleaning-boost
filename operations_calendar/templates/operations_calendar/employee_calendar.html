@@ -636,6 +636,24 @@ display:inline-block !important;
 visibility:visible !important;
 opacity:1 !important;
 }
+
+.visible-note-text{
+position:absolute;
+top:2px;
+left:2px;
+right:2px;
+bottom:2px;
+font-size:8px;
+line-height:1.1;
+font-weight:700;
+color:#7a0019;
+white-space:normal;
+word-break:break-word;
+overflow:hidden;
+z-index:1;
+pointer-events:none;
+text-align:left;
+}
 </style>
 {% include "includes/ui_theme.html" %}
 </head>
@@ -712,14 +730,20 @@ opacity:1 !important;
                                 {% if cell.booking.single_beds %} {{ cell.booking.single_beds }}S{% endif %}
                             </span>
                             {% endif %}
+                                
+{% if cell.day_notes %}
+<span
+    class="cell-notes-indicator"
+    data-note-title="{{ row.apartment.code }} - {{ row.apartment.name }} | {{ cell.day|date:'d/m/Y' }}"
+    data-note-content="{% for note in cell.day_notes %}{% if note.note_type == 'CUSTOM' %}Nota libera||{{ note.notes|linebreaksbr|striptags }}{% elif note.note_type == 'VISIBLE' %}Nota visibile||{{ note.notes|linebreaksbr|striptags }}{% else %}{{ note.short_label }}{% if note.notes %}||{{ note.notes|linebreaksbr|striptags }}{% endif %}{% endif %}{% if not forloop.last %}##NOTE##{% endif %}{% endfor %}"
+></span>
+{% endif %}
 
-                            {% if cell.day_notes %}
-                            <span
-                                class="cell-notes-indicator"
-                                data-note-title="{{ row.apartment.code }} - {{ row.apartment.name }} | {{ cell.day|date:'d/m/Y' }}"
-                                data-note-content="{% for note in cell.day_notes %}{{ note.short_label }}{% if note.notes %}||{{ note.notes|linebreaksbr|striptags }}{% endif %}{% if not forloop.last %}##NOTE##{% endif %}{% endfor %}"
-                            ></span>
-                            {% endif %}
+{% for note in cell.day_notes %}
+    {% if note.note_type == "VISIBLE" and note.notes %}
+        <span class="visible-note-text">{{ note.notes }}</span>
+    {% endif %}
+{% endfor %}
 
                             <div class="cell-center-content">
                                 {% if cell.cleaning %}
