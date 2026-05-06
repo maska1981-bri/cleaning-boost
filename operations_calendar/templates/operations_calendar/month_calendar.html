@@ -807,23 +807,23 @@ z-index:2;
         <div class="topbar-dropdown" id="viewDropdown">
             <button type="button" class="dropdown-toggle">VISTA ▾</button>
             <div class="dropdown-menu">
-                <a href="/?view=week{% if selected_type %}&type={{ selected_type }}{% endif %}" class="{% if context_view == 'week' %}active-link{% endif %}">Settimana</a>
-                <a href="/?view=15days{% if selected_type %}&type={{ selected_type }}{% endif %}" class="{% if context_view == '15days' %}active-link{% endif %}">15 giorni</a>
-                <a href="/?view=compact{% if selected_type %}&type={{ selected_type }}{% endif %}" class="{% if context_view == 'compact' %}active-link{% endif %}">Compatta</a>
-                <a href="/?view=month{% if selected_type %}&type={{ selected_type }}{% endif %}" class="{% if context_view == 'month' %}active-link{% endif %}">Mese</a>
-                <a href="/?view=quarter{% if selected_type %}&type={{ selected_type }}{% endif %}" class="{% if context_view == 'quarter' %}active-link{% endif %}">3 mesi</a>
+                <a href="/app/?view=week{% if selected_type %}&type={{ selected_type }}{% endif %}" class="{% if context_view == 'week' %}active-link{% endif %}">Settimana</a>
+                <a href="/app/?view=15days{% if selected_type %}&type={{ selected_type }}{% endif %}" class="{% if context_view == '15days' %}active-link{% endif %}">15 giorni</a>
+                <a href="/app/?view=compact{% if selected_type %}&type={{ selected_type }}{% endif %}" class="{% if context_view == 'compact' %}active-link{% endif %}">Compatta</a>
+                <a href="/app/?view=month{% if selected_type %}&type={{ selected_type }}{% endif %}" class="{% if context_view == 'month' %}active-link{% endif %}">Mese</a>
+                <a href="/app/?view=quarter{% if selected_type %}&type={{ selected_type }}{% endif %}" class="{% if context_view == 'quarter' %}active-link{% endif %}">3 mesi</a>
             </div>
         </div>
 
         <div class="topbar-dropdown" id="categoryDropdown">
             <button type="button" class="dropdown-toggle">CATEGORIA ▾</button>
             <div class="dropdown-menu">
-                <a href="/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}" class="{% if not selected_type %}active-link{% endif %}">Tutti</a>
-                <a href="/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}&type=house" class="{% if selected_type == 'house' %}active-link{% endif %}">Case</a>
-                <a href="/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}&type=condo" class="{% if selected_type == 'condo' %}active-link{% endif %}">Condomini</a>
-                <a href="/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}&type=office" class="{% if selected_type == 'office' %}active-link{% endif %}">Uffici</a>
-                <a href="/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}&type=shop" class="{% if selected_type == 'shop' %}active-link{% endif %}">Locali</a>
-                <a href="/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}&type=other" class="{% if selected_type == 'other' %}active-link{% endif %}">Altro</a>
+                <a href="/app/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}" class="{% if not selected_type %}active-link{% endif %}">Tutti</a>
+                <a href="/app/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}&type=house" class="{% if selected_type == 'house' %}active-link{% endif %}">Case</a>
+                <a href="/app/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}&type=condo" class="{% if selected_type == 'condo' %}active-link{% endif %}">Condomini</a>
+                <a href="/app/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}&type=office" class="{% if selected_type == 'office' %}active-link{% endif %}">Uffici</a>
+                <a href="/app/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}&type=shop" class="{% if selected_type == 'shop' %}active-link{% endif %}">Locali</a>
+                <a href="/app/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}&type=other" class="{% if selected_type == 'other' %}active-link{% endif %}">Altro</a>
             </div>
         </div>
     </div>
@@ -845,9 +845,9 @@ z-index:2;
 {% endif %}
 
 <div class="calendar-nav">
-<a href="/?view={{ context_view }}&start={{ prev_start|date:'Y-m-d' }}{% if selected_type %}&type={{ selected_type }}{% endif %}">← Indietro</a>
-<a href="/?view={{ context_view }}{% if selected_type %}&type={{ selected_type }}{% endif %}">Oggi</a>
-<a href="/?view={{ context_view }}&start={{ next_start|date:'Y-m-d' }}{% if selected_type %}&type={{ selected_type }}{% endif %}">Avanti →</a>
+<a href="/app/?view={{ context_view }}&start={{ prev_start|date:'Y-m-d' }}{% if selected_type %}&type={{ selected_type }}{% endif %}">← Indietro</a>
+<a href="/app/?view={{ context_view }}{% if selected_type %}&type={{ selected_type }}{% endif %}">Oggi</a>
+<a href="/app/?view={{ context_view }}&start={{ next_start|date:'Y-m-d' }}{% if selected_type %}&type={{ selected_type }}{% endif %}">Avanti →</a>
 <span class="nav-current">{{ start_date|date:"d/m/Y" }} - {{ end_date|date:"d/m/Y" }}</span>
 </div>
 
