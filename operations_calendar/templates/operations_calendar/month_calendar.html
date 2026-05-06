@@ -827,6 +827,7 @@ z-index:2;
             </div>
         </div>
     </div>
+</div>
 
     <div class="secondary-toolbar-right">
         <form method="post" action="/condominiums/generate-cleanings/" style="margin:0;">
@@ -855,14 +856,36 @@ z-index:2;
 
 <div class="apartment-filter-box">
     <div class="apartment-filter-header">
+
         <button type="button" class="filter-toggle-btn" onclick="toggleApartmentFilter()">
             Mostra / Nascondi immobili
         </button>
+
+        <div class="topbar-dropdown" id="sortDropdown">
+            <button type="button" class="dropdown-toggle">ORDINE ▾</button>
+
+            <div class="dropdown-menu">
+                <a
+                    href="/app/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}{% if selected_type %}&type={{ selected_type }}{% endif %}&sort=code"
+                    class="{% if sort_mode == 'code' %}active-link{% endif %}"
+                >
+                    Per codice
+                </a>
+
+                <a
+                    href="/app/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}{% if selected_type %}&type={{ selected_type }}{% endif %}&sort=activity"
+                    class="{% if sort_mode == 'activity' %}active-link{% endif %}"
+                >
+                    Per attività
+                </a>
+            </div>
+        </div>
 
         <div class="filter-actions">
             <button type="button" class="filter-action-btn" onclick="selectAllApartments()">Tutte</button>
             <button type="button" class="filter-action-btn" onclick="clearAllApartments()">Nessuna</button>
         </div>
+
     </div>
 
     <div id="apartmentFilterPanel" class="apartment-filter-panel" style="display:none;">
@@ -1042,6 +1065,7 @@ let selectedCleaningEmployeesForMenu = [];
 const contextMenu = document.getElementById("contextMenu");
 const viewDropdown = document.getElementById("viewDropdown");
 const categoryDropdown = document.getElementById("categoryDropdown");
+const sortDropdown = document.getElementById("sortDropdown");
 
 function clearSelection() {
     document.querySelectorAll(".cell.selection").forEach(cell => {
@@ -1089,6 +1113,10 @@ function postJson(url, payload) {
 function closeTopDropdowns() {
     viewDropdown.classList.remove("open");
     categoryDropdown.classList.remove("open");
+
+    if (sortDropdown) {
+        sortDropdown.classList.remove("open");
+    }
 }
 
 viewDropdown.querySelector(".dropdown-toggle").addEventListener("click", function(e) {
@@ -1108,6 +1136,20 @@ categoryDropdown.querySelector(".dropdown-toggle").addEventListener("click", fun
         categoryDropdown.classList.add("open");
     }
 });
+
+if (sortDropdown) {
+    sortDropdown.querySelector(".dropdown-toggle").addEventListener("click", function(e) {
+        e.stopPropagation();
+
+        const isOpen = sortDropdown.classList.contains("open");
+
+        closeTopDropdowns();
+
+        if (!isOpen) {
+            sortDropdown.classList.add("open");
+        }
+    });
+}
 
 document.querySelectorAll(".cleaning-dot").forEach(icon => {
     icon.addEventListener("click", function(e) {

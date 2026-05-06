@@ -76,6 +76,7 @@ def calendar_month_view(request):
     view_mode = request.GET.get("view", "compact")
     property_type = request.GET.get("type")
     anchor_str = request.GET.get("start")
+    sort_mode = request.GET.get("sort", "code")
 
     if anchor_str:
         try:
@@ -265,12 +266,6 @@ def calendar_month_view(request):
 
             visible_note_text = ""
             for note in notes_for_day:
-                if note.note_type == "CUSTOM" and note.notes:
-                    visible_note_text = note.notes
-                    break
-
-            visible_note_text = ""
-            for note in notes_for_day:
                 if note.note_type == "VISIBLE" and note.notes:
                     visible_note_text = note.notes
                     break
@@ -285,13 +280,39 @@ def calendar_month_view(request):
                 "is_check_out": is_check_out,
                 "show_booking_summary": show_booking_summary,
                 "booking_summary": booking_summary,
-                "visible_note_text": visible_note_text,
             })
+
+        has_relevant_day = False
+        first_relevant_day = date.max
+
+        for cell in row_cells:
+            if cell["day"] < today:
+                continue
+
+            if cell["cleaning"] or cell["day_notes"]:
+                has_relevant_day = True
+                first_relevant_day = cell["day"]
+                break
 
         apartment_rows.append({
             "apartment": apartment,
             "cells": row_cells,
+            "has_relevant_day": has_relevant_day,
+            "first_relevant_day": first_relevant_day,
         })
+
+    if sort_mode == "activity":
+        apartment_rows.sort(
+            key=lambda row: (
+                not row["has_relevant_day"],
+                row["first_relevant_day"],
+                row["apartment"].code,
+            )
+        )
+    else:
+        apartment_rows.sort(
+            key=lambda row: row["apartment"].code
+        )
 
     context = {
         "days": days,
@@ -300,6 +321,7 @@ def calendar_month_view(request):
         "employees": employees,
         "selected_type": property_type or "",
         "context_view": view_mode,
+        "sort_mode": sort_mode,
         "is_compact_view": view_mode == "compact",
         "today": today,
         "start_date": start_date,
