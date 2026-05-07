@@ -77,7 +77,6 @@ def generate_condominium_cleanings(request):
                         apartment=rule.apartment,
                         date=current_date,
                         status="scheduled",
-                        notes=f"Generata da regola condominio - {rule.get_frequency_display()}",
                     )
                     created_count += 1
 
@@ -88,4 +87,4 @@ def generate_condominium_cleanings(request):
         f"Generate {created_count} pulizie condominiali."
     )
 
-    return redirect("/")
+    return redirect("/app/")
