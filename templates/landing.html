@@ -3,155 +3,388 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cleaning Boost - Gestionale Pulizie</title>
+
+<title>Cleaning Boost</title>
 
 <style>
+
+*{
+box-sizing:border-box;
+}
+
 body{
-font-family:Arial, Helvetica, sans-serif;
 margin:0;
+font-family:Arial, Helvetica, sans-serif;
 background:#f4f6f8;
 color:#111827;
 }
 
 .hero{
-background:#0f172a;
-color:white;
-padding:70px 20px;
+background:white;
+padding:80px 20px 60px;
 text-align:center;
+border-bottom:1px solid #e5e7eb;
+}
+
+.hero-container{
+max-width:900px;
+margin:auto;
 }
 
 .hero h1{
-font-size:42px;
-margin:0 0 15px;
+font-size:48px;
+margin-bottom:20px;
+line-height:1.1;
 }
 
 .hero p{
 font-size:20px;
-color:#cbd5e1;
-max-width:760px;
-margin:0 auto 28px;
+color:#4b5563;
+max-width:700px;
+margin:auto;
+line-height:1.6;
+}
+
+.hero-buttons{
+margin-top:35px;
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
 }
 
 .btn{
 display:inline-block;
-padding:14px 24px;
-background:#22c55e;
-color:white;
-text-decoration:none;
+padding:14px 26px;
 border-radius:10px;
 font-weight:bold;
+text-decoration:none;
+transition:0.2s;
 }
 
-.btn:hover{
-background:#16a34a;
+.btn-primary{
+background:#2563eb;
+color:white;
+}
+
+.btn-primary:hover{
+background:#1d4ed8;
+}
+
+.btn-secondary{
+background:white;
+border:2px solid #2563eb;
+color:#2563eb;
+}
+
+.btn-secondary:hover{
+background:#eff6ff;
 }
 
 .demo-box{
-margin-top:18px;
-font-size:14px;
-color:#e5e7eb;
+margin-top:30px;
+font-size:15px;
+color:#374151;
 }
 
 .section{
-padding:50px 20px;
-max-width:1000px;
+padding:70px 20px;
+}
+
+.section-container{
+max-width:1200px;
 margin:auto;
+}
+
+.section-title{
 text-align:center;
+font-size:36px;
+margin-bottom:15px;
 }
 
-.cards{
+.section-subtitle{
+text-align:center;
+font-size:18px;
+color:#6b7280;
+margin-bottom:50px;
+}
+
+.features-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:18px;
-margin-top:25px;
+grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+gap:25px;
 }
 
-.card{
+.feature-card{
 background:white;
+padding:28px;
+border-radius:14px;
+border:1px solid #e5e7eb;
+box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+
+.feature-card h3{
+margin-top:0;
+margin-bottom:12px;
+font-size:22px;
+}
+
+.feature-card p{
+margin:0;
+color:#4b5563;
+line-height:1.6;
+}
+
+.screenshot-section{
+background:white;
+border-top:1px solid #e5e7eb;
+border-bottom:1px solid #e5e7eb;
+}
+
+.screenshot-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+gap:20px;
+}
+
+.screenshot-card{
+background:#f9fafb;
 border:1px solid #e5e7eb;
 border-radius:14px;
-padding:22px;
-box-shadow:0 8px 20px rgba(0,0,0,0.06);
+overflow:hidden;
 }
 
-.card h3{
-margin-top:0;
+.screenshot-card img{
+width:100%;
+display:block;
 }
 
-.price{
-font-size:32px;
+.screenshot-card p{
+padding:15px;
+margin:0;
 font-weight:bold;
-margin:15px 0;
+}
+
+.cta{
+background:#2563eb;
+color:white;
+text-align:center;
+padding:80px 20px;
+}
+
+.cta h2{
+font-size:40px;
+margin-bottom:20px;
+}
+
+.cta p{
+font-size:20px;
+max-width:700px;
+margin:auto;
+line-height:1.6;
+opacity:0.95;
+}
+
+.cta-buttons{
+margin-top:35px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn-white{
+background:white;
+color:#2563eb;
+}
+
+.btn-white:hover{
+background:#eff6ff;
 }
 
 .footer{
 padding:30px 20px;
 text-align:center;
-color:#6b7280;
 font-size:14px;
+color:#6b7280;
+background:white;
+border-top:1px solid #e5e7eb;
 }
+
+@media(max-width:768px){
+
+.hero{
+padding:60px 20px 40px;
+}
+
+.hero h1{
+font-size:36px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.section-title{
+font-size:30px;
+}
+
+.cta h2{
+font-size:32px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="hero">
-    <h1>Organizza pulizie, prenotazioni e dipendenti senza stress</h1>
-    <p>
-        Cleaning Boost è il gestionale pensato per imprese di pulizie,
-        affitti brevi e property manager che vogliono controllare tutto da un calendario semplice.
-    </p>
+<section class="hero">
+<div class="hero-container">
 
-    <a href="https://cleaning-boost-demo.onrender.com/login/" class="btn">
-        Prova subito la demo
-    </a>
+<h1>
+Il gestionale semplice per imprese di pulizie
+</h1>
 
-    <div class="demo-box">
-        Credenziali demo:<br>
-        <strong>Username:</strong> demo<br>
-        <strong>Password:</strong> Demo123!
-    </div>
+<p>
+Organizza immobili, prenotazioni, pulizie, dipendenti e attività operative in un unico calendario semplice e veloce.
+</p>
+
+<div class="hero-buttons">
+<a href="https://demo.cleaningboost.it/login/" class="btn btn-primary">
+Prova la demo
+</a>
+
+<a href="https://wa.me/" class="btn btn-secondary">
+Contattami
+</a>
 </div>
 
-<div class="section">
-    <h2>Cosa puoi gestire</h2>
-
-    <div class="cards">
-        <div class="card">
-            <h3>📅 Calendario operativo</h3>
-            <p>Prenotazioni, check-in, check-out, pulizie e note sempre visibili.</p>
-        </div>
-
-        <div class="card">
-            <h3>👷 Dipendenti</h3>
-            <p>Assegna pulizie, controlla lo stato dei lavori e usa il calendario dipendenti.</p>
-        </div>
-
-        <div class="card">
-            <h3>🏠 Immobili</h3>
-            <p>Gestisci case, appartamenti, uffici, condomini e locali.</p>
-        </div>
-
-        <div class="card">
-            <h3>💰 Costi e contabilità</h3>
-            <p>Controlla costi pulizie, extra, biancheria e consuntivi mensili.</p>
-        </div>
-    </div>
+<div class="demo-box">
+Credenziali demo:<br><br>
+<strong>Username:</strong> demo<br>
+<strong>Password:</strong> Demo123!
 </div>
 
-<div class="section">
-    <h2>Prezzo indicativo</h2>
-    <div class="card">
-        <p>Installazione separata per ogni cliente, con database dedicato.</p>
-        <div class="price">da 49€/mese</div>
-        <p>Personalizzazioni e configurazione iniziale su richiesta.</p>
-        <a href="mailto:alpine.cleaning@hotmail.com" class="btn">Richiedi informazioni</a>
-    </div>
+</div>
+</section>
+
+<section class="section">
+
+<div class="section-container">
+
+<h2 class="section-title">
+Funzionalità principali
+</h2>
+
+<p class="section-subtitle">
+Tutto quello che serve per gestire operativamente un'impresa di pulizie.
+</p>
+
+<div class="features-grid">
+
+<div class="feature-card">
+<h3>📅 Calendario operativo</h3>
+<p>
+Gestisci pulizie, check-in, check-out, note e attività giornaliere in modo chiaro e veloce.
+</p>
 </div>
 
-<div class="footer">
-    Cleaning Boost · Gestionale per imprese di pulizie
+<div class="feature-card">
+<h3>👥 Gestione dipendenti</h3>
+<p>
+Vista dedicata per operatori, assegnazioni, ore lavorate e organizzazione del personale.
+</p>
 </div>
+
+<div class="feature-card">
+<h3>🧾 Contabilità</h3>
+<p>
+Controlla report, consuntivi mensili e gestione economica direttamente dal gestionale.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>📦 Magazzino</h3>
+<p>
+Monitora materiali, movimenti e disponibilità degli articoli operativi.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section screenshot-section">
+
+<div class="section-container">
+
+<h2 class="section-title">
+Il gestionale in azione
+</h2>
+
+<p class="section-subtitle">
+Calendario operativo intuitivo e organizzazione semplice delle attività.
+</p>
+
+<div class="screenshot-grid">
+
+<div class="screenshot-card">
+<img src="/static/img/demo-calendar.jpg">
+<p>Calendario operativo</p>
+</div>
+
+<div class="screenshot-card">
+<img src="/static/img/demo-compact.jpg">
+<p>Vista compatta</p>
+</div>
+
+<div class="screenshot-card">
+<img src="/static/img/demo-accounting.jpg">
+<p>Contabilità</p>
+</div>
+
+<div class="screenshot-card">
+<img src="/static/img/demo-warehouse.jpg">
+<p>Magazzino</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>
+Vuoi vedere il gestionale in azione?
+</h2>
+
+<p>
+Accedi subito alla demo online oppure contattami per una presentazione.
+</p>
+
+<div class="cta-buttons">
+
+<a href="https://demo.cleaningboost.it/login/" class="btn btn-white">
+Apri demo
+</a>
+
+<a href="https://wa.me/" class="btn btn-secondary" style="border-color:white;color:white;">
+WhatsApp
+</a>
+
+</div>
+
+</section>
+
+<footer class="footer">
+© Cleaning Boost - Gestionale per imprese di pulizie
+</footer>
 
 </body>
 </html>

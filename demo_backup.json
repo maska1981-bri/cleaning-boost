@@ -1,0 +1,6695 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-03-06T21:18:22.049Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Naiara",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-03-06T21:18:27.944Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Facundo",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-03-06T21:18:33.337Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Aneley",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-03-06T21:18:38.331Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Martin",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-03-06T21:46:12.545Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "001 - Maska",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-03-06T21:46:38.382Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "002 - Massimo",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-03-06T21:48:28.683Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "001 - Maska - 2026-03-09",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-03-06T22:00:49.094Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "001 - Maska - 2026-03-09",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Dipendenti assegnati\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-03-07T22:01:43.089Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "001 - Maska | 2026-03-11 - 2026-03-16",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-03-07T22:32:23.316Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "002 - Massimo | 2026-03-13 - 2026-03-16",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-03-07T22:33:24.626Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "002 - Massimo - 2026-03-17",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-03-07T22:43:24.552Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "001 - Maska - 2026-03-20",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-03-08T15:12:14.495Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "002 - Massimo | 2026-03-13 - 2026-03-16",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Letti matrimoniali da preparare\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-03-08T15:12:26.467Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "001 - Maska | 2026-03-11 - 2026-03-16",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Letti matrimoniali da preparare\", \"Letti singoli da preparare\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-03-08T16:39:05.498Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "002 - Massimo | 2026-03-10 - 2026-03-16",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-03-08T17:28:36.113Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "4",
+    "object_repr": "002 - Massimo | 2026-03-19 - 2026-03-23",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-03-08T17:29:11.594Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "002 - Massimo - 2026-03-24",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-03-08T21:54:33.403Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "001 - Maska - 2026-03-18",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-03-08T22:14:55.916Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "6",
+    "object_repr": "001 - Maska - 2026-03-17",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-03-08T22:16:07.587Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "7",
+    "object_repr": "001 - Maska - 2026-03-18",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-03-09T20:30:59.541Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Aneley Berardo",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nome\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-03-09T20:31:08.716Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Martin Cavo",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nome\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-03-09T20:43:16.411Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "001 - Maska | 2026-03-25 - 2026-03-29",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-03-09T21:47:06.473Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "C-001 - Villa Aimone",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-03-10T18:36:38.042Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "C-002 - Fiocco di Neve",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-03-10T18:37:50.068Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "C-001 - Villa Aimone - weekly",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-03-10T20:54:03.801Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "C-001 - Villa Aimone - weekly",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Giorno preferito 1\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2026-03-10T21:30:34.366Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "6",
+    "object_repr": "002 - Massimo | 2026-03-24 - 2026-03-30",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2026-03-13T22:16:25.349Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "7",
+    "object_repr": "C-002 - Fiocco di Neve | 2026-03-09 - 2026-03-13",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2026-03-13T22:16:49.507Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "8",
+    "object_repr": "C-002 - Fiocco di Neve | 2026-03-13 - 2026-03-18",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2026-03-13T22:36:47.973Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "9",
+    "object_repr": "001 - Maska | 2026-03-29 - 2026-04-02",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2026-03-14T11:32:20.169Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "10",
+    "object_repr": "001 - Maska | 2026-03-02 - 2026-03-04",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2026-03-14T11:32:36.140Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "11",
+    "object_repr": "001 - Maska | 2026-03-04 - 2026-03-06",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2026-03-14T18:26:52.482Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "12",
+    "object_repr": "C-001 - Villa Aimone 2026-03-23 → 2026-03-25",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2026-03-14T18:28:35.428Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "13",
+    "object_repr": "C-001 - Villa Aimone 2026-03-17 → 2026-03-20",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2026-03-14T19:04:18.814Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "25",
+    "object_repr": "001 - Maska - 2026-04-02",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2026-03-14T19:13:34.473Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "14",
+    "object_repr": "C-001 - Villa Aimone 2026-03-20 → 2026-03-25",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2026-03-14T19:13:56.185Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "26",
+    "object_repr": "C-001 - Villa Aimone - 2026-03-20",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2026-03-14T22:04:39.622Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "004 - Stefania Monolocale",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2026-03-14T22:05:30.646Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "003 - Stefania Bilocale",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2026-03-14T22:19:21.560Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "001 - Maska",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Costo pulizia\", \"Costo kit fisso\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2026-03-14T22:20:07.258Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "27",
+    "object_repr": "001 - Maska - 2026-03-04",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2026-03-14T22:30:08.709Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "28",
+    "object_repr": "001 - Maska - 2026-03-06",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2026-03-14T22:30:23.975Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "001 - Maska",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2026-03-15T21:58:20.743Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "15",
+    "object_repr": "003 - Stefania Bilocale 2026-03-02 → 2026-03-05",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2026-03-15T21:59:32.707Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "003 - Stefania Bilocale",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Costo pulizia\", \"Costo kit fisso\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2026-03-15T22:01:33.590Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "16",
+    "object_repr": "003 - Stefania Bilocale 2026-03-02 → 2026-03-06",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2026-03-15T22:04:08.747Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "17",
+    "object_repr": "003 - Stefania Bilocale 2026-03-03 → 2026-03-07",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2026-03-15T22:13:36.853Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "18",
+    "object_repr": "003 - Stefania Bilocale 2026-03-02 → 2026-03-05",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2026-03-17T21:40:48.115Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "18",
+    "object_repr": "003 - Stefania Bilocale 2026-03-02 → 2026-03-05",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2026-03-17T21:40:48.115Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "10",
+    "object_repr": "001 - Maska 2026-03-02 → 2026-03-04",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2026-03-17T21:40:48.115Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "11",
+    "object_repr": "001 - Maska 2026-03-04 → 2026-03-06",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2026-03-17T21:40:48.115Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "7",
+    "object_repr": "C-002 - Fiocco di Neve 2026-03-09 → 2026-03-13",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2026-03-17T21:40:48.115Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "002 - Massimo 2026-03-10 → 2026-03-16",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2026-03-17T21:40:48.115Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "001 - Maska 2026-03-11 → 2026-03-16",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2026-03-17T21:40:48.115Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "8",
+    "object_repr": "C-002 - Fiocco di Neve 2026-03-13 → 2026-03-18",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2026-03-17T21:40:48.115Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "13",
+    "object_repr": "C-001 - Villa Aimone 2026-03-17 → 2026-03-20",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2026-03-17T21:40:48.115Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "4",
+    "object_repr": "002 - Massimo 2026-03-19 → 2026-03-23",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2026-03-17T21:40:48.115Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "14",
+    "object_repr": "C-001 - Villa Aimone 2026-03-20 → 2026-03-25",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2026-03-17T21:40:48.115Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "6",
+    "object_repr": "002 - Massimo 2026-03-24 → 2026-03-30",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2026-03-17T21:40:48.115Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "001 - Maska 2026-03-25 → 2026-03-29",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2026-03-17T21:40:48.115Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "9",
+    "object_repr": "001 - Maska 2026-03-29 → 2026-04-02",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "32",
+    "object_repr": "003 - Stefania Bilocale - 2026-03-05",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "8",
+    "object_repr": "C-001 - Villa Aimone - 2026-03-05",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "9",
+    "object_repr": "C-001 - Villa Aimone - 2026-03-12",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "6",
+    "object_repr": "001 - Maska - 2026-03-17",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "002 - Massimo - 2026-03-17",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "26",
+    "object_repr": "C-001 - Villa Aimone - 2026-03-20",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "001 - Maska - 2026-03-23",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "002 - Massimo - 2026-03-24",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "11",
+    "object_repr": "C-001 - Villa Aimone - 2026-03-26",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "25",
+    "object_repr": "001 - Maska - 2026-04-02",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "12",
+    "object_repr": "C-001 - Villa Aimone - 2026-04-02",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "13",
+    "object_repr": "C-001 - Villa Aimone - 2026-04-10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "14",
+    "object_repr": "C-001 - Villa Aimone - 2026-04-16",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "15",
+    "object_repr": "C-001 - Villa Aimone - 2026-04-23",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "16",
+    "object_repr": "C-001 - Villa Aimone - 2026-04-30",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "17",
+    "object_repr": "C-001 - Villa Aimone - 2026-05-07",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "18",
+    "object_repr": "C-001 - Villa Aimone - 2026-05-14",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "19",
+    "object_repr": "C-001 - Villa Aimone - 2026-05-21",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "20",
+    "object_repr": "C-001 - Villa Aimone - 2026-05-28",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "21",
+    "object_repr": "C-001 - Villa Aimone - 2026-06-04",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "22",
+    "object_repr": "C-001 - Villa Aimone - 2026-06-11",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "23",
+    "object_repr": "C-001 - Villa Aimone - 2026-06-18",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2026-03-17T21:41:24.708Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "24",
+    "object_repr": "C-001 - Villa Aimone - 2026-06-25",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2026-03-17T21:41:42.195Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "2",
+    "object_repr": "001 - Maska - 2026-03-15 - Prop",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 87,
+  "fields": {
+    "action_time": "2026-03-17T21:41:42.195Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "4",
+    "object_repr": "001 - Maska - 2026-03-23 - Solo pulizia",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 88,
+  "fields": {
+    "action_time": "2026-03-17T21:41:42.195Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "3",
+    "object_repr": "001 - Maska - 2026-03-27 - No biancheria",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 89,
+  "fields": {
+    "action_time": "2026-03-17T21:54:13.958Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "Stefania Borolo",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 90,
+  "fields": {
+    "action_time": "2026-03-17T22:06:43.165Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "003 - Stefania Bilocale",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cliente\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 91,
+  "fields": {
+    "action_time": "2026-03-17T22:06:59.652Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "004 - Stefania Monolocale",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cliente\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 92,
+  "fields": {
+    "action_time": "2026-03-18T18:10:47.209Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "A001 - Maska home cervinia",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cliente\", \"Codice\", \"Nome\", \"Address\", \"Max guests\", \"Double beds\", \"Single beds\", \"Google maps url\", \"Operational notes\", \"Costo kit fisso\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 93,
+  "fields": {
+    "action_time": "2026-03-18T18:16:31.338Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "A002 - Massimo",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cliente\", \"Codice\", \"Address\", \"Max guests\", \"Double beds\", \"Single beds\", \"Google maps url\", \"Operational notes\", \"Costo pulizia\", \"Costo kit a persona\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 94,
+  "fields": {
+    "action_time": "2026-03-18T18:26:29.979Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "A003 - Stefania Bilocale",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cliente\", \"Codice\", \"Address\", \"Google maps url\", \"Operational notes\", \"Costo kit fisso\", \"Costo kit a persona\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 95,
+  "fields": {
+    "action_time": "2026-03-18T18:27:22.375Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "21",
+    "object_repr": "Stefania Boroli",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nome cliente\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 96,
+  "fields": {
+    "action_time": "2026-03-18T18:28:01.689Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "A004 - Stefania Monolocale",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Cliente\", \"Codice\", \"Address\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 97,
+  "fields": {
+    "action_time": "2026-03-18T18:30:47.233Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "A004 - Stefania Monolocale",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Google maps url\", \"Operational notes\", \"Costo pulizia\", \"Costo kit fisso\", \"Costo kit a persona\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 98,
+  "fields": {
+    "action_time": "2026-03-18T18:33:06.697Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "A005 - Stefania Home",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 99,
+  "fields": {
+    "action_time": "2026-03-18T18:33:41.750Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "A005 - Stefania Home",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Operational notes\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 100,
+  "fields": {
+    "action_time": "2026-03-18T18:39:14.620Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "A006 - Stephanie",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 101,
+  "fields": {
+    "action_time": "2026-03-18T18:44:29.663Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "A003 - Stefania Bilocale",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 102,
+  "fields": {
+    "action_time": "2026-03-18T19:14:52.642Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "19",
+    "object_repr": "A001 - Maska home cervinia 2026-03-03 → 2026-03-06",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 103,
+  "fields": {
+    "action_time": "2026-03-18T19:15:30.951Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "20",
+    "object_repr": "A001 - Maska home cervinia 2026-03-09 → 2026-03-16",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 104,
+  "fields": {
+    "action_time": "2026-03-18T19:16:09.476Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "A001 - Maska home cervinia",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Costo letto matrimoniale\", \"Costo letto singolo\", \"Tappetino\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 105,
+  "fields": {
+    "action_time": "2026-03-18T20:39:37.125Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "A001 - Maska home cervinia - 2026-03-06",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Costo letto matrimoniale\", \"Costo letto singolo\", \"Tappetino\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 106,
+  "fields": {
+    "action_time": "2026-03-18T20:41:10.913Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "A001 - Maska home cervinia",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Costo letto matrimoniale\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 107,
+  "fields": {
+    "action_time": "2026-03-18T20:41:31.109Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "A001 - Maska home cervinia",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 108,
+  "fields": {
+    "action_time": "2026-03-18T20:42:21.394Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "21",
+    "object_repr": "A001 - Maska home cervinia 2026-03-05 → 2026-03-11",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 109,
+  "fields": {
+    "action_time": "2026-03-18T20:48:16.790Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "A001 - Maska home cervinia - 2026-03-11",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 110,
+  "fields": {
+    "action_time": "2026-03-18T20:52:14.073Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "22",
+    "object_repr": "A003 - Stefania Bilocale 2026-03-06 → 2026-03-09",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 111,
+  "fields": {
+    "action_time": "2026-03-18T20:54:03.811Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "23",
+    "object_repr": "A002 - Massimo 2026-03-03 → 2026-03-10",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 112,
+  "fields": {
+    "action_time": "2026-03-18T21:49:51.920Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "A001 - Maska home cervinia - 2026-03-11",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 113,
+  "fields": {
+    "action_time": "2026-03-18T21:58:45.384Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "A001 - Maska home cervinia",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 114,
+  "fields": {
+    "action_time": "2026-03-18T21:59:20.531Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "24",
+    "object_repr": "A001 - Maska home cervinia 2026-03-05 → 2026-03-14",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 115,
+  "fields": {
+    "action_time": "2026-03-22T21:53:14.383Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "1",
+    "object_repr": "A003 - Stefania Bilocale - Foto",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 116,
+  "fields": {
+    "action_time": "2026-03-22T22:26:20.395Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "8",
+    "object_repr": "A003 - Stefania Bilocale - 2026-03-24",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 117,
+  "fields": {
+    "action_time": "2026-03-22T22:28:14.014Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "25",
+    "object_repr": "A005 - Stefania Home 2026-03-22 → 2026-03-25",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 118,
+  "fields": {
+    "action_time": "2026-03-23T17:32:52.396Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "26",
+    "object_repr": "A005 - Stefania Home 2026-03-10 → 2026-03-16",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 119,
+  "fields": {
+    "action_time": "2026-03-23T21:59:43.726Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "27",
+    "object_repr": "A002 - Massimo 2026-03-21 → 2026-03-23",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 120,
+  "fields": {
+    "action_time": "2026-03-23T22:07:38.501Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "28",
+    "object_repr": "A001 - Maska home cervinia 2026-03-19 → 2026-03-23",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 121,
+  "fields": {
+    "action_time": "2026-03-23T22:21:21.266Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "28",
+    "object_repr": "A001 - Maska home cervinia 2026-03-19 → 2026-03-23",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 122,
+  "fields": {
+    "action_time": "2026-03-23T22:21:39.097Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "29",
+    "object_repr": "A001 - Maska home cervinia 2026-03-19 → 2026-03-24",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 123,
+  "fields": {
+    "action_time": "2026-03-23T22:24:49.058Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "29",
+    "object_repr": "A001 - Maska home cervinia 2026-03-19 → 2026-03-24",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 124,
+  "fields": {
+    "action_time": "2026-03-23T22:24:58.706Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "30",
+    "object_repr": "A001 - Maska home cervinia 2026-03-20 → 2026-03-25",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 125,
+  "fields": {
+    "action_time": "2026-03-24T21:38:57.279Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "30",
+    "object_repr": "A001 - Maska home cervinia 2026-03-20 → 2026-03-25",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 126,
+  "fields": {
+    "action_time": "2026-03-24T21:39:05.649Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "27",
+    "object_repr": "A002 - Massimo 2026-03-21 → 2026-03-23",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 127,
+  "fields": {
+    "action_time": "2026-03-24T21:39:23.903Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "31",
+    "object_repr": "A002 - Massimo 2026-03-20 → 2026-03-25",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 128,
+  "fields": {
+    "action_time": "2026-03-27T22:21:41.215Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "Naiara",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 129,
+  "fields": {
+    "action_time": "2026-03-27T22:24:41.471Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "Facundo",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 130,
+  "fields": {
+    "action_time": "2026-03-27T22:25:24.248Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "Facundo",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 131,
+  "fields": {
+    "action_time": "2026-03-29T16:05:56.744Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "32",
+    "object_repr": "A001 - Maska home cervinia 2026-03-24 → 2026-03-29",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 132,
+  "fields": {
+    "action_time": "2026-04-10T18:01:30.462Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "33",
+    "object_repr": "A001 - Maska home cervinia 2026-04-05 → 2026-04-10",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 133,
+  "fields": {
+    "action_time": "2026-04-10T20:20:24.871Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "34",
+    "object_repr": "A002 - Massimo 2026-04-04 → 2026-04-06",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 134,
+  "fields": {
+    "action_time": "2026-04-10T21:17:33.694Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "A001 - Maska home cervinia",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Operational notes\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 135,
+  "fields": {
+    "action_time": "2026-04-12T15:11:49.746Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "35",
+    "object_repr": "A003 - Stefania Bilocale 2026-04-10 → 2026-04-18",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 136,
+  "fields": {
+    "action_time": "2026-04-12T16:11:26.495Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "33",
+    "object_repr": "A001 - Maska home cervinia 2026-04-05 → 2026-04-10",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Letti matrimoniali utilizzati\", \"Letti singoli utilizzati\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 137,
+  "fields": {
+    "action_time": "2026-04-12T16:48:53.549Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "20",
+    "object_repr": "A001 - Maska home cervinia - 2026-04-12",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 138,
+  "fields": {
+    "action_time": "2026-04-12T16:51:42.551Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "21",
+    "object_repr": "A001 - Maska home cervinia - 2026-04-12",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 139,
+  "fields": {
+    "action_time": "2026-04-12T16:55:01.856Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "22",
+    "object_repr": "A001 - Maska home cervinia - 2026-04-12",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 140,
+  "fields": {
+    "action_time": "2026-04-12T17:13:47.527Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "23",
+    "object_repr": "A001 - Maska home cervinia - 2026-04-12",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 141,
+  "fields": {
+    "action_time": "2026-04-14T20:30:53.026Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "25",
+    "object_repr": "A005 - Stefania Home 2026-03-22 → 2026-03-25",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Ora check-in\", \"Ora check-out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 142,
+  "fields": {
+    "action_time": "2026-04-14T20:31:28.202Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "36",
+    "object_repr": "A005 - Stefania Home 2026-03-19 → 2026-03-22",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 143,
+  "fields": {
+    "action_time": "2026-04-14T21:25:31.108Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "31",
+    "object_repr": "A002 - Massimo 2026-03-20 → 2026-03-25",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Numero persone\", \"Letti matrimoniali utilizzati\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 144,
+  "fields": {
+    "action_time": "2026-04-14T21:33:42.678Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "25",
+    "object_repr": "A002 - Massimo - 2026-03-27",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 145,
+  "fields": {
+    "action_time": "2026-04-14T21:34:26.724Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "37",
+    "object_repr": "A002 - Massimo 2026-04-01 → 2026-04-04",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 146,
+  "fields": {
+    "action_time": "2026-04-15T20:01:04.974Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "38",
+    "object_repr": "A004 - Stefania Monolocale 2026-04-15 → 2026-04-19",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 147,
+  "fields": {
+    "action_time": "2026-04-18T16:03:59.206Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "39",
+    "object_repr": "A006 - Stephanie 2026-04-16 → 2026-04-19",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 148,
+  "fields": {
+    "action_time": "2026-04-18T21:16:26.786Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "40",
+    "object_repr": "A006 - Stephanie 2026-04-19 → 2026-04-22",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 149,
+  "fields": {
+    "action_time": "2026-04-19T21:07:29.458Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "30",
+    "object_repr": "C-001 - Villa Aimone - 2026-04-20",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 150,
+  "fields": {
+    "action_time": "2026-04-19T21:18:53.479Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "31",
+    "object_repr": "C-002 - Fiocco di Neve - 2026-04-21",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 151,
+  "fields": {
+    "action_time": "2026-04-19T21:18:58.520Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "41",
+    "object_repr": "C-001 - Villa Aimone 2026-04-17 → 2026-04-18",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 152,
+  "fields": {
+    "action_time": "2026-04-19T21:24:42.912Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "33",
+    "object_repr": "C-001 - Villa Aimone - 2026-04-23",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 153,
+  "fields": {
+    "action_time": "2026-04-20T17:44:38.534Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "42",
+    "object_repr": "A003 - Stefania Bilocale 2026-04-21 → 2026-04-25",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 154,
+  "fields": {
+    "action_time": "2026-04-20T19:21:23.672Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "43",
+    "object_repr": "A005 - Stefania Home 2026-04-23 → 2026-04-24",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 155,
+  "fields": {
+    "action_time": "2026-04-20T19:22:19.123Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "43",
+    "object_repr": "A005 - Stefania Home 2026-04-23 → 2026-04-24",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Ora check-in\", \"Ora check-out\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 156,
+  "fields": {
+    "action_time": "2026-04-20T19:32:43.326Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "44",
+    "object_repr": "A005 - Stefania Home 2026-04-23 → 2026-04-25",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 157,
+  "fields": {
+    "action_time": "2026-04-20T19:47:43.218Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "233 - ambara bici cco adda puzzolente",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 158,
+  "fields": {
+    "action_time": "2026-04-20T19:48:25.364Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "233 - ambara bici cco adda puzzolente del demonio",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nome\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 159,
+  "fields": {
+    "action_time": "2026-04-24T16:58:14.388Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "45",
+    "object_repr": "A001 - Maska home cervinia 2026-04-24 → 2026-04-27",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 160,
+  "fields": {
+    "action_time": "2026-04-24T16:58:20.238Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "46",
+    "object_repr": "A004 - Stefania Monolocale 2026-04-26 → 2026-04-29",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 161,
+  "fields": {
+    "action_time": "2026-04-24T17:23:56.625Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "Facundo",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 162,
+  "fields": {
+    "action_time": "2026-04-24T17:24:00.154Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "Facundo",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 163,
+  "fields": {
+    "action_time": "2026-05-03T21:34:43.826Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "A001 - Maska home cervinia",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"apartment photo\", \"object\": \"A001 - Maska home cervinia - Foto\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 164,
+  "fields": {
+    "action_time": "2026-05-03T21:35:56.550Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "1",
+    "object_repr": "A003 - Stefania Bilocale - Foto",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 165,
+  "fields": {
+    "action_time": "2026-05-03T21:36:47.421Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "47",
+    "object_repr": "A003 - Stefania Bilocale 2026-04-30 → 2026-05-03",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 166,
+  "fields": {
+    "action_time": "2026-05-05T17:21:18.041Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "48",
+    "object_repr": "A005 - Stefania Home 2026-05-05 → 2026-05-07",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 167,
+  "fields": {
+    "action_time": "2026-05-06T22:01:24.790Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "49",
+    "object_repr": "C-002 - Fiocco di Neve 2026-05-04 → 2026-05-08",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 168,
+  "fields": {
+    "action_time": "2026-05-06T22:02:09.877Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "50",
+    "object_repr": "C-001 - Villa Aimone 2026-05-08 → 2026-05-10",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 169,
+  "fields": {
+    "action_time": "2026-05-07T21:58:40.686Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "C-001 - Villa Aimone - twice_week",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Frequenza\", \"Giorno preferito 2\"]}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 3,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 3,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 3,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 3,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 2,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 2,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 2,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 2,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add Appartamento",
+    "content_type": 7,
+    "codename": "add_apartment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change Appartamento",
+    "content_type": 7,
+    "codename": "change_apartment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete Appartamento",
+    "content_type": 7,
+    "codename": "delete_apartment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view Appartamento",
+    "content_type": 7,
+    "codename": "view_apartment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add Dipendente",
+    "content_type": 8,
+    "codename": "add_employee"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change Dipendente",
+    "content_type": 8,
+    "codename": "change_employee"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete Dipendente",
+    "content_type": 8,
+    "codename": "delete_employee"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view Dipendente",
+    "content_type": 8,
+    "codename": "view_employee"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add Prenotazione",
+    "content_type": 9,
+    "codename": "add_booking"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change Prenotazione",
+    "content_type": 9,
+    "codename": "change_booking"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete Prenotazione",
+    "content_type": 9,
+    "codename": "delete_booking"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view Prenotazione",
+    "content_type": 9,
+    "codename": "view_booking"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add Pulizia",
+    "content_type": 10,
+    "codename": "add_cleaning"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change Pulizia",
+    "content_type": 10,
+    "codename": "change_cleaning"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete Pulizia",
+    "content_type": 10,
+    "codename": "delete_cleaning"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view Pulizia",
+    "content_type": 10,
+    "codename": "view_cleaning"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add Nota giornaliera",
+    "content_type": 11,
+    "codename": "add_daynote"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change Nota giornaliera",
+    "content_type": 11,
+    "codename": "change_daynote"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete Nota giornaliera",
+    "content_type": 11,
+    "codename": "delete_daynote"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view Nota giornaliera",
+    "content_type": 11,
+    "codename": "view_daynote"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add Regola pulizia condominio",
+    "content_type": 12,
+    "codename": "add_condominiumcleaningrule"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change Regola pulizia condominio",
+    "content_type": 12,
+    "codename": "change_condominiumcleaningrule"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete Regola pulizia condominio",
+    "content_type": 12,
+    "codename": "delete_condominiumcleaningrule"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view Regola pulizia condominio",
+    "content_type": 12,
+    "codename": "view_condominiumcleaningrule"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add Cliente",
+    "content_type": 13,
+    "codename": "add_customer"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change Cliente",
+    "content_type": 13,
+    "codename": "change_customer"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete Cliente",
+    "content_type": 13,
+    "codename": "delete_customer"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view Cliente",
+    "content_type": 13,
+    "codename": "view_customer"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add invoice",
+    "content_type": 14,
+    "codename": "add_invoice"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change invoice",
+    "content_type": 14,
+    "codename": "change_invoice"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete invoice",
+    "content_type": 14,
+    "codename": "delete_invoice"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view invoice",
+    "content_type": 14,
+    "codename": "view_invoice"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add work log",
+    "content_type": 15,
+    "codename": "add_worklog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change work log",
+    "content_type": 15,
+    "codename": "change_worklog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete work log",
+    "content_type": 15,
+    "codename": "delete_worklog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view work log",
+    "content_type": 15,
+    "codename": "view_worklog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add hourly rate",
+    "content_type": 16,
+    "codename": "add_hourlyrate"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change hourly rate",
+    "content_type": 16,
+    "codename": "change_hourlyrate"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete hourly rate",
+    "content_type": 16,
+    "codename": "delete_hourlyrate"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view hourly rate",
+    "content_type": 16,
+    "codename": "view_hourlyrate"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 65,
+  "fields": {
+    "name": "Can add laundry inventory",
+    "content_type": 17,
+    "codename": "add_laundryinventory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 66,
+  "fields": {
+    "name": "Can change laundry inventory",
+    "content_type": 17,
+    "codename": "change_laundryinventory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 67,
+  "fields": {
+    "name": "Can delete laundry inventory",
+    "content_type": 17,
+    "codename": "delete_laundryinventory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 68,
+  "fields": {
+    "name": "Can view laundry inventory",
+    "content_type": 17,
+    "codename": "view_laundryinventory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 69,
+  "fields": {
+    "name": "Can add laundry movement",
+    "content_type": 18,
+    "codename": "add_laundrymovement"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 70,
+  "fields": {
+    "name": "Can change laundry movement",
+    "content_type": 18,
+    "codename": "change_laundrymovement"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 71,
+  "fields": {
+    "name": "Can delete laundry movement",
+    "content_type": 18,
+    "codename": "delete_laundrymovement"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 72,
+  "fields": {
+    "name": "Can view laundry movement",
+    "content_type": 18,
+    "codename": "view_laundrymovement"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 73,
+  "fields": {
+    "name": "Can add laundry item",
+    "content_type": 19,
+    "codename": "add_laundryitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 74,
+  "fields": {
+    "name": "Can change laundry item",
+    "content_type": 19,
+    "codename": "change_laundryitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 75,
+  "fields": {
+    "name": "Can delete laundry item",
+    "content_type": 19,
+    "codename": "delete_laundryitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 76,
+  "fields": {
+    "name": "Can view laundry item",
+    "content_type": 19,
+    "codename": "view_laundryitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 77,
+  "fields": {
+    "name": "Can add apartment photo",
+    "content_type": 20,
+    "codename": "add_apartmentphoto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 78,
+  "fields": {
+    "name": "Can change apartment photo",
+    "content_type": 20,
+    "codename": "change_apartmentphoto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 79,
+  "fields": {
+    "name": "Can delete apartment photo",
+    "content_type": 20,
+    "codename": "delete_apartmentphoto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 80,
+  "fields": {
+    "name": "Can view apartment photo",
+    "content_type": 20,
+    "codename": "view_apartmentphoto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 81,
+  "fields": {
+    "name": "Can add Allegato pulizia",
+    "content_type": 21,
+    "codename": "add_cleaningattachment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 82,
+  "fields": {
+    "name": "Can change Allegato pulizia",
+    "content_type": 21,
+    "codename": "change_cleaningattachment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 83,
+  "fields": {
+    "name": "Can delete Allegato pulizia",
+    "content_type": 21,
+    "codename": "delete_cleaningattachment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 84,
+  "fields": {
+    "name": "Can view Allegato pulizia",
+    "content_type": 21,
+    "codename": "view_cleaningattachment"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$3TFn7xZtyN6jaw1UrCrYGZ$eXpwhNL7QV6/CqZDP2sRW1q+FRCLtUDnmgm1+SDPuh8=",
+    "last_login": "2026-05-07T21:58:11.107Z",
+    "is_superuser": true,
+    "username": "maska",
+    "first_name": "",
+    "last_name": "",
+    "email": "Alpine.cleaning@hotmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-06T20:25:50.949Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$T2mOsJB617G5aelxHi60Tg$OItKUYmXUyg4/pWy0o+VRa2XYFnHX1NjRluR9g2/abI=",
+    "last_login": "2026-03-28T21:02:26.977Z",
+    "is_superuser": false,
+    "username": "Naiara",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-27T22:21:40.382Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$o27w1hCnHlvs5NmjHg91mA$ZJ1AGbyGKxpHsOvFMSsY1gITQsDywheMIfnpM+C8I0I=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Facundo",
+    "first_name": "Facundo",
+    "last_name": "Fernandez",
+    "email": "facufer10@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-27T22:24:40Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$m6KcVIKIJrVBTgj4PyqWCG$L8oyNB+s6ZHX0VQg8hmzHzXQBwGaQTBtaH9THpZkPb0=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "maskademo",
+    "first_name": "",
+    "last_name": "",
+    "email": "alpine.cleaning@hotmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-05-07T17:58:49.554Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "apartments",
+    "model": "apartment"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "employees",
+    "model": "employee"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "bookings",
+    "model": "booking"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "cleanings",
+    "model": "cleaning"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "operations_calendar",
+    "model": "daynote"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "condominiums",
+    "model": "condominiumcleaningrule"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "customers",
+    "model": "customer"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "accounting",
+    "model": "invoice"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "employee_hours",
+    "model": "worklog"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "employee_hours",
+    "model": "hourlyrate"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "laundry",
+    "model": "laundryinventory"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 18,
+  "fields": {
+    "app_label": "laundry",
+    "model": "laundrymovement"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 19,
+  "fields": {
+    "app_label": "laundry",
+    "model": "laundryitem"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 20,
+  "fields": {
+    "app_label": "apartments",
+    "model": "apartmentphoto"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 21,
+  "fields": {
+    "app_label": "cleanings",
+    "model": "cleaningattachment"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "12kzrznygl31sdt8lev910svalvhcawj",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1wBaul:MshiALXgbiybT8bPE81r-JSLK5w1OpU2ZPkke3G8LdU",
+    "expire_date": "2026-04-25T16:10:31.667Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "18gwj291x2oh9ln378c10gc3y9h0inaq",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAQAP-yNbIcOz42JT1viHa9Ng4gR8pRIf6OIqWAdmY0bxhp3-q4r3kZJ4EBOrj8Mqb0zO0Q8qB2n1Wa27ZMrI5EnXZVt1ny63q2f4NKa4UBojjrBH1m7lNBTxx1TkWzMYU6a7Ql7JkDZQnJBUFEcpHI66J1sQifLwSGOJM:1w3L1Y:W_Rt4EFpwxePTgMndYygnwxjorGkjfV9ut-CaAuSR6k",
+    "expire_date": "2026-04-02T21:35:24.186Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1m4pebrce16lrn0lsr097ju88vsd3x0z",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1w6rC3:z2TtjTkyUH_yW06PfEbNowY8YBAbSjU8iA69ndqFJDU",
+    "expire_date": "2026-04-12T14:32:47.610Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3f48076d16m9c4xzq0xscp64djhmrk2j",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe-yNbL8IbGdkj5nsNa7axxAjpRPhbg7ipQCuqeZ0XtDwn2raV9lSRPDAAYuvywjPaUdgh_Y7rOiuW3LlNWRqNOuapxZXrez_TuouFYYwAZvRffGCAX03kYJhd0xkCWixoBiqeRsXH8l6qjozN4ZjtYRYgefL-jPOIs:1w4nIF:zPUUN_8UKsIk042FYQsX3PkCMF7Pgq1MMHVqgIrXkE4",
+    "expire_date": "2026-04-06T21:58:39.401Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3le4rnxai94z1x1ni64m8gk4r353vaqq",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1w5Uoh:lifUreSLqxqQzuIqk6Dff3mqGvrndOkFSOeXnTXo16k",
+    "expire_date": "2026-04-08T20:27:03.142Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4qsf0d99csx6zkh1s39spvb8z3vfub68",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1w83JW:fXc5RJKmCqHaPKpD6FdAsKnLcV__sZzJXnwKDk7wIT8",
+    "expire_date": "2026-04-15T21:41:26.093Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "635aqm6rfjecy5thso0u9hakx0n1txiv",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1wJe0G:nROdUK3y3MRz7xGptzxZr9nRa1Gn74k0C4Z8jYckmc8",
+    "expire_date": "2026-05-17T21:05:28.395Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6v3vooeucfzm3eofqii27a27riedih1o",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1wDUyu:b5qw64W2jf7otRd5UKVT9EG8xq9LJtbq0N9VBb-cWv0",
+    "expire_date": "2026-04-30T22:14:40.058Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8pexsvaj53rmtr4jq0gqwtr6xspgkb5n",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAQAP-yNbIcOz42JT1viHa9Ng4gR8pRIf6OIqWAdmY0bxhp3-q4r3kZJ4EBOrj8Mqb0zO0Q8qB2n1Wa27ZMrI5EnXZVt1ny63q2f4NKa4UBojjrBH1m7lNBTxx1TkWzMYU6a7Ql7JkDZQnJBUFEcpHI66J1sQifLwSGOJM:1w2c7K:U_XbgSX8-CHDG6egnRXeZnBXAziAb4ExVsgnZiNLPO8",
+    "expire_date": "2026-03-31T21:38:22.499Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8y5rr73u270jnchhu6x4v8lxd2yqgq37",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAQAP-yNbIcOz42JT1viHa9Ng4gR8pRIf6OIqWAdmY0bxhp3-q4r3kZJ4EBOrj8Mqb0zO0Q8qB2n1Wa27ZMrI5EnXZVt1ny63q2f4NKa4UBojjrBH1m7lNBTxx1TkWzMYU6a7Ql7JkDZQnJBUFEcpHI66J1sQifLwSGOJM:1vyboP:hlnyManCsIl5NTHIc4YImUJ6oB7brnaGV19lUS3eyd4",
+    "expire_date": "2026-03-20T20:30:17.049Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "a3s8lxais8elmc3qt30rdl4ccejj73iz",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAQAP-yNbIcOz42JT1viHa9Ng4gR8pRIf6OIqWAdmY0bxhp3-q4r3kZJ4EBOrj8Mqb0zO0Q8qB2n1Wa27ZMrI5EnXZVt1ny63q2f4NKa4UBojjrBH1m7lNBTxx1TkWzMYU6a7Ql7JkDZQnJBUFEcpHI66J1sQifLwSGOJM:1w2FkO:QgtJAB0idTSGr2nMo5gKNcJTXN2DqjYjQBkXZVhO7FQ",
+    "expire_date": "2026-03-30T21:45:12.442Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ax40fd6cjdvsx4wkpusizdojssgrjnqy",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1wBG9y:KCl1pWAfoiZLdoKo3Iush9RXyKD4C13Z0Oawdjn9dGE",
+    "expire_date": "2026-04-24T18:00:50.717Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bnshna259tdbjj6j1zqrqb5qv5s4ail3",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAQAP-yNbIcOz42JT1viHa9Ng4gR8pRIf6OIqWAdmY0bxhp3-q4r3kZJ4EBOrj8Mqb0zO0Q8qB2n1Wa27ZMrI5EnXZVt1ny63q2f4NKa4UBojjrBH1m7lNBTxx1TkWzMYU6a7Ql7JkDZQnJBUFEcpHI66J1sQifLwSGOJM:1w1NE3:00e_UhkIzMzkTE0FQmTr7XsrEWA7mD1Vy-2hdmpMkcQ",
+    "expire_date": "2026-03-28T11:32:11.543Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bp62zwhbsys8lnx8qkhv99akkdmordm7",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1wKjO2:i9X1lRtGAHiq-aAFxVKkxMZI3j3SIjKIGtPvaVfpgCk",
+    "expire_date": "2026-05-20T21:02:30.408Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "c9b83jr3iz6prc4d0w3ncafny8c8rlpk",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1wBwS4:Gro0-JGJAmHtlKFXo2LQiqqjgPMr3qwCbegvxaHcU4U",
+    "expire_date": "2026-04-26T15:10:20.856Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "eomginfeafvopvqwouuhhzmfc7aya1q8",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1wChAd:2-Zi02CWcNJOxpoKbOS0cjIMCR16U9MKl3Ho27c8Uuw",
+    "expire_date": "2026-04-28T17:03:27.265Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fkv0l4co42c86v5gepa5920uxnitl0nt",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1wGKFw:mwIAzyROvBtPJRRN_RRLsjsQZaPNr5WsCnjeEMAfjHw",
+    "expire_date": "2026-05-08T17:23:56.644Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "g75e2sropldwinn0d19h9vxguexw8i79",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAQAP-yNbIcOz42JT1viHa9Ng4gR8pRIf6OIqWAdmY0bxhp3-q4r3kZJ4EBOrj8Mqb0zO0Q8qB2n1Wa27ZMrI5EnXZVt1ny63q2f4NKa4UBojjrBH1m7lNBTxx1TkWzMYU6a7Ql7JkDZQnJBUFEcpHI66J1sQifLwSGOJM:1vyzEb:R9aLxtQcJ-SsD7iyZmDh1ECTotIGzeOqlOXTsIz8us8",
+    "expire_date": "2026-03-21T21:30:53.457Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "g9a8g4okle8nq3mhdypnxktagfmjw828",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1wD43o:mzH2-IpE83TRS31LYaP6RaLcrzLHWRLWU8XItm4McV0",
+    "expire_date": "2026-04-29T17:29:56.619Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hvxr3pg2aqisxobcwzefsqhwg8fmmw1o",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1wEsfI:pyvVLECWhlIfZqthEAoxGd_-Am60tNtSY9I5ArlFvfY",
+    "expire_date": "2026-05-04T17:44:08.381Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ix6qm4m94jlk3lzkp93wz54ks6mgak0m",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAQAP-yNbIcOz42JT1viHa9Ng4gR8pRIf6OIqWAdmY0bxhp3-q4r3kZJ4EBOrj8Mqb0zO0Q8qB2n1Wa27ZMrI5EnXZVt1ny63q2f4NKa4UBojjrBH1m7lNBTxx1TkWzMYU6a7Ql7JkDZQnJBUFEcpHI66J1sQifLwSGOJM:1vzgyh:ETXbeqdIQMp7gq2QNl-j8czbXPW7fBPgnj2O4icC-ho",
+    "expire_date": "2026-03-23T20:13:23.897Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jg038ov8p3ndvtbe958bhdjvhkfqkrqg",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1wE7u9:6CL14e70mrTQVh9P_UemwHI7XcIFqCq-isAzfVbW45Q",
+    "expire_date": "2026-05-02T15:48:21.927Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "lpf6854jrnpkc9k5677vzrp0e0w0f6tm",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1wEWaF:5PFKQm-vdynw5ljrFTEYr4VeXf-LAnvUUmlfY03ZDjQ",
+    "expire_date": "2026-05-03T18:09:27.117Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "mjylfcfdl9d7xvywyfp6nuanqy86nqlg",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAQAP-yNbIcOz42JT1viHa9Ng4gR8pRIf6OIqWAdmY0bxhp3-q4r3kZJ4EBOrj8Mqb0zO0Q8qB2n1Wa27ZMrI5EnXZVt1ny63q2f4NKa4UBojjrBH1m7lNBTxx1TkWzMYU6a7Ql7JkDZQnJBUFEcpHI66J1sQifLwSGOJM:1w1AnO:ezlNczrKAgz4lo6XkmAmiNtm_K6ha-uoNtRbg5yLW-Y",
+    "expire_date": "2026-03-27T22:15:50.610Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "o91nziin7j8mjtoduzpjj0qnbk6zexh7",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1w59Sf:trGnu9b1JCyd3t0s3J1Oxb1LpEoWg66TOq5Ix4fcHRg",
+    "expire_date": "2026-04-07T21:38:53.543Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "omu6n8p7ncr72p2v8b06suufws33v2a4",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAQAP-yNbIcOz42JT1viHa9Ng4gR8pRIf6OIqWAdmY0bxhp3-q4r3kZJ4EBOrj8Mqb0zO0Q8qB2n1Wa27ZMrI5EnXZVt1ny63q2f4NKa4UBojjrBH1m7lNBTxx1TkWzMYU6a7Ql7JkDZQnJBUFEcpHI66J1sQifLwSGOJM:1vzFnK:vD1JEgIzoWw5Y5qayU9yyGreKzYRdiYhtAEzZk1Zoo0",
+    "expire_date": "2026-03-22T15:11:50.387Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "oyp2xv5sbgyq227i7rohjkbzlbaxpjup",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1wL6jT:5280KQOJE5bSClInt2vIDeBqQqGOYxRYmPdR9HS0f9A",
+    "expire_date": "2026-05-21T21:58:11.120Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qy559fiyojm7sailg5jsmpv1voy9x0hm",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAQAP-yNbIcOz42JT1viHa9Ng4gR8pRIf6OIqWAdmY0bxhp3-q4r3kZJ4EBOrj8Mqb0zO0Q8qB2n1Wa27ZMrI5EnXZVt1ny63q2f4NKa4UBojjrBH1m7lNBTxx1TkWzMYU6a7Ql7JkDZQnJBUFEcpHI66J1sQifLwSGOJM:1w2sPy:HEfkQnLn9unR0BZQbUsRzE7Pif5gbtKrVGhKDJOrkVw",
+    "expire_date": "2026-04-01T15:02:42.170Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rgeo7gzi8ss32s3mua6vcc0ma5e549u1",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAQAP-yNbIcOz42JT1viHa9Ng4gR8pRIf6OIqWAdmY0bxhp3-q4r3kZJ4EBOrj8Mqb0zO0Q8qB2n1Wa27ZMrI5EnXZVt1ny63q2f4NKa4UBojjrBH1m7lNBTxx1TkWzMYU6a7Ql7JkDZQnJBUFEcpHI66J1sQifLwSGOJM:1w01vQ:xf0fQ7qjx3ONEun2MBT5Xbatk0J4h6Fb8rPTdju0F-A",
+    "expire_date": "2026-03-24T18:35:24.835Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rwvu7qt0yzjlz5gqru9wg96sxyrgyxmy",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAQAP-yNbIcOz42JT1viHa9Ng4gR8pRIf6OIqWAdmY0bxhp3-q4r3kZJ4EBOrj8Mqb0zO0Q8qB2n1Wa27ZMrI5EnXZVt1ny63q2f4NKa4UBojjrBH1m7lNBTxx1TkWzMYU6a7Ql7JkDZQnJBUFEcpHI66J1sQifLwSGOJM:1w4Qfz:1cQtCxcTNvA4-Ku_z1HC-LkjBr1qnYWO3gd6jBoIrmM",
+    "expire_date": "2026-04-05T21:49:39.037Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "u061g5ynavuqp4xb8im5uucu8euzarkb",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAQAP-yNbIcOz42JT1viHa9Ng4gR8pRIf6OIqWAdmY0bxhp3-q4r3kZJ4EBOrj8Mqb0zO0Q8qB2n1Wa27ZMrI5EnXZVt1ny63q2f4NKa4UBojjrBH1m7lNBTxx1TkWzMYU6a7Ql7JkDZQnJBUFEcpHI66J1sQifLwSGOJM:1w1tT2:IO_S4ysAPzZ5x1ZO_sv76NGGRslJdKuOic7SiMs0BYo",
+    "expire_date": "2026-03-29T21:57:48.379Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "w9sw9jbrj6rr7hw3m0hn82od8vj04rlr",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1wCNnG:41KNT3fn6cC0fe-XMSpGXWJaEJDPJexkMpUqOSf9Zm8",
+    "expire_date": "2026-04-27T20:22:02.667Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "xpnggdx6iy1rr7kd88cs4focyjjrs237",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1w6aoR:PFQHFklRJ_RgzCTI9ZxEBoLVmblsZ77E62IbTN77R44",
+    "expire_date": "2026-04-11T21:03:19.072Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "xvueim8dnv8p5lias4s0heoovg9m1jb1",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1wJHyX:QkzM_11M783Al6R2ew3VO5GchirDrQiuEehQV5IjhLY",
+    "expire_date": "2026-05-16T21:34:13.925Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "xw5n4wcw1zt6yd2xu4gkyts8uxt1bpi5",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEFbAGP3vsNZNldpGogKe3J-O9K0oPeJvPezEsE2Lcc9sZrWEhchBKn3y4CPrh0QHcotyqxlm1douyKPGiTcyV-Xg_37yBDy9-1dlbzMCnF6MBa7dklMj0AsYcBHLDGFKMy0xlxxDREskaR1wYBRvH-AOjPOIs:1w6Efq:whEcellEM2qQyhmTwODo5aE4cpauXmORfr8cGF7EGzA",
+    "expire_date": "2026-04-10T21:24:58.946Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 1,
+  "fields": {
+    "name": "Ale Longo",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 2,
+  "fields": {
+    "name": "Catherine",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 3,
+  "fields": {
+    "name": "Chiara Ferrarese",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 4,
+  "fields": {
+    "name": "CLAUDIA GROSSO",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 5,
+  "fields": {
+    "name": "Cristina Mazzi",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 6,
+  "fields": {
+    "name": "Elena general",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 7,
+  "fields": {
+    "name": "Filippo Pontieri",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 8,
+  "fields": {
+    "name": "Giulia",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 9,
+  "fields": {
+    "name": "HELLOCHALET",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 10,
+  "fields": {
+    "name": "Homeby ambra",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 11,
+  "fields": {
+    "name": "Iflat Pineta",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 12,
+  "fields": {
+    "name": "Lago Maen",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 13,
+  "fields": {
+    "name": "Lele Scalia",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 14,
+  "fields": {
+    "name": "Leone Ambra",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 15,
+  "fields": {
+    "name": "LUKASZ",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 16,
+  "fields": {
+    "name": "Maia",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 17,
+  "fields": {
+    "name": "MASKA",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 18,
+  "fields": {
+    "name": "Massimo Boario",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 19,
+  "fields": {
+    "name": "MCX",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 20,
+  "fields": {
+    "name": "Melania",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 21,
+  "fields": {
+    "name": "Stefania Boroli",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 22,
+  "fields": {
+    "name": "STEFANO PAVESIO",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 23,
+  "fields": {
+    "name": "Stephanie",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 24,
+  "fields": {
+    "name": "Vibeke",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 25,
+  "fields": {
+    "name": "Zaccaria",
+    "company_name": "",
+    "vat_number": "",
+    "tax_code": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-18T10:00:00Z"
+  }
+},
+{
+  "model": "apartments.apartment",
+  "pk": 1,
+  "fields": {
+    "customer": 17,
+    "code": "A001",
+    "name": "Maska home cervinia",
+    "property_type": "house",
+    "address": "Strada privata interna 64",
+    "max_guests": 6,
+    "double_beds": 2,
+    "single_beds": 2,
+    "google_maps_url": "https://maps.app.goo.gl/Tox7kUJ7erHR1rny9",
+    "operational_notes": "Condominio San Grato - Appartamento n. 24 - Piano terra - circa 40m2 - \r\nCodice portone:  4567# \r\nCodice Keybox: 1981\r\ndfs\r\nsfsdfsdf\r\n\r\nfzdf\r\n\r\nfzdf\r\nfzdfz\r\nfzdfz\r\n\r\nfzdf\r\nfzdfz\r\nfzdfz",
+    "default_cleaning_cost": "80.00",
+    "default_fixed_kit_cost": "15.00",
+    "default_per_person_kit_cost": "0.00",
+    "default_double_bed_cost": "18.00",
+    "default_single_bed_cost": "12.00",
+    "default_mat_cost": "1.50",
+    "default_extra_cost": "0.00",
+    "is_active": true,
+    "created_at": "2026-03-09T21:43:39.158Z"
+  }
+},
+{
+  "model": "apartments.apartment",
+  "pk": 2,
+  "fields": {
+    "customer": 18,
+    "code": "A002",
+    "name": "Massimo",
+    "property_type": "house",
+    "address": "Cervinia - Strada privata interna 13",
+    "max_guests": 6,
+    "double_beds": 1,
+    "single_beds": 4,
+    "google_maps_url": "https://maps.app.goo.gl/Noqb3TvgaCjNZHpT9",
+    "operational_notes": "Condominio Dent D'herens - terzo piano Ala ovest , seconda porta a sinistra\r\nCodice portone: S1963🔔\r\nCodice Keybox: 1492",
+    "default_cleaning_cost": "80.00",
+    "default_fixed_kit_cost": "0.00",
+    "default_per_person_kit_cost": "0.30",
+    "default_double_bed_cost": "0.00",
+    "default_single_bed_cost": "0.00",
+    "default_mat_cost": "0.00",
+    "default_extra_cost": "0.00",
+    "is_active": true,
+    "created_at": "2026-03-09T21:43:39.158Z"
+  }
+},
+{
+  "model": "apartments.apartment",
+  "pk": 3,
+  "fields": {
+    "customer": null,
+    "code": "C-001",
+    "name": "Villa Aimone",
+    "property_type": "condo",
+    "address": "",
+    "max_guests": 0,
+    "double_beds": 0,
+    "single_beds": 0,
+    "google_maps_url": "",
+    "operational_notes": "",
+    "default_cleaning_cost": "0.00",
+    "default_fixed_kit_cost": "0.00",
+    "default_per_person_kit_cost": "0.00",
+    "default_double_bed_cost": "0.00",
+    "default_single_bed_cost": "0.00",
+    "default_mat_cost": "0.00",
+    "default_extra_cost": "0.00",
+    "is_active": true,
+    "created_at": "2026-03-09T21:47:06.472Z"
+  }
+},
+{
+  "model": "apartments.apartment",
+  "pk": 4,
+  "fields": {
+    "customer": null,
+    "code": "C-002",
+    "name": "Fiocco di Neve",
+    "property_type": "condo",
+    "address": "",
+    "max_guests": 0,
+    "double_beds": 0,
+    "single_beds": 0,
+    "google_maps_url": "",
+    "operational_notes": "",
+    "default_cleaning_cost": "0.00",
+    "default_fixed_kit_cost": "0.00",
+    "default_per_person_kit_cost": "0.00",
+    "default_double_bed_cost": "0.00",
+    "default_single_bed_cost": "0.00",
+    "default_mat_cost": "0.00",
+    "default_extra_cost": "0.00",
+    "is_active": true,
+    "created_at": "2026-03-10T18:36:38.041Z"
+  }
+},
+{
+  "model": "apartments.apartment",
+  "pk": 5,
+  "fields": {
+    "customer": 21,
+    "code": "A004",
+    "name": "Stefania Monolocale",
+    "property_type": "house",
+    "address": "Cervinia - Via Meynet 6",
+    "max_guests": 2,
+    "double_beds": 1,
+    "single_beds": 0,
+    "google_maps_url": "https://maps.app.goo.gl/a6e1gbbXfm9odawK9",
+    "operational_notes": "Condominio Serenella - Primo piano - \r\nIngresso portone : Chiave\r\nIngresso casa: Chiave\r\nCodice Keybox: 1967",
+    "default_cleaning_cost": "70.00",
+    "default_fixed_kit_cost": "4.10",
+    "default_per_person_kit_cost": "0.65",
+    "default_double_bed_cost": "0.00",
+    "default_single_bed_cost": "0.00",
+    "default_mat_cost": "0.00",
+    "default_extra_cost": "0.00",
+    "is_active": true,
+    "created_at": "2026-03-14T22:04:39.616Z"
+  }
+},
+{
+  "model": "apartments.apartment",
+  "pk": 6,
+  "fields": {
+    "customer": 21,
+    "code": "A003",
+    "name": "Stefania Bilocale",
+    "property_type": "house",
+    "address": "Cervinia - Via Meynet 6",
+    "max_guests": 4,
+    "double_beds": 2,
+    "single_beds": 0,
+    "google_maps_url": "https://maps.app.goo.gl/a6e1gbbXfm9odawK9",
+    "operational_notes": "Condominio Serenella - Primo piano - \r\nIngresso portone : Chiave\r\nIngresso casa: Chiave\r\nCodice Keybox: 1967",
+    "default_cleaning_cost": "80.00",
+    "default_fixed_kit_cost": "4.60",
+    "default_per_person_kit_cost": "0.65",
+    "default_double_bed_cost": "0.00",
+    "default_single_bed_cost": "0.00",
+    "default_mat_cost": "0.00",
+    "default_extra_cost": "0.00",
+    "is_active": true,
+    "created_at": "2026-03-14T22:05:30.640Z"
+  }
+},
+{
+  "model": "apartments.apartment",
+  "pk": 7,
+  "fields": {
+    "customer": 21,
+    "code": "A005",
+    "name": "Stefania Home",
+    "property_type": "house",
+    "address": "Cervinia - Via Meynet 6",
+    "max_guests": 0,
+    "double_beds": 0,
+    "single_beds": 0,
+    "google_maps_url": "https://maps.app.goo.gl/a6e1gbbXfm9odawK9",
+    "operational_notes": "Condominio Serenella - Terzo piano - \r\nIngresso portone : Chiave\r\nIngresso casa: Chiave",
+    "default_cleaning_cost": "65.00",
+    "default_fixed_kit_cost": "0.00",
+    "default_per_person_kit_cost": "0.00",
+    "default_double_bed_cost": "0.00",
+    "default_single_bed_cost": "0.00",
+    "default_mat_cost": "0.00",
+    "default_extra_cost": "0.00",
+    "is_active": true,
+    "created_at": "2026-03-18T18:33:06.691Z"
+  }
+},
+{
+  "model": "apartments.apartment",
+  "pk": 8,
+  "fields": {
+    "customer": 23,
+    "code": "A006",
+    "name": "Stephanie",
+    "property_type": "house",
+    "address": "Cervinia - Via Piolet 10",
+    "max_guests": 4,
+    "double_beds": 1,
+    "single_beds": 2,
+    "google_maps_url": "https://maps.app.goo.gl/SNwrMSNCtc1x5Z7RA",
+    "operational_notes": "Condominio Villa Aimone - Appartamento n. 3 - Piano terra \r\nIngresso da garage più comodo\r\nletto matrimoniale con due copripimini singoli e 8 cuscini\r\nIngresso condominio : Chiave\r\nIngresso Casa: Chiave\r\nKeybox: 8888 (a fianco al portone garage)\r\nMATERIALE SCORTA PRESENTE IN ARMADIO IN CASA (riempire all’occorrenza)",
+    "default_cleaning_cost": "90.00",
+    "default_fixed_kit_cost": "0.00",
+    "default_per_person_kit_cost": "0.00",
+    "default_double_bed_cost": "0.00",
+    "default_single_bed_cost": "0.00",
+    "default_mat_cost": "0.00",
+    "default_extra_cost": "0.00",
+    "is_active": true,
+    "created_at": "2026-03-18T18:39:14.619Z"
+  }
+},
+{
+  "model": "apartments.apartment",
+  "pk": 9,
+  "fields": {
+    "customer": 1,
+    "code": "233",
+    "name": "ambara bici cco adda puzzolente del demonio",
+    "property_type": "house",
+    "address": "",
+    "max_guests": 0,
+    "double_beds": 0,
+    "single_beds": 0,
+    "google_maps_url": "",
+    "operational_notes": "",
+    "default_cleaning_cost": "0.00",
+    "default_fixed_kit_cost": "0.00",
+    "default_per_person_kit_cost": "0.00",
+    "default_double_bed_cost": "0.00",
+    "default_single_bed_cost": "0.00",
+    "default_mat_cost": "0.00",
+    "default_extra_cost": "0.00",
+    "is_active": true,
+    "created_at": "2026-04-20T19:47:43.217Z"
+  }
+},
+{
+  "model": "apartments.apartmentphoto",
+  "pk": 2,
+  "fields": {
+    "apartment": 1,
+    "image": "image/upload/v1777844083/cleaning_boost/apartment_photos/xfcvs0gp5qymp13qhgnt.jpg",
+    "caption": "Matrimoniale",
+    "created_at": "2026-05-03T21:34:43.825Z"
+  }
+},
+{
+  "model": "employees.employee",
+  "pk": 1,
+  "fields": {
+    "user": null,
+    "name": "Naiara",
+    "phone": "",
+    "email": "",
+    "color": "#3498db",
+    "is_active": true,
+    "created_at": "2026-03-06T21:18:22.048Z"
+  }
+},
+{
+  "model": "employees.employee",
+  "pk": 2,
+  "fields": {
+    "user": null,
+    "name": "Facundo",
+    "phone": "",
+    "email": "",
+    "color": "#3498db",
+    "is_active": true,
+    "created_at": "2026-03-06T21:18:27.943Z"
+  }
+},
+{
+  "model": "employees.employee",
+  "pk": 3,
+  "fields": {
+    "user": null,
+    "name": "Aneley Berardo",
+    "phone": "",
+    "email": "",
+    "color": "#3498db",
+    "is_active": true,
+    "created_at": "2026-03-06T21:18:33.331Z"
+  }
+},
+{
+  "model": "employees.employee",
+  "pk": 4,
+  "fields": {
+    "user": null,
+    "name": "Martin Cavo",
+    "phone": "",
+    "email": "",
+    "color": "#3498db",
+    "is_active": true,
+    "created_at": "2026-03-06T21:18:38.330Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 22,
+  "fields": {
+    "apartment": 6,
+    "guest_name": "",
+    "people_count": 2,
+    "double_beds": 1,
+    "single_beds": 0,
+    "check_in": "2026-03-06",
+    "check_in_time": null,
+    "check_out": "2026-03-09",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-03-18T20:52:14.065Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 23,
+  "fields": {
+    "apartment": 2,
+    "guest_name": "",
+    "people_count": 2,
+    "double_beds": 1,
+    "single_beds": 0,
+    "check_in": "2026-03-03",
+    "check_in_time": null,
+    "check_out": "2026-03-10",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-03-18T20:54:03.804Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 24,
+  "fields": {
+    "apartment": 1,
+    "guest_name": "",
+    "people_count": 4,
+    "double_beds": 1,
+    "single_beds": 2,
+    "check_in": "2026-03-05",
+    "check_in_time": null,
+    "check_out": "2026-03-14",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-03-18T21:59:20.523Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 25,
+  "fields": {
+    "apartment": 7,
+    "guest_name": "",
+    "people_count": 4,
+    "double_beds": 1,
+    "single_beds": 2,
+    "check_in": "2026-03-22",
+    "check_in_time": "15:00:00",
+    "check_out": "2026-03-25",
+    "check_out_time": "10:00:00",
+    "notes": "Pulire bene terrazzo",
+    "created_at": "2026-03-22T22:28:14.006Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 26,
+  "fields": {
+    "apartment": 7,
+    "guest_name": "",
+    "people_count": 4,
+    "double_beds": 1,
+    "single_beds": 2,
+    "check_in": "2026-03-10",
+    "check_in_time": null,
+    "check_out": "2026-03-16",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-03-23T17:32:52.393Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 31,
+  "fields": {
+    "apartment": 2,
+    "guest_name": "",
+    "people_count": 3,
+    "double_beds": 2,
+    "single_beds": 2,
+    "check_in": "2026-03-20",
+    "check_in_time": null,
+    "check_out": "2026-03-25",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-03-24T21:39:23.898Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 32,
+  "fields": {
+    "apartment": 1,
+    "guest_name": "",
+    "people_count": 3,
+    "double_beds": 1,
+    "single_beds": 2,
+    "check_in": "2026-03-24",
+    "check_in_time": null,
+    "check_out": "2026-03-29",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-03-29T16:05:56.741Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 33,
+  "fields": {
+    "apartment": 1,
+    "guest_name": "",
+    "people_count": 3,
+    "double_beds": 1,
+    "single_beds": 1,
+    "check_in": "2026-04-05",
+    "check_in_time": null,
+    "check_out": "2026-04-10",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-04-10T18:01:30.458Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 34,
+  "fields": {
+    "apartment": 2,
+    "guest_name": "",
+    "people_count": 1,
+    "double_beds": 0,
+    "single_beds": 0,
+    "check_in": "2026-04-04",
+    "check_in_time": null,
+    "check_out": "2026-04-06",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-04-10T20:20:24.869Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 35,
+  "fields": {
+    "apartment": 6,
+    "guest_name": "",
+    "people_count": 1,
+    "double_beds": 0,
+    "single_beds": 0,
+    "check_in": "2026-04-10",
+    "check_in_time": null,
+    "check_out": "2026-04-18",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-04-12T15:11:49.743Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 36,
+  "fields": {
+    "apartment": 7,
+    "guest_name": "",
+    "people_count": 2,
+    "double_beds": 1,
+    "single_beds": 2,
+    "check_in": "2026-03-19",
+    "check_in_time": "16:00:00",
+    "check_out": "2026-03-22",
+    "check_out_time": "09:00:00",
+    "notes": "",
+    "created_at": "2026-04-14T20:31:28.199Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 37,
+  "fields": {
+    "apartment": 2,
+    "guest_name": "",
+    "people_count": 1,
+    "double_beds": 0,
+    "single_beds": 0,
+    "check_in": "2026-04-01",
+    "check_in_time": null,
+    "check_out": "2026-04-04",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-04-14T21:34:26.721Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 38,
+  "fields": {
+    "apartment": 5,
+    "guest_name": "",
+    "people_count": 4,
+    "double_beds": 2,
+    "single_beds": 2,
+    "check_in": "2026-04-15",
+    "check_in_time": "16:30:00",
+    "check_out": "2026-04-19",
+    "check_out_time": "20:30:00",
+    "notes": "viva la vida",
+    "created_at": "2026-04-15T20:01:04.965Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 39,
+  "fields": {
+    "apartment": 8,
+    "guest_name": "",
+    "people_count": 2,
+    "double_beds": 2,
+    "single_beds": 2,
+    "check_in": "2026-04-16",
+    "check_in_time": "10:00:00",
+    "check_out": "2026-04-19",
+    "check_out_time": "10:30:00",
+    "notes": "",
+    "created_at": "2026-04-18T16:03:59.201Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 40,
+  "fields": {
+    "apartment": 8,
+    "guest_name": "",
+    "people_count": 4,
+    "double_beds": 2,
+    "single_beds": 1,
+    "check_in": "2026-04-19",
+    "check_in_time": "10:00:00",
+    "check_out": "2026-04-22",
+    "check_out_time": "10:00:00",
+    "notes": "",
+    "created_at": "2026-04-18T21:16:26.783Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 42,
+  "fields": {
+    "apartment": 6,
+    "guest_name": "",
+    "people_count": 4,
+    "double_beds": 1,
+    "single_beds": 3,
+    "check_in": "2026-04-21",
+    "check_in_time": null,
+    "check_out": "2026-04-25",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-04-20T17:44:38.530Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 44,
+  "fields": {
+    "apartment": 7,
+    "guest_name": "",
+    "people_count": 3,
+    "double_beds": 2,
+    "single_beds": 0,
+    "check_in": "2026-04-23",
+    "check_in_time": null,
+    "check_out": "2026-04-25",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-04-20T19:32:43.319Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 45,
+  "fields": {
+    "apartment": 1,
+    "guest_name": "",
+    "people_count": 1,
+    "double_beds": 0,
+    "single_beds": 0,
+    "check_in": "2026-04-24",
+    "check_in_time": null,
+    "check_out": "2026-04-27",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-04-24T16:58:14.384Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 46,
+  "fields": {
+    "apartment": 5,
+    "guest_name": "",
+    "people_count": 1,
+    "double_beds": 0,
+    "single_beds": 0,
+    "check_in": "2026-04-26",
+    "check_in_time": null,
+    "check_out": "2026-04-29",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-04-24T16:58:20.230Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 47,
+  "fields": {
+    "apartment": 6,
+    "guest_name": "",
+    "people_count": 2,
+    "double_beds": 1,
+    "single_beds": 1,
+    "check_in": "2026-04-30",
+    "check_in_time": null,
+    "check_out": "2026-05-03",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-05-03T21:36:47.418Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 48,
+  "fields": {
+    "apartment": 7,
+    "guest_name": "",
+    "people_count": 4,
+    "double_beds": 2,
+    "single_beds": 1,
+    "check_in": "2026-05-05",
+    "check_in_time": "07:00:00",
+    "check_out": "2026-05-07",
+    "check_out_time": "18:00:00",
+    "notes": "",
+    "created_at": "2026-05-05T17:21:18.034Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 49,
+  "fields": {
+    "apartment": 4,
+    "guest_name": "",
+    "people_count": 2,
+    "double_beds": 1,
+    "single_beds": 0,
+    "check_in": "2026-05-04",
+    "check_in_time": null,
+    "check_out": "2026-05-08",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-05-06T22:01:24.786Z"
+  }
+},
+{
+  "model": "bookings.booking",
+  "pk": 50,
+  "fields": {
+    "apartment": 3,
+    "guest_name": "",
+    "people_count": 3,
+    "double_beds": 1,
+    "single_beds": 1,
+    "check_in": "2026-05-08",
+    "check_in_time": null,
+    "check_out": "2026-05-10",
+    "check_out_time": null,
+    "notes": "",
+    "created_at": "2026-05-06T22:02:09.874Z"
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 5,
+  "fields": {
+    "apartment": 6,
+    "booking": 22,
+    "date": "2026-03-09",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 2,
+    "double_beds_count": 1,
+    "single_beds_count": 0,
+    "cleaning_cost": "80.00",
+    "fixed_kit_cost": "4.60",
+    "per_person_kit_cost": "0.65",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-03-18T20:52:14.072Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 6,
+  "fields": {
+    "apartment": 2,
+    "booking": 23,
+    "date": "2026-03-10",
+    "status": "completed",
+    "employee_note": "",
+    "people_count": 2,
+    "double_beds_count": 1,
+    "single_beds_count": 0,
+    "cleaning_cost": "80.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.30",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": true,
+    "created_at": "2026-03-18T20:54:03.810Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 7,
+  "fields": {
+    "apartment": 1,
+    "booking": 24,
+    "date": "2026-03-14",
+    "status": "completed",
+    "employee_note": "",
+    "people_count": 4,
+    "double_beds_count": 1,
+    "single_beds_count": 2,
+    "cleaning_cost": "80.00",
+    "fixed_kit_cost": "15.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "18.00",
+    "single_bed_cost": "12.00",
+    "mat_cost": "1.50",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-03-18T21:59:20.530Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 8,
+  "fields": {
+    "apartment": 6,
+    "booking": null,
+    "date": "2026-03-25",
+    "status": "completed",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "80.00",
+    "fixed_kit_cost": "4.60",
+    "per_person_kit_cost": "0.65",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": true,
+    "created_at": "2026-03-22T22:26:20.392Z",
+    "employees": [
+      3,
+      2
+    ]
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 9,
+  "fields": {
+    "apartment": 7,
+    "booking": 25,
+    "date": "2026-03-25",
+    "status": "completed",
+    "employee_note": "",
+    "people_count": 4,
+    "double_beds_count": 1,
+    "single_beds_count": 2,
+    "cleaning_cost": "65.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-03-22T22:28:14.013Z",
+    "employees": [
+      2,
+      4,
+      1
+    ]
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 10,
+  "fields": {
+    "apartment": 7,
+    "booking": 26,
+    "date": "2026-03-16",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 4,
+    "double_beds_count": 1,
+    "single_beds_count": 2,
+    "cleaning_cost": "65.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "15.00",
+    "single_bed_cost": "20.00",
+    "mat_cost": "1.50",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-03-23T17:32:52.395Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 15,
+  "fields": {
+    "apartment": 2,
+    "booking": 31,
+    "date": "2026-03-27",
+    "status": "completed",
+    "employee_note": "Ciao di prova",
+    "people_count": 3,
+    "double_beds_count": 2,
+    "single_beds_count": 2,
+    "cleaning_cost": "80.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.30",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": true,
+    "created_at": "2026-03-24T21:39:23.902Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 16,
+  "fields": {
+    "apartment": 1,
+    "booking": 32,
+    "date": "2026-03-29",
+    "status": "completed",
+    "employee_note": "",
+    "people_count": 3,
+    "double_beds_count": 1,
+    "single_beds_count": 2,
+    "cleaning_cost": "80.00",
+    "fixed_kit_cost": "15.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "18.00",
+    "single_bed_cost": "12.00",
+    "mat_cost": "1.50",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-03-29T16:05:56.743Z",
+    "employees": [
+      2
+    ]
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 17,
+  "fields": {
+    "apartment": 1,
+    "booking": 33,
+    "date": "2026-04-10",
+    "status": "completed",
+    "employee_note": "",
+    "people_count": 3,
+    "double_beds_count": 1,
+    "single_beds_count": 1,
+    "cleaning_cost": "80.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "18.00",
+    "single_bed_cost": "12.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-04-10T18:01:30.461Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 19,
+  "fields": {
+    "apartment": 6,
+    "booking": 35,
+    "date": "2026-04-18",
+    "status": "completed",
+    "employee_note": "",
+    "people_count": 1,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "80.00",
+    "fixed_kit_cost": "4.60",
+    "per_person_kit_cost": "0.65",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": true,
+    "created_at": "2026-04-12T15:11:49.745Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 23,
+  "fields": {
+    "apartment": 1,
+    "booking": null,
+    "date": "2026-04-12",
+    "status": "completed",
+    "employee_note": "",
+    "people_count": 3,
+    "double_beds_count": 1,
+    "single_beds_count": 2,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "15.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "18.00",
+    "single_bed_cost": "12.00",
+    "mat_cost": "1.50",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-04-12T17:13:47.525Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 24,
+  "fields": {
+    "apartment": 7,
+    "booking": 36,
+    "date": "2026-03-22",
+    "status": "completed",
+    "employee_note": "",
+    "people_count": 2,
+    "double_beds_count": 1,
+    "single_beds_count": 2,
+    "cleaning_cost": "65.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-04-14T20:31:28.201Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 25,
+  "fields": {
+    "apartment": 2,
+    "booking": null,
+    "date": "2026-03-29",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "80.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.30",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": true,
+    "created_at": "2026-04-14T21:33:42.675Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 26,
+  "fields": {
+    "apartment": 2,
+    "booking": 37,
+    "date": "2026-04-04",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 1,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "80.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.30",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-04-14T21:34:26.723Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 27,
+  "fields": {
+    "apartment": 5,
+    "booking": 38,
+    "date": "2026-04-19",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 4,
+    "double_beds_count": 2,
+    "single_beds_count": 2,
+    "cleaning_cost": "70.00",
+    "fixed_kit_cost": "4.10",
+    "per_person_kit_cost": "0.65",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-04-15T20:01:04.971Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 28,
+  "fields": {
+    "apartment": 8,
+    "booking": 39,
+    "date": "2026-04-19",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 2,
+    "double_beds_count": 2,
+    "single_beds_count": 2,
+    "cleaning_cost": "90.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-04-18T16:03:59.204Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 29,
+  "fields": {
+    "apartment": 8,
+    "booking": 40,
+    "date": "2026-04-22",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 4,
+    "double_beds_count": 2,
+    "single_beds_count": 1,
+    "cleaning_cost": "90.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-04-18T21:16:26.785Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 30,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-04-20",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-04-19T21:07:29.452Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 31,
+  "fields": {
+    "apartment": 4,
+    "booking": null,
+    "date": "2026-04-21",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-04-19T21:18:53.473Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 33,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-04-23",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-04-19T21:24:42.904Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 34,
+  "fields": {
+    "apartment": 6,
+    "booking": 42,
+    "date": "2026-04-25",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 4,
+    "double_beds_count": 1,
+    "single_beds_count": 3,
+    "cleaning_cost": "80.00",
+    "fixed_kit_cost": "4.60",
+    "per_person_kit_cost": "0.65",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-04-20T17:44:38.532Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 36,
+  "fields": {
+    "apartment": 7,
+    "booking": 44,
+    "date": "2026-04-25",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 3,
+    "double_beds_count": 2,
+    "single_beds_count": 0,
+    "cleaning_cost": "65.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-04-20T19:32:43.325Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 37,
+  "fields": {
+    "apartment": 1,
+    "booking": 45,
+    "date": "2026-04-27",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 1,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "80.00",
+    "fixed_kit_cost": "15.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "18.00",
+    "single_bed_cost": "12.00",
+    "mat_cost": "1.50",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-04-24T16:58:14.386Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 38,
+  "fields": {
+    "apartment": 5,
+    "booking": 46,
+    "date": "2026-04-29",
+    "status": "completed",
+    "employee_note": "",
+    "people_count": 1,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "70.00",
+    "fixed_kit_cost": "4.10",
+    "per_person_kit_cost": "0.65",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-04-24T16:58:20.237Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 39,
+  "fields": {
+    "apartment": 6,
+    "booking": 47,
+    "date": "2026-05-05",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 2,
+    "double_beds_count": 1,
+    "single_beds_count": 1,
+    "cleaning_cost": "80.00",
+    "fixed_kit_cost": "4.60",
+    "per_person_kit_cost": "0.65",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": true,
+    "created_at": "2026-05-03T21:36:47.420Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 40,
+  "fields": {
+    "apartment": 7,
+    "booking": 48,
+    "date": "2026-05-07",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 4,
+    "double_beds_count": 2,
+    "single_beds_count": 1,
+    "cleaning_cost": "65.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-05-05T17:21:18.040Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 41,
+  "fields": {
+    "apartment": 4,
+    "booking": 49,
+    "date": "2026-05-08",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 2,
+    "double_beds_count": 1,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-05-06T22:01:24.788Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 42,
+  "fields": {
+    "apartment": 3,
+    "booking": 50,
+    "date": "2026-05-10",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 3,
+    "double_beds_count": 1,
+    "single_beds_count": 1,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": true,
+    "manual_date_override": false,
+    "created_at": "2026-05-06T22:02:09.876Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 43,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-03-05",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.839Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 44,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-03-06",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.848Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 45,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-03-12",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.854Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 46,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-03-13",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.862Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 47,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-03-19",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.869Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 48,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-03-20",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.878Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 49,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-03-26",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.884Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 50,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-03-27",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.892Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 51,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-04-02",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.898Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 52,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-04-03",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.905Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 53,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-04-09",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.912Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 54,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-04-10",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.919Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 55,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-04-16",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.926Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 56,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-04-17",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.933Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 57,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-04-24",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.940Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 58,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-04-30",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.946Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 59,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-05-01",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.953Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 60,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-05-07",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.960Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 61,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-05-08",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.967Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 62,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-05-14",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.973Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 63,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-05-15",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.981Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 64,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-05-21",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.987Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 65,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-05-22",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:12.994Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 66,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-05-28",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:13.000Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 67,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-05-29",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:13.008Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 68,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-06-04",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:13.014Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 69,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-06-05",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:13.020Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 70,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-06-11",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:13.028Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 71,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-06-12",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:13.082Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 72,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-06-18",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:13.089Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 73,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-06-19",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:13.096Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 74,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-06-25",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:13.102Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaning",
+  "pk": 75,
+  "fields": {
+    "apartment": 3,
+    "booking": null,
+    "date": "2026-06-26",
+    "status": "scheduled",
+    "employee_note": "",
+    "people_count": 0,
+    "double_beds_count": 0,
+    "single_beds_count": 0,
+    "cleaning_cost": "0.00",
+    "fixed_kit_cost": "0.00",
+    "per_person_kit_cost": "0.00",
+    "double_bed_cost": "0.00",
+    "single_bed_cost": "0.00",
+    "mat_cost": "0.00",
+    "extra_cost": "0.00",
+    "auto_created": false,
+    "manual_date_override": false,
+    "created_at": "2026-05-07T22:04:13.109Z",
+    "employees": []
+  }
+},
+{
+  "model": "cleanings.cleaningattachment",
+  "pk": 1,
+  "fields": {
+    "cleaning": 8,
+    "file": "auto/upload/cleaning_attachments/Immagine_WhatsApp_2023-09-21_ore_17.15.57.jpg",
+    "note": "",
+    "uploaded_at": "2026-03-23T15:51:05.943Z"
+  }
+},
+{
+  "model": "cleanings.cleaningattachment",
+  "pk": 2,
+  "fields": {
+    "cleaning": 9,
+    "file": "auto/upload/cleaning_attachments/IMG-20230718-WA0006.jpg",
+    "note": "",
+    "uploaded_at": "2026-03-23T17:19:02.931Z"
+  }
+},
+{
+  "model": "cleanings.cleaningattachment",
+  "pk": 6,
+  "fields": {
+    "cleaning": 15,
+    "file": "auto/upload/cleaning_attachments/bolla-di-sapone-su-cielo-blu-44487305.jpg",
+    "note": "",
+    "uploaded_at": "2026-03-24T21:40:09.696Z"
+  }
+},
+{
+  "model": "cleanings.cleaningattachment",
+  "pk": 7,
+  "fields": {
+    "cleaning": 16,
+    "file": "image/upload/v1774800471/cleaning_boost/cleaning_attachments/tse3969oj29ty9v1ctdt.jpg",
+    "note": "",
+    "uploaded_at": "2026-03-29T16:07:52.757Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 6,
+  "fields": {
+    "apartment": 2,
+    "date": "2026-03-24",
+    "note_type": "CUSTOM",
+    "notes": "gigi sabani",
+    "created_at": "2026-04-14T19:36:43.085Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 8,
+  "fields": {
+    "apartment": 7,
+    "date": "2026-03-25",
+    "note_type": "SOLO_PULIZIA",
+    "notes": "",
+    "created_at": "2026-04-14T19:39:01.689Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 9,
+  "fields": {
+    "apartment": 7,
+    "date": "2026-03-25",
+    "note_type": "CUSTOM",
+    "notes": "grange",
+    "created_at": "2026-04-14T20:29:53.375Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 10,
+  "fields": {
+    "apartment": 7,
+    "date": "2026-03-22",
+    "note_type": "CUSTOM",
+    "notes": "Tutti insieme allegramente per la campagna domani mattina",
+    "created_at": "2026-04-14T21:24:24.235Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 11,
+  "fields": {
+    "apartment": 2,
+    "date": "2026-03-29",
+    "note_type": "CUSTOM",
+    "notes": "ahdggrkfllfkr dkfjrkfjerkfje",
+    "created_at": "2026-04-14T21:35:34.829Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 12,
+  "fields": {
+    "apartment": 5,
+    "date": "2026-04-18",
+    "note_type": "CUSTOM",
+    "notes": "hdfhjkhfwekjhf",
+    "created_at": "2026-04-15T20:01:36.259Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 14,
+  "fields": {
+    "apartment": 7,
+    "date": "2026-03-26",
+    "note_type": "CUSTOM",
+    "notes": "viva la vida",
+    "created_at": "2026-04-15T22:22:53.364Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 15,
+  "fields": {
+    "apartment": 5,
+    "date": "2026-03-24",
+    "note_type": "CUSTOM",
+    "notes": "prova sinfol",
+    "created_at": "2026-04-16T20:28:28.782Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 17,
+  "fields": {
+    "apartment": 5,
+    "date": "2026-04-22",
+    "note_type": "CUSTOM",
+    "notes": "maska",
+    "created_at": "2026-04-16T21:18:02.812Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 18,
+  "fields": {
+    "apartment": 8,
+    "date": "2026-04-19",
+    "note_type": "CUSTOM",
+    "notes": "mettere B x 1 singolo in più",
+    "created_at": "2026-04-18T16:04:38.688Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 19,
+  "fields": {
+    "apartment": 5,
+    "date": "2026-04-21",
+    "note_type": "CUSTOM",
+    "notes": "rec. biancheria",
+    "created_at": "2026-04-18T16:05:38.218Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 22,
+  "fields": {
+    "apartment": 2,
+    "date": "2026-04-20",
+    "note_type": "VISIBLE",
+    "notes": "prendere materiale lasciato tavolo",
+    "created_at": "2026-04-19T20:05:44.838Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 23,
+  "fields": {
+    "apartment": 6,
+    "date": "2026-04-20",
+    "note_type": "VISIBLE",
+    "notes": "maska brichetti",
+    "created_at": "2026-04-19T20:06:31.259Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 25,
+  "fields": {
+    "apartment": 2,
+    "date": "2026-04-21",
+    "note_type": "VISIBLE",
+    "notes": "andiamo a ballare sulla balaustra",
+    "created_at": "2026-04-19T20:14:28.055Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 26,
+  "fields": {
+    "apartment": 8,
+    "date": "2026-04-28",
+    "note_type": "VISIBLE",
+    "notes": "prova sette",
+    "created_at": "2026-04-24T16:58:32.671Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 27,
+  "fields": {
+    "apartment": 4,
+    "date": "2026-04-29",
+    "note_type": "VISIBLE",
+    "notes": "Provami ringhio",
+    "created_at": "2026-04-24T16:58:45.177Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 28,
+  "fields": {
+    "apartment": 6,
+    "date": "2026-05-07",
+    "note_type": "VISIBLE",
+    "notes": "prova mi nico",
+    "created_at": "2026-05-05T17:06:44.891Z"
+  }
+},
+{
+  "model": "operations_calendar.daynote",
+  "pk": 29,
+  "fields": {
+    "apartment": 5,
+    "date": "2026-05-05",
+    "note_type": "VISIBLE",
+    "notes": "tratta dei nero",
+    "created_at": "2026-05-05T17:06:56.116Z"
+  }
+},
+{
+  "model": "accounting.invoice",
+  "pk": 1,
+  "fields": {
+    "customer": 17,
+    "year": 2026,
+    "number": 1,
+    "created_at": "2026-04-24T20:50:27.381Z"
+  }
+},
+{
+  "model": "accounting.invoice",
+  "pk": 2,
+  "fields": {
+    "customer": 18,
+    "year": 2026,
+    "number": 2,
+    "created_at": "2026-04-24T20:50:27.393Z"
+  }
+},
+{
+  "model": "accounting.invoice",
+  "pk": 3,
+  "fields": {
+    "customer": 21,
+    "year": 2026,
+    "number": 3,
+    "created_at": "2026-04-24T20:50:27.402Z"
+  }
+},
+{
+  "model": "accounting.invoice",
+  "pk": 4,
+  "fields": {
+    "customer": 23,
+    "year": 2026,
+    "number": 4,
+    "created_at": "2026-04-24T20:50:27.409Z"
+  }
+},
+{
+  "model": "condominiums.condominiumcleaningrule",
+  "pk": 1,
+  "fields": {
+    "apartment": 3,
+    "start_date": "2026-03-01",
+    "end_date": "2026-06-30",
+    "frequency": "twice_week",
+    "preferred_day_1": 3,
+    "preferred_day_2": 4,
+    "work_hours": 1.0,
+    "notes": "",
+    "is_active": true,
+    "created_at": "2026-03-10T18:37:50.067Z"
+  }
+},
+{
+  "model": "employee_hours.hourlyrate",
+  "pk": 1,
+  "fields": {
+    "employee": 1,
+    "start_date": "2026-03-01",
+    "end_date": "2026-03-31",
+    "hourly_rate": "12.00"
+  }
+},
+{
+  "model": "employee_hours.hourlyrate",
+  "pk": 2,
+  "fields": {
+    "employee": 2,
+    "start_date": "2026-03-01",
+    "end_date": "2026-03-31",
+    "hourly_rate": "0.00"
+  }
+},
+{
+  "model": "employee_hours.hourlyrate",
+  "pk": 3,
+  "fields": {
+    "employee": 3,
+    "start_date": "2026-03-01",
+    "end_date": "2026-03-31",
+    "hourly_rate": "0.00"
+  }
+},
+{
+  "model": "employee_hours.hourlyrate",
+  "pk": 4,
+  "fields": {
+    "employee": 4,
+    "start_date": "2026-03-01",
+    "end_date": "2026-03-31",
+    "hourly_rate": "0.00"
+  }
+},
+{
+  "model": "employee_hours.worklog",
+  "pk": 2,
+  "fields": {
+    "employee": 1,
+    "date": "2026-03-01",
+    "hours": "8.00",
+    "note": "",
+    "created_at": "2026-03-19T19:28:55.660Z"
+  }
+},
+{
+  "model": "employee_hours.worklog",
+  "pk": 3,
+  "fields": {
+    "employee": 1,
+    "date": "2026-03-02",
+    "hours": "8.00",
+    "note": "",
+    "created_at": "2026-03-19T19:28:55.668Z"
+  }
+},
+{
+  "model": "employee_hours.worklog",
+  "pk": 4,
+  "fields": {
+    "employee": 1,
+    "date": "2026-03-03",
+    "hours": "8.00",
+    "note": "",
+    "created_at": "2026-03-19T19:28:55.674Z"
+  }
+},
+{
+  "model": "employee_hours.worklog",
+  "pk": 5,
+  "fields": {
+    "employee": 2,
+    "date": "2026-03-01",
+    "hours": "8.00",
+    "note": "",
+    "created_at": "2026-03-19T19:29:13.870Z"
+  }
+},
+{
+  "model": "employee_hours.worklog",
+  "pk": 6,
+  "fields": {
+    "employee": 2,
+    "date": "2026-03-06",
+    "hours": "8.00",
+    "note": "",
+    "created_at": "2026-03-19T19:29:13.879Z"
+  }
+},
+{
+  "model": "employee_hours.worklog",
+  "pk": 7,
+  "fields": {
+    "employee": 3,
+    "date": "2026-03-03",
+    "hours": "6.00",
+    "note": "",
+    "created_at": "2026-03-19T21:17:41.181Z"
+  }
+},
+{
+  "model": "employee_hours.worklog",
+  "pk": 8,
+  "fields": {
+    "employee": 3,
+    "date": "2026-03-10",
+    "hours": "5.00",
+    "note": "",
+    "created_at": "2026-03-19T21:17:41.191Z"
+  }
+},
+{
+  "model": "employee_hours.worklog",
+  "pk": 9,
+  "fields": {
+    "employee": 4,
+    "date": "2026-03-09",
+    "hours": "4.00",
+    "note": null,
+    "created_at": "2026-03-19T21:20:03.491Z"
+  }
+},
+{
+  "model": "employee_hours.worklog",
+  "pk": 10,
+  "fields": {
+    "employee": 4,
+    "date": "2026-03-15",
+    "hours": "4.00",
+    "note": null,
+    "created_at": "2026-03-19T21:20:03.500Z"
+  }
+},
+{
+  "model": "employee_hours.worklog",
+  "pk": 11,
+  "fields": {
+    "employee": 4,
+    "date": "2026-03-19",
+    "hours": "4.00",
+    "note": null,
+    "created_at": "2026-03-19T21:20:03.508Z"
+  }
+},
+{
+  "model": "employee_hours.worklog",
+  "pk": 12,
+  "fields": {
+    "employee": 4,
+    "date": "2026-03-24",
+    "hours": "50.00",
+    "note": null,
+    "created_at": "2026-03-23T20:57:11.485Z"
+  }
+},
+{
+  "model": "laundry.laundryitem",
+  "pk": 1,
+  "fields": {
+    "code": "tappetino",
+    "name": "Tappetini",
+    "active": true
+  }
+},
+{
+  "model": "laundry.laundryitem",
+  "pk": 2,
+  "fields": {
+    "code": "telo_bagno",
+    "name": "Telo bagno",
+    "active": true
+  }
+},
+{
+  "model": "laundry.laundryitem",
+  "pk": 3,
+  "fields": {
+    "code": "telo_viso",
+    "name": "Telo viso",
+    "active": true
+  }
+},
+{
+  "model": "laundry.laundryitem",
+  "pk": 4,
+  "fields": {
+    "code": "telo_bidet",
+    "name": "Telo bidet",
+    "active": true
+  }
+},
+{
+  "model": "laundry.laundryitem",
+  "pk": 5,
+  "fields": {
+    "code": "lenzuolo_matrimoniale",
+    "name": "Lenzuolo matrimoniale",
+    "active": true
+  }
+},
+{
+  "model": "laundry.laundryitem",
+  "pk": 6,
+  "fields": {
+    "code": "lenzuolo_singolo",
+    "name": "Lenzuolo singolo",
+    "active": true
+  }
+},
+{
+  "model": "laundry.laundryitem",
+  "pk": 7,
+  "fields": {
+    "code": "copripiumino_matrimoniale",
+    "name": "Copripiumino matrimoniale",
+    "active": true
+  }
+},
+{
+  "model": "laundry.laundryitem",
+  "pk": 8,
+  "fields": {
+    "code": "copripiumino_singolo",
+    "name": "Copripiumino singolo",
+    "active": true
+  }
+},
+{
+  "model": "laundry.laundryitem",
+  "pk": 9,
+  "fields": {
+    "code": "federa",
+    "name": "Federe",
+    "active": true
+  }
+},
+{
+  "model": "laundry.laundryinventory",
+  "pk": 1,
+  "fields": {
+    "item": "tappetino",
+    "quantity": 150
+  }
+},
+{
+  "model": "laundry.laundryinventory",
+  "pk": 2,
+  "fields": {
+    "item": "telo_bagno",
+    "quantity": 150
+  }
+},
+{
+  "model": "laundry.laundryinventory",
+  "pk": 3,
+  "fields": {
+    "item": "telo_viso",
+    "quantity": 100
+  }
+},
+{
+  "model": "laundry.laundryinventory",
+  "pk": 4,
+  "fields": {
+    "item": "telo_bidet",
+    "quantity": 50
+  }
+},
+{
+  "model": "laundry.laundryinventory",
+  "pk": 5,
+  "fields": {
+    "item": "lenzuolo_matrimoniale",
+    "quantity": 100
+  }
+},
+{
+  "model": "laundry.laundryinventory",
+  "pk": 6,
+  "fields": {
+    "item": "lenzuolo_singolo",
+    "quantity": 100
+  }
+},
+{
+  "model": "laundry.laundryinventory",
+  "pk": 7,
+  "fields": {
+    "item": "copripiumino_matrimoniale",
+    "quantity": 50
+  }
+},
+{
+  "model": "laundry.laundryinventory",
+  "pk": 8,
+  "fields": {
+    "item": "copripiumino_singolo",
+    "quantity": 100
+  }
+},
+{
+  "model": "laundry.laundryinventory",
+  "pk": 9,
+  "fields": {
+    "item": "federa",
+    "quantity": 150
+  }
+}
+]
