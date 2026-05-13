@@ -5,23 +5,14 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-from django.contrib.admin.views.decorators import staff_member_required
 from core.views import landing_page
 
-from operations_calendar.views import calendar_month_view
+from operations_calendar.views import calendar_month_view, public_demo_calendar
 from employees.views import custom_logout
-from operations_calendar.views import public_demo_calendar
+
 
 urlpatterns = [
-    from django.contrib.admin.views.decorators import staff_member_required
-
-path(
-    "admin/",
-    staff_member_required(
-        admin.site.urls,
-        login_url="/login/"
-    ),
-),
+    path("admin/", admin.site.urls),
 
     path(
         "login/",
@@ -33,10 +24,7 @@ path(
     ),
     path("logout/", custom_logout, name="logout"),
 
-    # 👇 METTI QUESTO QUI (PRIMA)
     path("", include("employees.urls")),
-
-    # 👇 POI LA LANDING
     path("", landing_page, name="landing"),
 
     path("app/", calendar_month_view, name="calendar"),
