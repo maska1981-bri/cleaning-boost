@@ -118,6 +118,14 @@ def calendar_month_view(request):
         buffer_before = 10
         buffer_after = 10
 
+    elif view_mode == "mobile":
+        start_date = anchor_date - timedelta(days=2)
+        end_date = anchor_date + timedelta(days=18)
+        prev_start = anchor_date - timedelta(days=18)
+        next_start = anchor_date + timedelta(days=18)
+        buffer_before = 0
+        buffer_after = 0
+
     else:
         view_mode = "month"
         start_date = anchor_date.replace(day=1)
