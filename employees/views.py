@@ -5,6 +5,9 @@ from django.shortcuts import redirect
 
 @login_required
 def post_login_redirect(request):
+    if request.user.username == "demo":
+        return redirect("/app/")
+
     if request.user.is_staff or request.user.is_superuser:
         return redirect("/admin/")
 
