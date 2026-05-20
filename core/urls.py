@@ -5,13 +5,22 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
+from django.shortcuts import redirect
 from core.views import landing_page
 
 from operations_calendar.views import calendar_month_view, public_demo_calendar
 from employees.views import custom_logout
 
 
+def block_demo_admin(request):
+    if request.user.is_authenticated and request.user.username == "demo":
+        return redirect("/app/")
+    return redirect("/admin/")
+
+
 urlpatterns = [
+    path("admin/block-demo/", block_demo_admin),
+
     path("admin/", admin.site.urls),
 
     path(
