@@ -19,7 +19,7 @@ def block_demo_admin(request):
 
 
 urlpatterns = [
-    path("admin/block-demo/", block_demo_admin),
+    path("admin/", admin.site.urls),
 
     path("admin/", admin.site.urls),
 
