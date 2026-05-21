@@ -437,8 +437,7 @@ margin-bottom:2px;
 }
 
 body.view-compact .booking-summary.check-out-time,
-body.view-compact .booking-summary.check-in-time,
-body.view-compact .cell-notes-indicator{
+body.view-compact .booking-summary.check-in-time{
 display:none !important;
 }
 
@@ -1071,10 +1070,11 @@ data-cleaning-employees="{% if cell.cleaning %}{% for emp in cell.cleaning.emplo
 </span>
 {% endif %}
 
-{% if not is_compact_view and cell.day_notes %}
+{% if cell.day_notes %}
 <span
     class="cell-notes-indicator"
     data-notes="{% for note in cell.day_notes %}{% if note.note_type != 'VISIBLE' %}{% if note.note_type == 'CUSTOM' %}{{ note.notes }}{% else %}{{ note.short_label }}{% if note.notes %} - {{ note.notes }}{% endif %}{% endif %}{% if not forloop.last %} | {% endif %}{% endif %}{% endfor %}"
+    title="{% for note in cell.day_notes %}{% if note.note_type != 'VISIBLE' %}{% if note.note_type == 'CUSTOM' %}{{ note.notes }}{% else %}{{ note.short_label }}{% if note.notes %} - {{ note.notes }}{% endif %}{% endif %}{% if not forloop.last %} | {% endif %}{% endif %}{% endfor %}"
 >
 </span>
 {% endif %}
