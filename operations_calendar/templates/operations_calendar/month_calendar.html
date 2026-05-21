@@ -956,6 +956,7 @@ height:25px !important;
                 <a
                     href="/app/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}{% if selected_type %}&type={{ selected_type }}{% endif %}&sort=code"
                     class="{% if sort_mode == 'code' %}active-link{% endif %}"
+                    onclick="localStorage.setItem('cleaning_boost_sort_mode', 'code')"
                 >
                     Per codice
                 </a>
@@ -963,6 +964,7 @@ height:25px !important;
                 <a
                     href="/app/?view={{ context_view }}{% if start_date %}&start={{ start_date|date:'Y-m-d' }}{% endif %}{% if selected_type %}&type={{ selected_type }}{% endif %}&sort=activity"
                     class="{% if sort_mode == 'activity' %}active-link{% endif %}"
+                    onclick="localStorage.setItem('cleaning_boost_sort_mode', 'activity')"
                 >
                     Per attività
                 </a>
@@ -1757,6 +1759,19 @@ document.addEventListener("DOMContentLoaded", function () {
             notesPopup.style.display = "none";
         }
     });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const url = new URL(window.location.href);
+    const hasSort = url.searchParams.has("sort");
+    const savedSort = localStorage.getItem("cleaning_boost_sort_mode");
+
+    if (!hasSort && savedSort) {
+        url.searchParams.set("sort", savedSort);
+        window.location.href = url.toString();
+    }
 });
 </script>
 </body>
