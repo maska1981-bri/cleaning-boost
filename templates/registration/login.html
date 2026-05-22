@@ -2,9 +2,16 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<script>(function(){var t=localStorage.getItem("cleaning_boost_theme")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>
+<script>
+(function(){
+    var t = localStorage.getItem("cleaning_boost_theme") || "light";
+    document.documentElement.setAttribute("data-theme", t);
+})();
+</script>
+
 <meta charset="UTF-8">
 <title>Cleaning Boost - Login</title>
+
 <link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
 
 <style>
@@ -18,33 +25,39 @@ body{
     justify-content:center;
     padding:20px;
 }
+
 .login-box{
     width:100%;
-    max-width:400px;
+    max-width:420px;
     background:white;
     border-radius:18px;
     padding:32px;
     box-shadow:0 24px 60px rgba(0,0,0,0.28);
 }
+
 .logo{
     text-align:center;
     margin-bottom:18px;
 }
+
 .logo img{
     width:150px;
     max-width:100%;
 }
+
 h1{
     text-align:center;
     margin:0 0 8px 0;
     color:#0f172a;
 }
+
 .subtitle{
     text-align:center;
     color:#64748b;
     margin-bottom:22px;
     font-size:14px;
 }
+
 .errornote{
     background:#fee2e2;
     color:#991b1b;
@@ -54,6 +67,7 @@ h1{
     margin-bottom:14px;
     font-size:14px;
 }
+
 input{
     width:100%;
     padding:12px 14px;
@@ -63,11 +77,13 @@ input{
     font-size:14px;
     box-sizing:border-box;
 }
+
 input:focus{
     outline:none;
     border-color:#93c5fd;
     box-shadow:0 0 0 4px rgba(147, 197, 253, 0.22);
 }
+
 button{
     width:100%;
     padding:12px 14px;
@@ -79,34 +95,103 @@ button{
     cursor:pointer;
     font-size:15px;
 }
+
 button:hover{
     background:#15803d;
 }
+
+.demo-info{
+    margin-top:18px;
+    padding:14px;
+    border-radius:10px;
+    background:#f9fafb;
+    border:1px solid #d1d5db;
+    font-size:14px;
+    line-height:1.6;
+    color:#374151;
+}
+
+.demo-credentials{
+    margin-top:14px;
+    padding:12px;
+    border-radius:10px;
+    background:#ecfeff;
+    border:1px solid #a5f3fc;
+    font-size:14px;
+    color:#0f172a;
+    text-align:center;
+}
 </style>
 </head>
+
 <body>
 
 <div class="login-box">
+
     <div class="logo">
         <img src="/static/img/logo.svg" alt="Cleaning Boost">
     </div>
 
     <h1>Cleaning Boost</h1>
-    <div class="subtitle">Accesso dipendenti e amministrazione</div>
+
+    <div class="subtitle">
+        Accesso dipendenti e amministrazione
+    </div>
 
     {% if form.errors %}
-        <div class="errornote">Credenziali non valide.</div>
+        <div class="errornote">
+            Credenziali non valide.
+        </div>
     {% endif %}
 
     <form method="post">
         {% csrf_token %}
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
+
+        <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            required
+        >
+
+        <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+        >
+
         {% if next %}
             <input type="hidden" name="next" value="{{ next }}">
         {% endif %}
-        <button type="submit">Accedi</button>
+
+        <button type="submit">
+            Accedi
+        </button>
     </form>
+
+    <div class="demo-credentials">
+        <strong>Demo pubblica</strong><br>
+        Username: demo<br>
+        Password: Demo123!
+    </div>
+
+    <div class="demo-info">
+
+        <strong>Ambiente demo condiviso</strong><br>
+        I dati della demo possono essere modificati o ripristinati periodicamente.
+
+        <br><br>
+
+        <strong>Primo accesso più lento</strong><br>
+        La demo utilizza server Render in modalità standby. Al primo accesso potrebbe essere necessario attendere alcuni secondi per l'avvio del server.
+
+        <br><br>
+
+        Le versioni clienti non presentano questa attesa.
+
+    </div>
+
 </div>
 
 </body>
