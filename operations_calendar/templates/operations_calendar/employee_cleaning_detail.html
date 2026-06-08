@@ -339,16 +339,79 @@ textarea{
         </div>
     </div>
 
-    <div class="box">
+    
+<div class="box">
+    <h3 class="section-title">Materiali utilizzati</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="complete">
+
+        <div style="
+display:grid;
+grid-template-columns:repeat(2, minmax(280px, 1fr));
+gap:10px 16px;
+margin-bottom:18px;
+">
+
+{% for row in consumption_rows %}
+<div style="
+display:grid;
+grid-template-columns:1fr 58px;
+align-items:center;
+gap:6px;
+padding:8px 10px;
+border:1px solid var(--line);
+border-radius:10px;
+background:var(--soft);
+">
+
+<label style="
+font-weight:700;
+font-size:14px;
+color:var(--text);
+line-height:1.2;
+">
+{{ row.item.name }}
+</label>
+
+<input
+    type="number"
+    name="consumption_{{ row.item.code }}"
+    min="0"
+    value="{{ row.quantity }}"
+    style="
+    width:58px;
+    padding:7px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    text-align:center;
+    "
+>
+
+</div>
+{% empty %}
+<div class="empty-text">
+Nessun articolo disponibile in magazzino.
+</div>
+{% endfor %}
+
+</div>
+
         <h3 class="section-title">Nota finale dipendente</h3>
 
-        <form method="post">
-            {% csrf_token %}
-            <input type="hidden" name="action" value="complete">
-            <textarea name="employee_note" rows="5" placeholder="Scrivi una nota finale...">{{ cleaning.employee_note }}</textarea>
-            <button type="submit" class="btn">✅ Segna come completato</button>
-        </form>
-    </div>
+        <textarea
+            name="employee_note"
+            rows="5"
+            placeholder="Scrivi una nota finale..."
+        >{{ cleaning.employee_note }}</textarea>
+
+        <button type="submit" class="btn">
+            ✅ Segna come completato
+        </button>
+    </form>
+</div>
+
 
     <div class="box">
         <h3 class="section-title">Carica foto o video</h3>

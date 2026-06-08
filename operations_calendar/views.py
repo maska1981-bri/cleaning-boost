@@ -15,9 +15,10 @@ from django.core.exceptions import PermissionDenied
 
 from apartments.models import Apartment
 from bookings.models import Booking
-from cleanings.models import Cleaning, CleaningAttachment
+from cleanings.models import Cleaning, CleaningAttachment, CleaningConsumption
 from employees.models import Employee
 from operations_calendar.models import DayNote
+from laundry.models import LaundryItem
 
 
 MONTHS_IT = {
@@ -775,7 +776,6 @@ def employee_calendar(request):
         context
     )
 
-
 @login_required
 def employee_apartment_detail(request, apartment_id):
     apartment = get_object_or_404(Apartment, id=apartment_id)
@@ -786,19 +786,13 @@ def employee_apartment_detail(request, apartment_id):
     if not is_admin_user and current_employee is None:
         raise PermissionDenied
 
-    photos = apartment.photos.all() if hasattr(apartment, "photos") else []
-
-    context = {
-        "apartment": apartment,
-        "photos": photos,
-    }
-
     return render(
         request,
         "operations_calendar/employee_apartment_detail.html",
-        context
-    )
-
+        {
+            "apartment": apartment,
+        }
+    )   
 
 @login_required
 def employee_cleaning_detail(request, cleaning_id):
@@ -815,13 +809,64 @@ def employee_cleaning_detail(request, cleaning_id):
     if not is_admin_user and not cleaning.employees.filter(id=current_employee.id).exists():
         raise PermissionDenied
 
+    laundry_items = LaundryItem.objects.filter(active=True)
+
+    existing_consumptions = {
+        c.item_name: c.quantity
+        for c in CleaningConsumption.objects.filter(cleaning=cleaning)
+    }
+
+    consumption_rows = []
+    for item in laundry_items:
+        consumption_rows.append({
+            "item": item,
+            "quantity": existing_consumptions.get(item.name, 0),
+        })
+
     if request.method == "POST":
         action = request.POST.get("action")
+
+        if action == "save_materials":
+            CleaningConsumption.objects.filter(cleaning=cleaning).delete()
+
+            for item in laundry_items:
+                quantity = request.POST.get(f"consumption_{item.code}", "0")
+
+                try:
+                    quantity = int(quantity)
+                except (TypeError, ValueError):
+                    quantity = 0
+
+                if quantity > 0:
+                    CleaningConsumption.objects.create(
+                        cleaning=cleaning,
+                        item_name=item.name,
+                        quantity=quantity
+                    )
+
+            return redirect(f"/employee-cleaning/{cleaning.id}/")
 
         if action == "complete":
             cleaning.status = "completed"
             cleaning.employee_note = request.POST.get("employee_note", "")
             cleaning.save()
+
+            CleaningConsumption.objects.filter(cleaning=cleaning).delete()
+
+            for item in laundry_items:
+                quantity = request.POST.get(f"consumption_{item.code}", "0")
+
+                try:
+                    quantity = int(quantity)
+                except (TypeError, ValueError):
+                    quantity = 0
+
+                if quantity > 0:
+                    CleaningConsumption.objects.create(
+                        cleaning=cleaning,
+                        item_name=item.name,
+                        quantity=quantity
+                    )
 
             try:
                 send_mail(
@@ -862,6 +907,9 @@ def employee_cleaning_detail(request, cleaning_id):
         "apartment": apartment,
         "booking": booking,
         "attachments": attachments,
+        "laundry_items": laundry_items,
+        "existing_consumptions": existing_consumptions,
+        "consumption_rows": consumption_rows,
     }
 
     return render(

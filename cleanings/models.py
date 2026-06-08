@@ -233,3 +233,20 @@ class CleaningAttachment(models.Model):
     def filename(self):
         value = str(self.file)
         return value.split("/")[-1]
+
+class CleaningConsumption(models.Model):
+    cleaning = models.ForeignKey(
+        Cleaning,
+        on_delete=models.CASCADE,
+        related_name="consumptions"
+    )
+
+    item_name = models.CharField(max_length=150)
+
+    quantity = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ["item_name"]
+
+    def __str__(self):
+        return f"{self.item_name} - {self.quantity}"

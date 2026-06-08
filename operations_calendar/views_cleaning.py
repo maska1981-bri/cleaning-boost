@@ -45,6 +45,7 @@ def cleaning_detail(request, cleaning_id):
         "booking": cleaning.booking,
         "apartment": cleaning.apartment,
         "attachments": attachments,
+        "consumptions": cleaning.consumptions.all(),
     }
 
     return render(

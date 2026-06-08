@@ -476,6 +476,59 @@ body{
     </div>
 
     <div class="box">
+        <h3 class="section-title">Materiali utilizzati</h3>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <table>
+                <tr>
+                    <th>Articolo</th>
+                    <th>Quantità utilizzata</th>
+                </tr>
+
+                {% for item in laundry_items %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>
+                        <input
+                            type="number"
+                            name="consumption_{{ item.code }}"
+                            min="0"
+                            value="0"
+                            style="width:90px;padding:8px;border:1px solid #cfd8e3;border-radius:8px;"
+                        >
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <button type="submit" class="save-btn">
+                Salva materiali utilizzati
+            </button>
+        </form>
+    </div>
+
+    <div class="box">
+    <h3 class="section-title">Materiali utilizzati dal dipendente</h3>
+
+    {% if consumptions %}
+        <div class="cost-grid">
+            {% for item in consumptions %}
+            <div class="cost-field">
+                <label>{{ item.item_name }}</label>
+                <div class="value">
+                    {{ item.quantity }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="small">Nessun materiale registrato.</div>
+    {% endif %}
+</div>
+
+    <div class="box">
         <h3 class="section-title">Nota finale dipendente</h3>
 
         {% if cleaning.employee_note %}

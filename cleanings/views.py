@@ -3,15 +3,25 @@ from decimal import Decimal
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.http import require_http_methods
 
-from .models import Cleaning
+from .models import Cleaning, CleaningConsumption
+from laundry.models import LaundryItem
 
 
 @require_http_methods(["GET", "POST"])
 def cleaning_detail(request, cleaning_id):
     cleaning = get_object_or_404(
-        Cleaning.objects.select_related("apartment", "booking").prefetch_related("employees"),
+        Cleaning.objects
+        .select_related("apartment", "booking")
+        .prefetch_related("employees"),
         id=cleaning_id
     )
+
+    laundry_items = LaundryItem.objects.filter(active=True)
+
+    existing_consumptions = {
+        c.item_name: c.quantity
+        for c in CleaningConsumption.objects.filter(cleaning=cleaning)
+    }
 
     if request.method == "POST":
         cleaning.date = request.POST.get("date") or cleaning.date
@@ -30,6 +40,25 @@ def cleaning_detail(request, cleaning_id):
         cleaning.manual_date_override = request.POST.get("manual_date_override") == "on"
         cleaning.save()
 
+        CleaningConsumption.objects.filter(
+            cleaning=cleaning
+        ).delete()
+
+        for item in laundry_items:
+            quantity = request.POST.get(f"consumption_{item.code}", "0")
+
+            try:
+                quantity = int(quantity)
+            except (TypeError, ValueError):
+                quantity = 0
+
+            if quantity > 0:
+                CleaningConsumption.objects.create(
+                    cleaning=cleaning,
+                    item_name=item.name,
+                    quantity=quantity
+                )
+
         return redirect("cleaning_detail", cleaning_id=cleaning.id)
 
     return render(
@@ -37,5 +66,7 @@ def cleaning_detail(request, cleaning_id):
         "operations_calendar/cleaning_detail.html",
         {
             "cleaning": cleaning,
+            "laundry_items": laundry_items,
+            "existing_consumptions": existing_consumptions,
         },
     )
