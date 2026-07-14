@@ -20,9 +20,5 @@ def post_login_redirect(request):
 
 
 def custom_logout(request):
-    request.session.flush()
     logout(request)
-    response = redirect("/login/")
-    response.delete_cookie("sessionid")
-    response.delete_cookie("csrftoken")
-    return response
+    return redirect("/login/")

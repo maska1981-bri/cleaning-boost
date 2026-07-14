@@ -1,6 +1,6 @@
 from decimal import Decimal
 from io import BytesIO
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 import zipfile
 import csv
 from tempfile import NamedTemporaryFile
@@ -29,13 +29,11 @@ def dashboard_view(request):
     next_year_start = date(today.year + 1, 1, 1)
 
     cleanings_month = Cleaning.objects.filter(
-        date__gte=month_start,
-        date__lt=next_month_start
+        date__gte=month_start, date__lt=next_month_start
     ).select_related("apartment", "apartment__customer")
 
     cleanings_year = Cleaning.objects.filter(
-        date__gte=year_start,
-        date__lt=next_year_start
+        date__gte=year_start, date__lt=next_year_start
     ).select_related("apartment", "apartment__customer")
 
     month_total = Decimal("0.00")
@@ -71,18 +69,47 @@ def dashboard_view(request):
         average = (month_total / count).quantize(Decimal("0.01"))
 
     top_customers = sorted(
-        customer_totals.values(),
-        key=lambda x: x["total"],
-        reverse=True
+        customer_totals.values(), key=lambda x: x["total"], reverse=True
     )[:10]
 
-    return render(request, "accounting/dashboard.html", {
-        "month_total": month_total.quantize(Decimal("0.01")),
-        "year_total": year_total.quantize(Decimal("0.01")),
-        "monthly_cleanings_count": count,
-        "average_per_cleaning": average,
-        "top_customers": top_customers,
-    })
+    today_cleanings = (
+        Cleaning.objects.filter(date=today)
+        .select_related("apartment")
+        .prefetch_related("employees")
+    )
+
+    tomorrow_cleanings = (
+        Cleaning.objects.filter(date=today + timedelta(days=1))
+        .select_related("apartment")
+        .prefetch_related("employees")
+    )
+
+    week_cleanings = Cleaning.objects.filter(
+        date__gte=today, date__lte=today + timedelta(days=7)
+    )
+
+    completed_today = today_cleanings.filter(status="completed").count()
+
+    scheduled_today = today_cleanings.filter(status="scheduled").count()
+
+    return render(
+        request,
+        "accounting/dashboard.html",
+        {
+            "month_total": month_total.quantize(Decimal("0.01")),
+            "year_total": year_total.quantize(Decimal("0.01")),
+            "monthly_cleanings_count": count,
+            "average_per_cleaning": average,
+            "top_customers": top_customers,
+            "today_cleanings_count": today_cleanings.count(),
+            "tomorrow_cleanings_count": tomorrow_cleanings.count(),
+            "week_cleanings_count": week_cleanings.count(),
+            "completed_today": completed_today,
+            "scheduled_today": scheduled_today,
+            "today_cleanings": today_cleanings,
+            "tomorrow_cleanings": tomorrow_cleanings,
+        },
+    )
 
 
 def accounting_report(request):
@@ -109,8 +136,7 @@ def accounting_report(request):
 
     if selected_customer and date_from and date_to:
         cleanings = (
-            Cleaning.objects
-            .filter(
+            Cleaning.objects.filter(
                 apartment__customer=selected_customer,
                 date__gte=date_from,
                 date__lte=date_to,
@@ -135,37 +161,45 @@ def accounting_report(request):
 
             subtotal += total_cost
 
-            rows.append({
-                "booking": cleaning.booking,
-                "apartment": cleaning.apartment,
-                "cleaning": cleaning,
-                "cleaning_cost": cleaning_cost,
-                "fixed_kit_cost": fixed_kit_cost,
-                "per_person_kit_cost": per_person_kit_cost,
-                "double_bed_cost": double_bed_cost,
-                "single_bed_cost": single_bed_cost,
-                "mat_cost": mat_cost,
-                "extra_cost": extra_cost,
-                "people_count": people_count,
-                "double_beds_count": double_beds_count,
-                "single_beds_count": single_beds_count,
-                "total_cost": total_cost,
-            })
+            rows.append(
+                {
+                    "booking": cleaning.booking,
+                    "apartment": cleaning.apartment,
+                    "cleaning": cleaning,
+                    "cleaning_cost": cleaning_cost,
+                    "fixed_kit_cost": fixed_kit_cost,
+                    "per_person_kit_cost": per_person_kit_cost,
+                    "double_bed_cost": double_bed_cost,
+                    "single_bed_cost": single_bed_cost,
+                    "mat_cost": mat_cost,
+                    "extra_cost": extra_cost,
+                    "people_count": people_count,
+                    "double_beds_count": double_beds_count,
+                    "single_beds_count": single_beds_count,
+                    "total_cost": total_cost,
+                }
+            )
 
-        vat_amount = (subtotal * vat_percentage / Decimal("100")).quantize(Decimal("0.01"))
+        vat_amount = (subtotal * vat_percentage / Decimal("100")).quantize(
+            Decimal("0.01")
+        )
         total_with_vat = (subtotal + vat_amount).quantize(Decimal("0.01"))
 
-    return render(request, "accounting/report.html", {
-        "customers": customers,
-        "selected_customer": selected_customer,
-        "date_from": date_from,
-        "date_to": date_to,
-        "vat_percentage": vat_percentage,
-        "rows": rows,
-        "subtotal": subtotal.quantize(Decimal("0.01")),
-        "vat_amount": vat_amount,
-        "total_with_vat": total_with_vat,
-    })
+    return render(
+        request,
+        "accounting/report.html",
+        {
+            "customers": customers,
+            "selected_customer": selected_customer,
+            "date_from": date_from,
+            "date_to": date_to,
+            "vat_percentage": vat_percentage,
+            "rows": rows,
+            "subtotal": subtotal.quantize(Decimal("0.01")),
+            "vat_amount": vat_amount,
+            "total_with_vat": total_with_vat,
+        },
+    )
 
 
 def accounting_pdf(request):
@@ -182,8 +216,7 @@ def accounting_pdf(request):
     customer = get_object_or_404(Customer, id=customer_id, is_active=True)
 
     cleanings = (
-        Cleaning.objects
-        .filter(
+        Cleaning.objects.filter(
             apartment__customer=customer,
             date__gte=date_from,
             date__lte=date_to,
@@ -199,24 +232,34 @@ def accounting_pdf(request):
         total_cost = cleaning.total_cost or Decimal("0.00")
         subtotal += total_cost
 
-        rows.append({
-            "cleaning": cleaning,
-            "apartment_name": cleaning.apartment.name,
-            "date": cleaning.date,
-            "booking_label": f"Booking #{cleaning.booking.id}" if cleaning.booking else "Pulizia manuale",
-            "guest_name": cleaning.booking.guest_name if cleaning.booking and cleaning.booking.guest_name else "-",
-            "people_count": cleaning.people_count or 0,
-            "double_beds_count": cleaning.double_beds_count or 0,
-            "single_beds_count": cleaning.single_beds_count or 0,
-            "cleaning_cost": cleaning.cleaning_cost or Decimal("0.00"),
-            "fixed_kit_cost": cleaning.fixed_kit_cost or Decimal("0.00"),
-            "per_person_kit_cost": cleaning.per_person_kit_cost or Decimal("0.00"),
-            "double_bed_cost": cleaning.double_bed_cost or Decimal("0.00"),
-            "single_bed_cost": cleaning.single_bed_cost or Decimal("0.00"),
-            "mat_cost": cleaning.mat_cost or Decimal("0.00"),
-            "extra_cost": cleaning.extra_cost or Decimal("0.00"),
-            "total_cost": total_cost,
-        })
+        rows.append(
+            {
+                "cleaning": cleaning,
+                "apartment_name": cleaning.apartment.name,
+                "date": cleaning.date,
+                "booking_label": (
+                    f"Booking #{cleaning.booking.id}"
+                    if cleaning.booking
+                    else "Pulizia manuale"
+                ),
+                "guest_name": (
+                    cleaning.booking.guest_name
+                    if cleaning.booking and cleaning.booking.guest_name
+                    else "-"
+                ),
+                "people_count": cleaning.people_count or 0,
+                "double_beds_count": cleaning.double_beds_count or 0,
+                "single_beds_count": cleaning.single_beds_count or 0,
+                "cleaning_cost": cleaning.cleaning_cost or Decimal("0.00"),
+                "fixed_kit_cost": cleaning.fixed_kit_cost or Decimal("0.00"),
+                "per_person_kit_cost": cleaning.per_person_kit_cost or Decimal("0.00"),
+                "double_bed_cost": cleaning.double_bed_cost or Decimal("0.00"),
+                "single_bed_cost": cleaning.single_bed_cost or Decimal("0.00"),
+                "mat_cost": cleaning.mat_cost or Decimal("0.00"),
+                "extra_cost": cleaning.extra_cost or Decimal("0.00"),
+                "total_cost": total_cost,
+            }
+        )
 
     vat = (subtotal * vat_percentage / Decimal("100")).quantize(Decimal("0.01"))
     total = (subtotal + vat).quantize(Decimal("0.01"))
@@ -278,7 +321,7 @@ def accounting_pdf(request):
         p.drawString(
             left,
             y,
-            f"Persone: {row['people_count']}   Matrimoniali: {row['double_beds_count']}   Singoli: {row['single_beds_count']}"
+            f"Persone: {row['people_count']}   Matrimoniali: {row['double_beds_count']}   Singoli: {row['single_beds_count']}",
         )
 
         y -= 18
@@ -292,21 +335,21 @@ def accounting_pdf(request):
         p.drawString(
             left + 10,
             y,
-            f"Kit persona: {money(row['per_person_kit_cost'])} x {row['people_count']}"
+            f"Kit persona: {money(row['per_person_kit_cost'])} x {row['people_count']}",
         )
 
         y -= 12
         p.drawString(
             left + 10,
             y,
-            f"Letti matrimoniali: {money(row['double_bed_cost'])} x {row['double_beds_count']}"
+            f"Letti matrimoniali: {money(row['double_bed_cost'])} x {row['double_beds_count']}",
         )
 
         y -= 12
         p.drawString(
             left + 10,
             y,
-            f"Letti singoli: {money(row['single_bed_cost'])} x {row['single_beds_count']}"
+            f"Letti singoli: {money(row['single_bed_cost'])} x {row['single_beds_count']}",
         )
 
         y -= 12
@@ -358,8 +401,7 @@ def monthly_report(request):
             date_to = datetime(year_int, month_int + 1, 1).date()
 
         cleanings = Cleaning.objects.filter(
-            date__gte=date_from,
-            date__lt=date_to
+            date__gte=date_from, date__lt=date_to
         ).select_related("apartment", "apartment__customer")
 
         totals = {}
@@ -379,11 +421,9 @@ def monthly_report(request):
 
         data = sorted(totals.values(), key=lambda x: x["customer"].name)
 
-    return render(request, "accounting/monthly.html", {
-        "data": data,
-        "month": month,
-        "year": year
-    })
+    return render(
+        request, "accounting/monthly.html", {"data": data, "month": month, "year": year}
+    )
 
 
 def monthly_invoices_zip(request):
@@ -412,8 +452,7 @@ def monthly_invoices_zip(request):
 
     for customer in customers:
         cleanings = (
-            Cleaning.objects
-            .filter(
+            Cleaning.objects.filter(
                 apartment__customer=customer,
                 date__gte=date_from,
                 date__lt=date_to,
@@ -439,9 +478,7 @@ def monthly_invoices_zip(request):
         next_number = 1 if not last_invoice else last_invoice.number + 1
 
         invoice = Invoice.objects.create(
-            customer=customer,
-            year=year,
-            number=next_number
+            customer=customer, year=year, number=next_number
         )
 
         vat = (subtotal * vat_percentage / Decimal("100")).quantize(Decimal("0.01"))
@@ -500,7 +537,9 @@ def monthly_invoices_zip(request):
 
     zipf.close()
 
-    return FileResponse(open(temp_zip.name, "rb"), as_attachment=True, filename="fatture.zip")
+    return FileResponse(
+        open(temp_zip.name, "rb"), as_attachment=True, filename="fatture.zip"
+    )
 
 
 def export_excel(request):
@@ -511,8 +550,7 @@ def export_excel(request):
     customer = Customer.objects.get(id=customer_id)
 
     cleanings = (
-        Cleaning.objects
-        .filter(
+        Cleaning.objects.filter(
             apartment__customer=customer,
             date__gte=date_from,
             date__lte=date_to,
@@ -525,21 +563,17 @@ def export_excel(request):
     response["Content-Disposition"] = "attachment; filename=report_contabilita.csv"
 
     writer = csv.writer(response)
-    writer.writerow([
-        "Immobile",
-        "Data pulizia",
-        "Prenotazione",
-        "Ospite",
-        "Totale"
-    ])
+    writer.writerow(["Immobile", "Data pulizia", "Prenotazione", "Ospite", "Totale"])
 
     for cleaning in cleanings:
-        writer.writerow([
-            cleaning.apartment.name,
-            cleaning.date,
-            cleaning.booking.id if cleaning.booking else "",
-            cleaning.booking.guest_name if cleaning.booking else "Pulizia manuale",
-            cleaning.total_cost
-        ])
+        writer.writerow(
+            [
+                cleaning.apartment.name,
+                cleaning.date,
+                cleaning.booking.id if cleaning.booking else "",
+                cleaning.booking.guest_name if cleaning.booking else "Pulizia manuale",
+                cleaning.total_cost,
+            ]
+        )
 
     return response
