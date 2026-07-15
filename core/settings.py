@@ -62,8 +62,7 @@ CSRF_COOKIE_SAMESITE = "Lax"
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
-# Cookie CSRF valido fino alla chiusura della sessione del browser.
-CSRF_COOKIE_AGE = None
+CSRF_FAILURE_VIEW = "core.csrf.custom_csrf_failure"
 
 
 INSTALLED_APPS = [
