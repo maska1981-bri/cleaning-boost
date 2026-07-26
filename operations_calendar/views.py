@@ -18,8 +18,7 @@ from bookings.models import Booking
 from cleanings.models import Cleaning, CleaningAttachment, CleaningConsumption
 from employees.models import Employee
 from operations_calendar.models import DayNote
-from laundry.models import LaundryItem
-
+from laundry.models import LaundryItem, LaundryInventory, LaundryMovement
 
 MONTHS_IT = {
     1: "Gennaio",
@@ -44,6 +43,7 @@ def staff_required(view_func):
         if not (request.user.is_staff or request.user.is_superuser):
             raise PermissionDenied
         return view_func(request, *args, **kwargs)
+
     return _wrapped
 
 
@@ -160,20 +160,24 @@ def calendar_month_view(request):
 
         if label != current_month_label:
             if current_month_label is not None:
-                month_groups.append({
-                    "label": current_month_label,
-                    "count": current_count,
-                })
+                month_groups.append(
+                    {
+                        "label": current_month_label,
+                        "count": current_count,
+                    }
+                )
             current_month_label = label
             current_count = 1
         else:
             current_count += 1
 
     if current_month_label is not None:
-        month_groups.append({
-            "label": current_month_label,
-            "count": current_count,
-        })
+        month_groups.append(
+            {
+                "label": current_month_label,
+                "count": current_count,
+            }
+        )
 
     apartments = Apartment.objects.filter(is_active=True)
 
@@ -279,17 +283,19 @@ def calendar_month_view(request):
                     visible_note_text = note.notes
                     break
 
-            row_cells.append({
-                "day": day,
-                "booking": booking,
-                "cleaning": cleaning,
-                "day_notes": notes_for_day,
-                "visible_note_text": visible_note_text,
-                "is_check_in": is_check_in,
-                "is_check_out": is_check_out,
-                "show_booking_summary": show_booking_summary,
-                "booking_summary": booking_summary,
-            })
+            row_cells.append(
+                {
+                    "day": day,
+                    "booking": booking,
+                    "cleaning": cleaning,
+                    "day_notes": notes_for_day,
+                    "visible_note_text": visible_note_text,
+                    "is_check_in": is_check_in,
+                    "is_check_out": is_check_out,
+                    "show_booking_summary": show_booking_summary,
+                    "booking_summary": booking_summary,
+                }
+            )
 
         has_relevant_day = False
         first_relevant_day = date.max
@@ -303,12 +309,14 @@ def calendar_month_view(request):
                 first_relevant_day = cell["day"]
                 break
 
-        apartment_rows.append({
-            "apartment": apartment,
-            "cells": row_cells,
-            "has_relevant_day": has_relevant_day,
-            "first_relevant_day": first_relevant_day,
-        })
+        apartment_rows.append(
+            {
+                "apartment": apartment,
+                "cells": row_cells,
+                "has_relevant_day": has_relevant_day,
+                "first_relevant_day": first_relevant_day,
+            }
+        )
 
     if sort_mode == "activity":
         apartment_rows.sort(
@@ -319,9 +327,7 @@ def calendar_month_view(request):
             )
         )
     else:
-        apartment_rows.sort(
-            key=lambda row: row["apartment"].code
-        )
+        apartment_rows.sort(key=lambda row: row["apartment"].code)
 
     context = {
         "days": days,
@@ -344,6 +350,7 @@ def calendar_month_view(request):
         "operations_calendar/month_calendar.html",
         context,
     )
+
 
 def public_demo_calendar(request):
     return calendar_month_view(request)
@@ -370,11 +377,13 @@ def move_cleaning(request):
         cleaning.manual_date_override = True
         cleaning.save()
 
-        return JsonResponse({
-            "status": "ok",
-            "cleaning_id": cleaning.id,
-            "new_date": cleaning.date.isoformat(),
-        })
+        return JsonResponse(
+            {
+                "status": "ok",
+                "cleaning_id": cleaning.id,
+                "new_date": cleaning.date.isoformat(),
+            }
+        )
 
     except ValueError:
         return JsonResponse(
@@ -430,19 +439,22 @@ def create_day_note(request):
                 note_type=note_type,
             )
 
-        return JsonResponse({
-            "status": "ok",
-            "created": created,
-            "note_id": note.id,
-            "short_label": note.short_label,
-            "notes": note.notes,
-        })
+        return JsonResponse(
+            {
+                "status": "ok",
+                "created": created,
+                "note_id": note.id,
+                "short_label": note.short_label,
+                "notes": note.notes,
+            }
+        )
 
     except Exception as e:
         return JsonResponse(
             {"status": "error", "message": str(e)},
             status=500,
         )
+
 
 @csrf_exempt
 @require_POST
@@ -454,7 +466,10 @@ def delete_booking(request):
 
         if not booking_id:
             return JsonResponse(
-                {"status": "error", "message": "Prenotazione non trovata in questa cella"},
+                {
+                    "status": "error",
+                    "message": "Prenotazione non trovata in questa cella",
+                },
                 status=400,
             )
 
@@ -589,25 +604,20 @@ def update_cleaning_status(request):
     except Cleaning.DoesNotExist:
         if request.content_type == "application/json":
             return JsonResponse(
-                {"status": "error", "message": "Pulizia non trovata"},
-                status=404
+                {"status": "error", "message": "Pulizia non trovata"}, status=404
             )
         return redirect("/employee-calendar/")
 
     except PermissionDenied:
         if request.content_type == "application/json":
             return JsonResponse(
-                {"status": "error", "message": "Permesso negato"},
-                status=403
+                {"status": "error", "message": "Permesso negato"}, status=403
             )
         return redirect("/employee-calendar/")
 
     except Exception as e:
         if request.content_type == "application/json":
-            return JsonResponse(
-                {"status": "error", "message": str(e)},
-                status=400
-            )
+            return JsonResponse({"status": "error", "message": str(e)}, status=400)
         return redirect("/employee-calendar/")
 
 
@@ -637,11 +647,13 @@ def toggle_cleaning_employee(request):
             cleaning.employees.add(employee)
             assigned = True
 
-        return JsonResponse({
-            "status": "ok",
-            "assigned": assigned,
-            "employee_name": employee.name,
-        })
+        return JsonResponse(
+            {
+                "status": "ok",
+                "assigned": assigned,
+                "employee_name": employee.name,
+            }
+        )
 
     except Exception as e:
         return JsonResponse(
@@ -691,16 +703,13 @@ def employee_calendar(request):
 
         for day in days:
             booking = Booking.objects.filter(
-                apartment=apartment,
-                check_in__lte=day,
-                check_out__gte=day
+                apartment=apartment, check_in__lte=day, check_out__gte=day
             ).first()
 
             notes_for_day = day_note_map.get((apartment.id, day), [])
 
             cleaning_qs = Cleaning.objects.filter(
-                apartment=apartment,
-                date=day
+                apartment=apartment, date=day
             ).prefetch_related("employees")
 
             if not is_admin_user:
@@ -734,29 +743,33 @@ def employee_calendar(request):
                     parts.append(f"{booking.single_beds}S")
                 booking_summary = " ".join(parts)
 
-            cells.append({
-                "day": day,
-                "booking": booking,
-                "cleaning": cleaning,
-                "is_check_in": is_check_in,
-                "is_check_out": is_check_out,
-                "show_booking_summary": show_booking_summary,
-                "booking_summary": booking_summary,
-                "day_notes": notes_for_day,
-            })
+            cells.append(
+                {
+                    "day": day,
+                    "booking": booking,
+                    "cleaning": cleaning,
+                    "is_check_in": is_check_in,
+                    "is_check_out": is_check_out,
+                    "show_booking_summary": show_booking_summary,
+                    "booking_summary": booking_summary,
+                    "day_notes": notes_for_day,
+                }
+            )
 
-        apartment_rows.append({
-            "apartment": apartment,
-            "cells": cells,
-            "has_relevant_day": has_relevant_day,
-            "first_relevant_day": first_relevant_day or date.max,
-        })
+        apartment_rows.append(
+            {
+                "apartment": apartment,
+                "cells": cells,
+                "has_relevant_day": has_relevant_day,
+                "first_relevant_day": first_relevant_day or date.max,
+            }
+        )
 
     # 🔴 ORDINAMENTO
     apartment_rows.sort(
         key=lambda x: (
             not x["has_relevant_day"],  # prima quelli con lavoro
-            x["first_relevant_day"]     # poi per giorno
+            x["first_relevant_day"],  # poi per giorno
         )
     )
 
@@ -770,11 +783,8 @@ def employee_calendar(request):
         "end_date": end_date,
     }
 
-    return render(
-        request,
-        "operations_calendar/employee_calendar.html",
-        context
-    )
+    return render(request, "operations_calendar/employee_calendar.html", context)
+
 
 @login_required
 def employee_apartment_detail(request, apartment_id):
@@ -791,8 +801,9 @@ def employee_apartment_detail(request, apartment_id):
         "operations_calendar/employee_apartment_detail.html",
         {
             "apartment": apartment,
-        }
-    )   
+        },
+    )
+
 
 @login_required
 def employee_cleaning_detail(request, cleaning_id):
@@ -806,7 +817,10 @@ def employee_cleaning_detail(request, cleaning_id):
     if not is_admin_user and current_employee is None:
         raise PermissionDenied
 
-    if not is_admin_user and not cleaning.employees.filter(id=current_employee.id).exists():
+    if (
+        not is_admin_user
+        and not cleaning.employees.filter(id=current_employee.id).exists()
+    ):
         raise PermissionDenied
 
     laundry_items = LaundryItem.objects.filter(active=True)
@@ -818,10 +832,12 @@ def employee_cleaning_detail(request, cleaning_id):
 
     consumption_rows = []
     for item in laundry_items:
-        consumption_rows.append({
-            "item": item,
-            "quantity": existing_consumptions.get(item.name, 0),
-        })
+        consumption_rows.append(
+            {
+                "item": item,
+                "quantity": existing_consumptions.get(item.name, 0),
+            }
+        )
 
     if request.method == "POST":
         action = request.POST.get("action")
@@ -839,9 +855,7 @@ def employee_cleaning_detail(request, cleaning_id):
 
                 if quantity > 0:
                     CleaningConsumption.objects.create(
-                        cleaning=cleaning,
-                        item_name=item.name,
-                        quantity=quantity
+                        cleaning=cleaning, item_name=item.name, quantity=quantity
                     )
 
             return redirect(f"/employee-cleaning/{cleaning.id}/")
@@ -854,7 +868,10 @@ def employee_cleaning_detail(request, cleaning_id):
             CleaningConsumption.objects.filter(cleaning=cleaning).delete()
 
             for item in laundry_items:
-                quantity = request.POST.get(f"consumption_{item.code}", "0")
+                quantity = request.POST.get(
+                    f"consumption_{item.code}",
+                    "0",
+                )
 
                 try:
                     quantity = int(quantity)
@@ -865,8 +882,16 @@ def employee_cleaning_detail(request, cleaning_id):
                     CleaningConsumption.objects.create(
                         cleaning=cleaning,
                         item_name=item.name,
-                        quantity=quantity
+                        quantity=quantity,
                     )
+
+            print("===== PRIMA AGGIORNAMENTO MAGAZZINO =====")
+            print("Pulizia:", cleaning.id)
+            print("Consumi salvati:", cleaning.consumptions.count())
+
+            cleaning.update_laundry_inventory()
+
+            print("===== DOPO AGGIORNAMENTO MAGAZZINO =====")
 
             try:
                 send_mail(
@@ -876,15 +901,16 @@ def employee_cleaning_detail(request, cleaning_id):
                         f"Immobile: {cleaning.apartment.name}\n"
                         f"Data: {cleaning.date}\n"
                         f"ID pulizia: {cleaning.id}\n"
-                        f"Dipendente: {current_employee.name if current_employee else request.user.username}\n\n"
+                        f"Dipendente: "
+                        f"{current_employee.name if current_employee else request.user.username}\n\n"
                         f"Nota finale:\n{cleaning.employee_note or '-'}"
                     ),
                     from_email=settings.DEFAULT_FROM_EMAIL,
                     recipient_list=[settings.CLEANING_NOTIFICATION_EMAIL],
                     fail_silently=True,
                 )
-            except Exception:
-                pass
+            except Exception as error:
+                print("Errore invio email:", error)
 
             return redirect("/employee-calendar/")
 
@@ -894,9 +920,7 @@ def employee_cleaning_detail(request, cleaning_id):
 
             if uploaded_file:
                 CleaningAttachment.objects.create(
-                    cleaning=cleaning,
-                    file=uploaded_file,
-                    note=note
+                    cleaning=cleaning, file=uploaded_file, note=note
                 )
             return redirect(f"/employee-cleaning/{cleaning.id}/")
 
@@ -912,8 +936,4 @@ def employee_cleaning_detail(request, cleaning_id):
         "consumption_rows": consumption_rows,
     }
 
-    return render(
-        request,
-        "operations_calendar/employee_cleaning_detail.html",
-        context
-    )
+    return render(request, "operations_calendar/employee_cleaning_detail.html", context)

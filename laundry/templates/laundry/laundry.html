@@ -293,7 +293,7 @@
             <tr>
                 <td>{{ m.date|date:"d/m/Y" }}</td>
                 <td>{{ m.get_movement_type_display }}</td>
-                <td>{{ item_names|get_item:m.item }}</td>
+                <td>{{ m.item }}</td>
                 <td>{{ m.quantity }}</td>
             </tr>
             {% empty %}

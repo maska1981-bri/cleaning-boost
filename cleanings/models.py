@@ -5,6 +5,12 @@ from cloudinary.models import CloudinaryField
 
 from apartments.models import Apartment
 from employees.models import Employee
+from django.db import transaction
+from laundry.models import (
+    LaundryItem,
+    LaundryInventory,
+    LaundryMovement,
+)
 
 
 class Cleaning(models.Model):
@@ -17,7 +23,7 @@ class Cleaning(models.Model):
         Apartment,
         on_delete=models.CASCADE,
         related_name="cleanings",
-        verbose_name="Immobile"
+        verbose_name="Immobile",
     )
 
     booking = models.ForeignKey(
@@ -26,102 +32,68 @@ class Cleaning(models.Model):
         null=True,
         blank=True,
         related_name="cleanings",
-        verbose_name="Prenotazione collegata"
+        verbose_name="Prenotazione collegata",
     )
 
     date = models.DateField(verbose_name="Data")
 
     status = models.CharField(
-        max_length=20,
-        choices=STATUS_CHOICES,
-        default="scheduled",
-        verbose_name="Stato"
+        max_length=20, choices=STATUS_CHOICES, default="scheduled", verbose_name="Stato"
     )
 
     employees = models.ManyToManyField(
-        Employee,
-        blank=True,
-        related_name="cleanings",
-        verbose_name="Dipendenti"
+        Employee, blank=True, related_name="cleanings", verbose_name="Dipendenti"
     )
 
-    employee_note = models.TextField(
-        blank=True,
-        verbose_name="Nota finale dipendente"
-    )
+    employee_note = models.TextField(blank=True, verbose_name="Nota finale dipendente")
 
-    people_count = models.PositiveIntegerField(
-        default=0,
-        verbose_name="Numero persone"
-    )
+    people_count = models.PositiveIntegerField(default=0, verbose_name="Numero persone")
 
     double_beds_count = models.PositiveIntegerField(
-        default=0,
-        verbose_name="Letti matrimoniali utilizzati"
+        default=0, verbose_name="Letti matrimoniali utilizzati"
     )
 
     single_beds_count = models.PositiveIntegerField(
-        default=0,
-        verbose_name="Letti singoli utilizzati"
+        default=0, verbose_name="Letti singoli utilizzati"
     )
 
     cleaning_cost = models.DecimalField(
-        max_digits=10,
-        decimal_places=2,
-        default=0,
-        verbose_name="Costo pulizia"
+        max_digits=10, decimal_places=2, default=0, verbose_name="Costo pulizia"
     )
 
     fixed_kit_cost = models.DecimalField(
-        max_digits=10,
-        decimal_places=2,
-        default=0,
-        verbose_name="Costo kit fisso"
+        max_digits=10, decimal_places=2, default=0, verbose_name="Costo kit fisso"
     )
 
     per_person_kit_cost = models.DecimalField(
-        max_digits=10,
-        decimal_places=2,
-        default=0,
-        verbose_name="Costo kit a persona"
+        max_digits=10, decimal_places=2, default=0, verbose_name="Costo kit a persona"
     )
 
     double_bed_cost = models.DecimalField(
         max_digits=10,
         decimal_places=2,
         default=0,
-        verbose_name="Costo letto matrimoniale"
+        verbose_name="Costo letto matrimoniale",
     )
 
     single_bed_cost = models.DecimalField(
-        max_digits=10,
-        decimal_places=2,
-        default=0,
-        verbose_name="Costo letto singolo"
+        max_digits=10, decimal_places=2, default=0, verbose_name="Costo letto singolo"
     )
 
     mat_cost = models.DecimalField(
-        max_digits=10,
-        decimal_places=2,
-        default=0,
-        verbose_name="Tappetino"
+        max_digits=10, decimal_places=2, default=0, verbose_name="Tappetino"
     )
 
     extra_cost = models.DecimalField(
-        max_digits=10,
-        decimal_places=2,
-        default=0,
-        verbose_name="Extra"
+        max_digits=10, decimal_places=2, default=0, verbose_name="Extra"
     )
 
     auto_created = models.BooleanField(
-        default=False,
-        verbose_name="Creata automaticamente"
+        default=False, verbose_name="Creata automaticamente"
     )
 
     manual_date_override = models.BooleanField(
-        default=False,
-        verbose_name="Data modificata manualmente"
+        default=False, verbose_name="Data modificata manualmente"
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -150,16 +122,24 @@ class Cleaning(models.Model):
             self.cleaning_cost = self.apartment.default_cleaning_cost or Decimal("0.00")
 
         if force or self.fixed_kit_cost in [None, Decimal("0"), Decimal("0.00")]:
-            self.fixed_kit_cost = self.apartment.default_fixed_kit_cost or Decimal("0.00")
+            self.fixed_kit_cost = self.apartment.default_fixed_kit_cost or Decimal(
+                "0.00"
+            )
 
         if force or self.per_person_kit_cost in [None, Decimal("0"), Decimal("0.00")]:
-            self.per_person_kit_cost = self.apartment.default_per_person_kit_cost or Decimal("0.00")
+            self.per_person_kit_cost = (
+                self.apartment.default_per_person_kit_cost or Decimal("0.00")
+            )
 
         if force or self.double_bed_cost in [None, Decimal("0"), Decimal("0.00")]:
-            self.double_bed_cost = self.apartment.default_double_bed_cost or Decimal("0.00")
+            self.double_bed_cost = self.apartment.default_double_bed_cost or Decimal(
+                "0.00"
+            )
 
         if force or self.single_bed_cost in [None, Decimal("0"), Decimal("0.00")]:
-            self.single_bed_cost = self.apartment.default_single_bed_cost or Decimal("0.00")
+            self.single_bed_cost = self.apartment.default_single_bed_cost or Decimal(
+                "0.00"
+            )
 
         if force or self.mat_cost in [None, Decimal("0"), Decimal("0.00")]:
             self.mat_cost = self.apartment.default_mat_cost or Decimal("0.00")
@@ -183,16 +163,108 @@ class Cleaning(models.Model):
 
         super().save(*args, **kwargs)
 
+    @transaction.atomic
+    def update_laundry_inventory(self):
+        print("===== UPDATE LAUNDRY INVENTORY =====")
+        print("Cleaning:", self.id)
+        print("Consumi:", self.consumptions.count())
+
+        # Ripristina eventuali scarichi già registrati
+        old_movements = LaundryMovement.objects.filter(
+            cleaning=self,
+            movement_type="remove",
+        )
+
+        for movement in old_movements:
+            laundry_item = LaundryItem.objects.filter(
+                name__iexact=movement.item.strip()
+            ).first()
+
+            if laundry_item:
+                inventory = (
+                    LaundryInventory.objects.select_for_update()
+                    .filter(item=laundry_item.code)
+                    .first()
+                )
+
+                if inventory:
+                    inventory.quantity += movement.quantity
+                    inventory.save(update_fields=["quantity"])
+
+        old_movements.delete()
+
+        employee = self.employees.first()
+
+        # Applica i consumi nuovi
+        for consumption in self.consumptions.all():
+            laundry_item = LaundryItem.objects.filter(
+                name__iexact=consumption.item_name.strip()
+            ).first()
+
+            if laundry_item is None:
+                print(
+                    "Articolo lavanderia non trovato:",
+                    consumption.item_name,
+                )
+                continue
+
+            inventory = (
+                LaundryInventory.objects.select_for_update()
+                .filter(item=laundry_item.code)
+                .first()
+            )
+
+            if inventory is None:
+                inventory = LaundryInventory.objects.create(
+                    item=laundry_item.code,
+                    quantity=0,
+                )
+
+            quantity_before = inventory.quantity
+
+            inventory.quantity = max(
+                0,
+                quantity_before - consumption.quantity,
+            )
+
+            inventory.save(update_fields=["quantity"])
+
+            print(
+                f"SCARICO {laundry_item.name}: "
+                f"{quantity_before} - {consumption.quantity} "
+                f"= {inventory.quantity}"
+            )
+
+            LaundryMovement.objects.create(
+                date=self.date,
+                item=laundry_item.name,
+                quantity=consumption.quantity,
+                movement_type="remove",
+                cleaning=self,
+                employee=employee,
+            )
+
+        print("===== FINE AGGIORNAMENTO MAGAZZINO =====")
+
     @property
     def total_cost(self):
         return (
-            (self.cleaning_cost or Decimal("0.00")) +
-            (self.fixed_kit_cost or Decimal("0.00")) +
-            ((self.per_person_kit_cost or Decimal("0.00")) * Decimal(self.people_count or 0)) +
-            ((self.double_bed_cost or Decimal("0.00")) * Decimal(self.double_beds_count or 0)) +
-            ((self.single_bed_cost or Decimal("0.00")) * Decimal(self.single_beds_count or 0)) +
-            (self.mat_cost or Decimal("0.00")) +
-            (self.extra_cost or Decimal("0.00"))
+            (self.cleaning_cost or Decimal("0.00"))
+            + (self.fixed_kit_cost or Decimal("0.00"))
+            + (
+                (self.per_person_kit_cost or Decimal("0.00"))
+                * Decimal(self.people_count or 0)
+            )
+            + (
+                (self.double_bed_cost or Decimal("0.00"))
+                * Decimal(self.double_beds_count or 0)
+            )
+            + (
+                (self.single_bed_cost or Decimal("0.00"))
+                * Decimal(self.single_beds_count or 0)
+            )
+            + (self.mat_cost or Decimal("0.00"))
+            + (self.extra_cost or Decimal("0.00"))
         )
 
 
@@ -201,25 +273,18 @@ class CleaningAttachment(models.Model):
         Cleaning,
         on_delete=models.CASCADE,
         related_name="attachments",
-        verbose_name="Pulizia"
+        verbose_name="Pulizia",
     )
 
     file = CloudinaryField(
         resource_type="auto",
         folder="cleaning_boost/cleaning_attachments",
-        verbose_name="File"
+        verbose_name="File",
     )
 
-    note = models.CharField(
-        max_length=255,
-        blank=True,
-        verbose_name="Nota"
-    )
+    note = models.CharField(max_length=255, blank=True, verbose_name="Nota")
 
-    uploaded_at = models.DateTimeField(
-        auto_now_add=True,
-        verbose_name="Caricato il"
-    )
+    uploaded_at = models.DateTimeField(auto_now_add=True, verbose_name="Caricato il")
 
     class Meta:
         verbose_name = "Allegato pulizia"
@@ -234,11 +299,10 @@ class CleaningAttachment(models.Model):
         value = str(self.file)
         return value.split("/")[-1]
 
+
 class CleaningConsumption(models.Model):
     cleaning = models.ForeignKey(
-        Cleaning,
-        on_delete=models.CASCADE,
-        related_name="consumptions"
+        Cleaning, on_delete=models.CASCADE, related_name="consumptions"
     )
 
     item_name = models.CharField(max_length=150)

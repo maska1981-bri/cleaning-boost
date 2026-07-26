@@ -1,6 +1,5 @@
 from django.db import models
 
-
 INITIAL_LAUNDRY_ITEMS = [
     ("tappetino", "Tappetini"),
     ("telo_bagno", "Telo bagno"),
@@ -46,13 +45,35 @@ class LaundryMovement(models.Model):
     ]
 
     date = models.DateField()
+
     item = models.CharField(max_length=100)
+
     quantity = models.IntegerField()
+
     movement_type = models.CharField(max_length=10, choices=MOVEMENT_TYPE)
+
+    cleaning = models.ForeignKey(
+        "cleanings.Cleaning",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="laundry_movements",
+        verbose_name="Pulizia collegata",
+    )
+
+    employee = models.ForeignKey(
+        "employees.Employee",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="laundry_movements",
+        verbose_name="Dipendente",
+    )
+
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ["-date", "-id"]
 
     def __str__(self):
-        return f"{self.date} - {self.item} - {self.quantity} - {self.movement_type}"
+        return f"{self.date} - {self.item} - " f"{self.quantity} - {self.movement_type}"
